@@ -1,0 +1,38 @@
+@media (#{$bp-larger-than-mobile}) {
+  .container{
+    width: 100%;
+    .sub-chapo{
+      margin-bottom: 7px;
+    }
+  }
+  .filters-list{
+    margin-bottom: 12px;
+  }
+
+  .graph-datas{
+    float: right;
+    width: 50%;
+    // .graph-rollover, .graph-sumup{
+    //   float: none;
+    //   display: block;
+    // }
+  }
+
+  #graph{
+    float: left;
+    width: 50%;
+    box-sizing: border-box;
+    padding-right: 27px;
+    margin-bottom: 27px;
+  }
+
+  .cat{
+    content: "";
+    display: table;
+    clear: both;
+    margin-bottom: 24px;
+    #categories{
+      height: 48px;
+    }
+  }
+}

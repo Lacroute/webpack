@@ -1,0 +1,35 @@
+{
+  "name": "project-model",
+  "version": "0.0.1",
+  "description": "slug for AFP projects",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "none (for the moment)"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.com:afp_dataviz/project-model.git"
+  },
+  "keywords": [
+    "AFP",
+    "gulp",
+    "projects",
+    "dataviz"
+  ],
+  "author": "AFP",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^5.2.0",
+    "autoprefixer-core": "^5.2.0",
+    "browser-sync": "^2.7.6",
+    "gulp": "^3.9.0",
+    "gulp-jshint": "^1.11.0",
+    "gulp-load-plugins": "^0.10.0",
+    "gulp-newer": "^0.5.0",
+    "gulp-ruby-sass": "^1.0.5",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-util": "^3.0.5",
+    "jshint-stylish": "^2.0.0",
+    "require-dir": "^0.3.0"
+  }
+}
