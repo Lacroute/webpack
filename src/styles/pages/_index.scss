@@ -94,11 +94,6 @@ body{
       @extend .brand-onum;
       display: block;
       letter-spacing: -0.025em;
-      -moz-font-feature-settings:"onum" 1, "pnum" 1, "ss01" 1, "ss02" 1;
-      -moz-font-feature-settings:"onum=1, pnum=1, ss01=1, ss02=1";
-      -ms-font-feature-settings:"onum" 1, "pnum" 1, "ss01" 1, "ss02" 1;
-      -o-font-feature-settings:"onum" 1, "pnum" 1, "ss01" 1, "ss02" 1;
-      -webkit-font-feature-settings:"onum" 1, "pnum" 1, "ss01" 1, "ss02" 1;
       font-feature-settings:"onum" 1, "pnum" 1, "ss01" 1, "ss02" 1;
       @include rem(font-size, 2.4rem);
       @include rem(line-height, 1.6rem);
@@ -115,11 +110,6 @@ body{
     color: black;
     padding-left: 18px;
     box-sizing: border-box;
-    -moz-font-feature-settings:"onum" 1, "pnum" 1, "ss01" 1, "ss02" 1;
-    -moz-font-feature-settings:"onum=1, pnum=1, ss01=1, ss02=1";
-    -ms-font-feature-settings:"onum" 1, "pnum" 1, "ss01" 1, "ss02" 1;
-    -o-font-feature-settings:"onum" 1, "pnum" 1, "ss01" 1, "ss02" 1;
-    -webkit-font-feature-settings:"onum" 1, "pnum" 1, "ss01" 1, "ss02" 1;
     font-feature-settings:"onum" 1, "pnum" 1, "ss01" 1, "ss02" 1;
     @include rem(font-size, 2rem);
     @include rem(line-height, 2.8rem);
@@ -180,13 +170,7 @@ body{
       content:"\25BE";
       font-size:18px;
       color:black;
-      // -webkit-transform:rotate(90deg);
-      // -moz-transform:rotate(90deg);
-      // -ms-transform:rotate(90deg);
-      // transform:rotate(90deg);
       right:18px; top:10px;
-      // padding:0 0 2px;
-      // border-bottom:1px solid #ddd;
       position:absolute;
       pointer-events:none;
     }
