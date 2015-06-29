@@ -13,17 +13,14 @@
     ]
   },
   "graph": {
-    "title": "Chômage en France",
-    "subtitle": "+ 15 400 demandeurs d’emploi sans activité en mars",
+    "title": "Chômage : nouveau record en mai",
+    "subtitle": "+ 16 200 demandeurs d'emploi sans activité",
     "triggers": [
       {
-        "link": "6 mois",
-        "filters": -6
-      },{
-      "link": "1 ans",
+      "link": "1 an",
       "filters": -12
       },{
-      "link": "19 ans",
+      "link": "Depuis 1996",
       "filters": ""
       }
     ],

@@ -1,4 +1,6 @@
-@media (#{$bp-larger-than-mobile}) {
+/* @media (#{$bp-larger-than-mobile}) { */
+
+@media (#{$bp-larger-than-phablet}) {
   .container{
     width: 100%;
     .sub-chapo{
@@ -7,6 +9,12 @@
   }
   .filters-list{
     margin-bottom: 12px;
+    .filters{
+      margin: 0;
+    }
+    .filters-link{
+      margin: 0;
+    }
   }
 
   .graph-datas{

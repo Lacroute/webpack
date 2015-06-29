@@ -1,7 +1,12 @@
-
+body{
+  background-color:  #849097;
+}
 .container{
   max-width: 645px;
+  height: auto;
   border-top: 4px solid black;
+  background-color: white;
+  box-shadow: 0px 0px 15px 0px #525E65;
   @include rem(padding, 1.6rem 1.8rem 1.8rem);
   .chapo{
     @extend .brand-bold;
@@ -11,7 +16,7 @@
   }
   .sub-chapo{
     @extend .brand-semi;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
     @include rem(letter-spacing, -.02rem);
     @include rem(font-size, 1.8rem);
   }
@@ -19,18 +24,38 @@
 
 .filters-list{
   list-style-type: none;
-  text-align: center;
-  margin-bottom: 16px;
+  text-align: left;
+  margin-bottom: 10px;
   .filters{
     @extend .brand-reg;
     display: inline-block;
-    width: 30%;
+    text-align: center;
+    width: 49%;
+    &:first-child{
+      margin-right: 2%;
+    }
     .filters-link{
+      display: block;
+      color: black;
+      text-align: center;
       text-decoration: none;
+      transition: all 200ms ease-in;
+      border-radius: 4px;
+      border: 1px solid white;
+      white-space: nowrap;
+      // width: 100px;
+      height: 30px;
       @extend .brand-color;
       @include rem(font-size, 1.5rem);
-      &:hover, &.active{
-        text-decoration: underline;
+      @include rem(line-height, 3rem);
+      &:hover{
+        /* text-decoration: underline; */
+        color: black;
+        border: 1px solid #b5bfc5;
+      }
+      &.active{
+        background-color: #6DB7A8;
+        color: white;
       }
     }
     span{
@@ -56,7 +81,7 @@
     background-color: black;
     text-align: left;
     color: white;
-    padding: 12px;
+    padding: 10px 13px 0;
     width: 142px;
     height: 84px;
     border-radius: $global-radius;
@@ -76,13 +101,13 @@
       -webkit-font-feature-settings:"onum" 1, "pnum" 1, "ss01" 1, "ss02" 1;
       font-feature-settings:"onum" 1, "pnum" 1, "ss01" 1, "ss02" 1;
       @include rem(font-size, 2.4rem);
-      @include rem(line-height, 2.4rem);
+      @include rem(line-height, 1.6rem);
     }
     .cat-rollover{
       display: block;
       letter-spacing: -0.025em;
       @include rem(font-size, 1.3rem);
-      @include rem(line-height, 1.8rem);
+      @include rem(line-height, 2.8rem);
     }
   }
   .graph-sumup{
@@ -108,18 +133,20 @@
 }
 
 #graph{
-  margin: 0 auto 23px;
-  width: 284px;
+  margin: 16px auto 12px;
+  /* width: 284px; */
+  width: 100%;
   height: 79px;
   svg{
     margin-left: -20px;
   }
   .mg-area1-color{
-    fill: #9ACABE;
+    /* fill: #9ACABE; */
+    fill: white;
   }
   .mg-line1-color{
     stroke: #6DB7A8;
-    stroke-width: 3;
+    stroke-width: 4;
   }
   .mg-line-rollover-circle{
     fill: white;
@@ -136,7 +163,7 @@
       display: none;
     }
     &:first-child{
-      stroke-width: 3px;
+      /* stroke-width: 3px; */
     }
   }
 }

@@ -1,12 +1,11 @@
 ### Mac OS X
-*.DS_Store
+.DS_Store
 
 ### compass
-*.sass-cache*
+.sass-cache*
 
 ### npm bower grunt
-*node_modules*
-*bower_components*
+bower_components*
 .*
 php/
 src/components/
@@ -15,3 +14,20 @@ src/components/
 !.jshintrc
 !.jshintignore
 
+# Temporary Directories
+tmp
+temp
+dists
+production
+
+# Node
+node_modules/
+
+# Mdp
+ftpSecret.json
+
+# Webstorm
+.idea
+
+# rep build
+build/*

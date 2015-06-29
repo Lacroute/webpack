@@ -330,7 +330,8 @@ circle.mg-points-mono {
     opacity: 1;
     shape-rendering: auto;
     stroke: black;
-    stroke-width: 2px;
+    /* stroke-width: 2px; */
+    stroke-width: 0;
 }
 
 .mg-x-axis text,
