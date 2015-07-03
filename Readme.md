@@ -8,13 +8,14 @@
 2. installer les modules npm
   * ```npm install```
 3. S'il y a un fichier "bower.json", faites un ```bower install```
-4. Lancer le serveur de dev avec uen commande ```gulp```
+4. Lancer le serveur de dev avec une commande ```gulp```
 
 ## Structure
 
 * En développant, vous modifier uniquement les fichiers du répertoire "src"
 * Les fichiers du répertoire "dest" sont ceux affichés dans votre navigateur
 * Les fichiers du répertoire "build" sont le produit de la commande ```gulp build --lang <langue>```
+  **Il faut d'ailleurs penser à modifier le fichier Gulp/tasks/build.js pour qu'il pointe sur les bons fichiers data : quand j'ai fait ce modèle, les noms des fichiers correspondaient au répertoire france-unemployment.**
 
 ### Dossier "src"
 Le dossier **src** contient généralement les répertoires traditionnels :
