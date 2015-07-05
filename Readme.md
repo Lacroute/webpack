@@ -36,3 +36,18 @@ Le dossier **src** contient généralement les répertoires traditionnels :
 3. Arrêtez le serveur avec la combinaison 'ctrl + c' et faites un build du langage : ```gulp build --lang <lesDeuxLettresDuLangage>```
 
 ### Troubleshootings
+
+### Issue tracking
+
+je propose qu'on procède comme suit :
+* attribution d'une plage pour les issues par catégories:
+
+    - display : ce qui a trait à l'affichage (plage de 0 à 99)
+    - features : ce qui a trait aux fonctionnalités (plage de 100 à 199)
+    - lang : ce qui a trait aux traductions (plge de 200 à 299)
+    - scaffolder : ce qui a trait aux outils de dev et déploiement (plage de 300 à 399)
+
+* former les titres d'issue dans gitlab comme suit
+    > "001 : display : bouton - le bouton x ne fonctionne pas
+
+* et commentez bien sûr, avec des screenshots si possible
