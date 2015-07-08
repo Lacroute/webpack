@@ -31,3 +31,4 @@ ftpSecret.json
 
 # rep build
 build/*
+dest/*

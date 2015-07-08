@@ -43,6 +43,7 @@ gulp.task('build', function(cb) {
     .pipe(gulp.dest('build/scripts'));
 
   gulp.src('src/scripts/vendor/**/*.js')
+    .pipe(ugly())
     .pipe(newer('build/scripts/vendor'))
     .pipe(gulp.dest('build/scripts/vendor'));
 
