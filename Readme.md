@@ -9,6 +9,7 @@
   * ```npm install```
 3. S'il y a un fichier "bower.json", faites un ```bower install```
 4. Lancer le serveur de dev avec une commande ```gulp```
+5. **S'il y a un problème d'affichage au lancement ou que vous ne voyez pas vos changements, coupez le process (ctrl + c) et lancer un 'gulp clean'**
 
 ## Structure
 
