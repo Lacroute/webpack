@@ -8,7 +8,7 @@ var newer = require('gulp-newer');
 
 gulp.task('build', function(cb) {
 
-  gulp.src('dest/data/**/*.{json,csv,tsv,txt}')
+  gulp.src('dest/data/**/*.{jst,json,csv,tsv,txt}')
     .pipe(newer('build/data'))
     .pipe(gulp.dest('build/data'));
 

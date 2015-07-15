@@ -5,7 +5,7 @@ var reload = bs.reload;
 var argv   = require('yargs').argv;
 var dev_lang = argv.lang;
 
-gulp.task('default', ['others', 'html', 'fonts', 'sass', 'scripts', 'images', 'datum'], function() {
+gulp.task('default', ['jade', 'others', 'html', 'fonts', 'sass', 'scripts', 'images', 'datum'], function() {
 
   // server start
   bs.init({
