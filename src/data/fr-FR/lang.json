@@ -66,5 +66,18 @@
     "footer": {
       "informations": "source: Dares"
     }
+  },
+  "info": {
+    "title": "A propos de cette infographie",
+    "texte": "Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Curabitur blandit tempus porttitor. Cras justo odio, dapibus ac facilisis in, egestas eget quam.",
+    "listTitle": "Sources",
+    "sourcesList": [
+      "Parlement turc",
+      "Ifpop",
+      "Sed posuere consectetur"
+    ],
+    "update": "Mise à jour",
+    "updateDate": "29 septembre 2012 5h23 GMT",
+    "closeButton": "Fermer"
   }
 }

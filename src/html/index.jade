@@ -31,11 +31,14 @@ html(lang="replaceLanguage", dir="replaceDir")
     link(rel="stylesheet", href="styles/styles.css")
   body
     section#container.container
+    .afp-pane
     script(type="text/javascript", src="scripts/vendor/d3.min.js")
     script(type="text/javascript", src="scripts/vendor/queue.min.js")
     script(type="text/javascript", src="scripts/vendor/lodash.min.js")
+    script(type="text/javascript", src="scripts/vendor/velocity.min.js")
     script(type="text/javascript", src="scripts/vendor/metricsgraphics.js")
     script(type="text/javascript", src="scripts/vendor/pym.min.js")
+    script(type="text/javascript", src="scripts/vendor/afp-pane.js")
     script(type="text/javascript", src="scripts/chomage.js")
     script#template(type="text/html")
       !='<h1 class="chapo twelve"><%= data.title %></h1>'
@@ -62,6 +65,26 @@ html(lang="replaceLanguage", dir="replaceDir")
       !='  </label>'
       !='</div>'
       !='<div class="row footer u-full-width u-cf">'
+        !='<p class="infos u-full-width">Demandeurs d’emploi de catégorie A</p>'
         !='<img src="images/svg/afp_logo.svg" alt="logo AFP" class="logo-AFP u-pull-right" width="32" height="12" />'
-        !='<!-- <p class="infos u-pull-left">Demandeurs d’emploi de catégorie A</p> -->'
+        !='<p clas="u-pull-left">'
+        !='<a href="/" title="" class="click-info"><span class="UI-icon UI-info"></span><span class="button-click"> <%= data.footer.informations %></span></a>'
+        !='</p>'
       !='</div>'
+    script#pane(type="text/html")
+      !='<h2 class="info-title"><%= data.title %></h2>'
+      !='<p class="info-text"><%= data.texte %></p>'
+      !='<hr />'
+      !='<h3 class="list-title"><%= data.listTitle %></h3>'
+      !='<ul class="sources-list">'
+      !='<% _.forEach(data.sourcesList, function(a, i) { %>'
+      !='<li class="sources-list-item"><%= a %></li>'
+      !='<% }); %>'
+      !='</li>'
+      !='</ul>'
+      !='<hr />'
+      !='<p class="update-date"><span><%= data.update %> : </span><%= data.updateDate %></p>'
+      !='<img src="images/svg/afp_logo.svg" alt="logo AFP" class="logo-AFP u-pull-right" width="32" height="12" />'
+      !='<p clas="u-pull-left">'
+      !='<a href="/" title="" class="click-close"><span class="UI-icon UI-close"></span><span  class="button-click"><%= data.closeButton %></span></a>'
+      !='</p>'

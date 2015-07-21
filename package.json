@@ -39,6 +39,8 @@
     "jshint-stylish": "^2.0.0",
     "preprocess": "^3.0.0",
     "require-dir": "^0.3.0",
+    "velocity-animate": "^1.2.2",
+    "velocityjs": "^0.6.2",
     "yargs": "^3.12.0"
   }
 }
