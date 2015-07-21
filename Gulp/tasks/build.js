@@ -2,7 +2,7 @@ var gulp   = require('gulp');
 var gutil  = require('gulp-util');
 var ugly = require('gulp-uglify');
 var minify = require('gulp-minify-css');
-var replace = require('gulp-replace');
+// var replace = require('gulp-replace');
 var rename = require('gulp-rename');
 var newer = require('gulp-newer');
 
@@ -27,8 +27,6 @@ gulp.task('build', function(cb) {
 
   // here, modify lang attr and dir
   gulp.src('dest/index.html')
-    .pipe(replace(/replaceLanguage/, trad))
-    .pipe(replace(/replaceDir/, dir))
     .pipe(newer('build'))
     .pipe(gulp.dest(('build')));
 
