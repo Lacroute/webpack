@@ -23,7 +23,6 @@
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^2.3.1",
     "gulp-data": "^1.2.0",
-    "gulp-html-prettify": "file:../../../Downloads/gulp-html-prettify-master",
     "gulp-jade": "^1.0.1",
     "gulp-jshint": "^1.11.0",
     "gulp-load-plugins": "^0.10.0",
