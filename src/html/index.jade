@@ -31,7 +31,7 @@ html(lang="replaceLanguage", dir="replaceDir")
     link(rel="stylesheet", href="styles/styles.css")
   body
     section#container.container
-    .afp-pane
+    .afp-pane.u-cf
     script(type="text/javascript", src="scripts/vendor/d3.min.js")
     script(type="text/javascript", src="scripts/vendor/queue.min.js")
     script(type="text/javascript", src="scripts/vendor/lodash.min.js")
@@ -84,7 +84,9 @@ html(lang="replaceLanguage", dir="replaceDir")
       !='</ul>'
       !='<hr />'
       !='<p class="update-date"><span><%= data.update %> : </span><%= data.updateDate %></p>'
+      !='<div class="info-footer">'
       !='<img src="images/svg/afp_logo.svg" alt="logo AFP" class="logo-AFP u-pull-right" width="32" height="12" />'
       !='<p clas="u-pull-left">'
       !='<a href="/" title="" class="click-close"><span class="UI-icon UI-close"></span><span  class="button-click"><%= data.closeButton %></span></a>'
       !='</p>'
+      !='</div>'

@@ -1,5 +1,9 @@
-/* @media (#{$bp-larger-than-mobile}) { */
-
+@media (#{$bp-larger-than-mobile}) {
+  .container{
+    max-width: 640px;
+    width: 100%;
+  }
+}
 @media (#{$bp-larger-than-phablet}) {
   .container{
     width: 100%;
@@ -42,5 +46,12 @@
     #categories{
       height: 48px;
     }
+  }
+}
+/* generic info pane */
+@media (#{$bp-larger-than-tablet}) {
+  .afp-pane{
+    max-width: 640px;
+    left: calc((100% - 640px) / 2);
   }
 }

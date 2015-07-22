@@ -16,14 +16,27 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
         infoButton.addEventListener('click', function(e) {
           e.preventDefault();
-          Velocity(pane, { opacity: 1, top:0 }, { duration: 800 });
+          var containerHeight = document.getElementById('container').offsetHeight;
+          pane.style.height = containerHeight + 'px';
+          pane.style.display = 'block';
+          Velocity(pane, { opacity: 1, top:0 }, { duration: 800, complete: function() {
+            setTimeout(function() {
+              window.scroll(0,0)
+            }, 500);
+          }
+        });
         }, false);
 
         closeButton.addEventListener('click', function(e) {
           e.preventDefault();
-          Velocity(pane, { opacity: 0, top:-1000 }, { duration: 800 });
+          var containerHeight = document.getElementById('container').offsetHeight;
+          pane.style.height = containerHeight + 'px';
+          Velocity(pane, { opacity: 0, top:-1000 }, { duration: 800, complete: function() {
+            pane.style.display = 'none';
+          }
+        });
         }, false);
-      }, 100);
+      }, 250);
 
     });
 
