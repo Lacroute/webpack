@@ -2,7 +2,8 @@ var gulp   = require('gulp');
 var gutil  = require('gulp-util');
 var ugly = require('gulp-uglify');
 var minify = require('gulp-minify-css');
-// var replace = require('gulp-replace');
+var sass       = require('gulp-ruby-sass');
+var prefix = require('gulp-autoprefixer');
 var rename = require('gulp-rename');
 var newer = require('gulp-newer');
 
@@ -30,10 +31,15 @@ gulp.task('build', function(cb) {
     .pipe(newer('build'))
     .pipe(gulp.dest(('build')));
 
-  gulp.src('dest/styles/*.css')
-    .pipe(minify())
-    .pipe(newer('build/styles'))
-    .pipe(gulp.dest('build/styles'));
+  // gulp.src('dest/styles/*.css')
+  //   .pipe(minify())
+  //   .pipe(newer('build/styles'))
+  //   .pipe(gulp.dest('build/styles'));
+  sass('./src/styles/styles.scss', {sourcemap: true})
+  .pipe(prefix("last 1 version", "> 1%", "ie 8", "ie 7"))
+  .pipe(minify())
+  .pipe(gulp.dest('./build/styles'));
+
 
   gulp.src('dest/styles/fonts/**/*')
     .pipe(newer('build/styles/fonts'))
