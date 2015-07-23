@@ -3,15 +3,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
   var pane = document.querySelector('.afp-pane'),
       templt = document.getElementById('pane').innerHTML,
       warn = document.getElementById('notsupported').innerHTML,
-      mandatoryList = ['haha', 'queryselector', 'fontface', 'boxsizing'];
+      mandatoryList = ['queryselector', 'fontface', 'boxsizing'];
 
   function testfeatures(list, callback) {
     list.forEach(function(el, i) {
-      if (!Modernizr[el])
-        callback(el);
-      if (i === (list.length-1) && Modernizr[list[(list.length-1)]])
-        callback(true);
-      console.log(i);
+      if (!Modernizr[el]) {
+        callback(el + ' not implemented', el);
+        return;
+      } if (i === (list.length-1) && Modernizr[list[(list.length-1)]])
+        callback(null, true);
     });
   }
   function buildInfosPanel() {
@@ -55,8 +55,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
   // test du tableau des mandatory features
   queue()
     .defer(testfeatures, mandatoryList)
-    .await(function(result, data) {
-      console.log(result, data);
+    .await(function(err, result) {
+      if (err) console.log("Error ", err);
       if (result === true) {
         buildInfosPanel();
       } else {
@@ -66,9 +66,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
           .await(function(err, datum) {
             var compiled_err = _.template(warn, {'variable': 'data'})(datum.warn);
             pane.innerHTML = compiled_err;
-            pane.style.height = '100%';
-            pane.style.display = 'block';
-            Velocity(pane, { opacity: 1, top:0 }, { duration: 800 });
+            setTimeout(function() {
+              var containerHeight = document.getElementById('container').offsetHeight;
+              pane.style.height = containerHeight + 'px';
+              pane.style.display = 'block';
+              Velocity(pane, { opacity: 1, top:0 }, { duration: 800 });
+            }, 1500);
           });
       }
     });
