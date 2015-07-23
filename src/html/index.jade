@@ -29,6 +29,7 @@ html(lang="replaceLanguage", dir="replaceDir")
     meta(name="description", content="#{caption}")
     meta(name="keywords", content="#{keywords}")
     link(rel="stylesheet", href="styles/styles.css")
+    script(type="text/javascript", src="scripts/vendor/modernizr.custom.55890.js")
   body
     section#container.container
     .afp-pane.u-cf
@@ -90,3 +91,5 @@ html(lang="replaceLanguage", dir="replaceDir")
       !='<a href="/" title="" class="click-close"><span class="UI-icon UI-close"></span><span  class="button-click"><%= data.closeButton %></span></a>'
       !='</p>'
       !='</div>'
+    script#notsupported(type="text/html")
+      !='<p class=""><%= data.notsupported %></p>'

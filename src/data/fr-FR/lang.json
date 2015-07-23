@@ -79,5 +79,8 @@
     "update": "Mise à jour",
     "updateDate": "29 septembre 2012 5h23 GMT",
     "closeButton": "Fermer"
+  },
+  "warn": {
+    "notsupported": "Votre navigateur ne supporte pas les fonctionnalités permettant d'afficher ce graphique."
   }
 }
