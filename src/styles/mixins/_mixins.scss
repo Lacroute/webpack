@@ -36,3 +36,13 @@
     #{$property}: $rem; /* 9 */
   }
 }
+
+@mixin svgcolor($color: #000) {
+  [fill]:not([fill="none"]) {
+    fill: $color;
+  }
+
+  [stroke]:not([stroke="none"]) {
+    stroke: $color;
+  }
+}
