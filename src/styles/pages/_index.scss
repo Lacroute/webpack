@@ -66,97 +66,7 @@ body{
   }
 }
 
-.graph-datas{
-  font-size: 0;
-  .graph-rollover, .graph-sumup{
-    // display: inline-block;
-    float: left;
-    width: 49%;
-    min-height: 84px;
-    box-sizing: border-box;
-    @include rem(font-size, 1.5rem);
-  }
-  .graph-rollover{
-    @extend .brand-reg;
-    background-color: black;
-    text-align: left;
-    color: white;
-    padding: 10px 13px 0;
-    width: 142px;
-    height: 84px;
-    border-radius: $global-radius;
-    .date{
-      letter-spacing: -0.025em;
-      @include rem(font-size, 1.5rem);
-      @include rem(line-height, 2.4rem);
-    }
-    .big-number{
-      @extend .brand-onum;
-      display: block;
-      letter-spacing: -0.025em;
-      font-feature-settings:"onum" 1, "pnum" 1, "ss01" 1, "ss02" 1;
-      @include rem(font-size, 2.4rem);
-      @include rem(line-height, 1.6rem);
-    }
-    .cat-rollover{
-      display: block;
-      letter-spacing: -0.025em;
-      @include rem(font-size, 1.3rem);
-      @include rem(line-height, 2.8rem);
-    }
-  }
-  .graph-sumup{
-    @extend .brand-onum;
-    color: black;
-    padding-left: 18px;
-    box-sizing: border-box;
-    font-feature-settings:"onum" 1, "pnum" 1, "ss01" 1, "ss02" 1;
-    @include rem(font-size, 2rem);
-    @include rem(line-height, 2.8rem);
-    span{
-      @extend .brand-reg;
-      display: block;
-      @include rem(font-size, 1.2rem);
-      @include rem(line-height, 1.2rem);
-    }
-  }
-}
 
-#graph{
-  margin: 16px auto 12px;
-  /* width: 284px; */
-  width: 100%;
-  height: 79px;
-  svg{
-    margin-left: -20px;
-  }
-  .mg-area1-color{
-    /* fill: #9ACABE; */
-    fill: white;
-  }
-  .mg-line1-color{
-    stroke: #6DB7A8;
-    stroke-width: 4;
-  }
-  .mg-line-rollover-circle{
-    fill: white;
-    stroke: black;
-    stroke-width: 3;
-    opacity: 1 !important;
-  }
-  .mg-x-axis{
-    transform: translate(0, -10px);
-    line[y1="90"]{
-      stroke: black;
-    }
-    [text-anchor="middle"]{
-      display: none;
-    }
-    &:first-child{
-      /* stroke-width: 3px; */
-    }
-  }
-}
 .cat{
   @extend .u-cf;
   margin-top: 24px;
@@ -229,6 +139,17 @@ body{
   margin: 0;
   padding: 24px 16px 18px;
   border-top: 4px solid black;
+  transition: all 500ms ease-in;
+  &.slide-down{
+    animation-name: slidedown;
+    animation-duration: 500ms;
+    animation-iteration-count: 1;
+  }
+  &.slide-up{
+    animation-name: slideup;
+    animation-duration: 500ms;
+    animation-iteration-count: 1;
+  }
   hr{
     margin: 16px 0;
     padding:0;
@@ -283,4 +204,22 @@ body{
       }
     }
   }
+}
+
+.not-supported{
+  display: none;
+  &.slide-down{
+    animation-name: slidedown;
+    animation-duration: 500ms;
+    animation-iteration-count: 1;
+  }
+}
+
+@keyframes slidedown {
+  from {top: -1000px;}
+  to{top: 0;}
+}
+@keyframes slideup {
+  from {top: 0;}
+  to{top: -1000px;}
 }

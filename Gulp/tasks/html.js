@@ -6,7 +6,6 @@ var path = require('path');
 var jade = require('gulp-jade');
 // var html = require('gulp-html-prettify');
 var fs = require('fs');
-var data = JSON.parse(fs.readFileSync('./src/html/graphics.json'));
 var argv   = require('yargs').argv;
 var dev_lang = argv.lang;
 
@@ -36,7 +35,7 @@ var hashmap = {
     dir: "rtl"
   }
 };
-
+var data = JSON.parse(fs.readFileSync('./src/data/' + hashmap[dev_lang].lang + '/lang.json'));
 gulp.task('html', function() {
   return gulp.src('./src/html/*.{json,txt,png,ico,xml}')
     .pipe(newer('./dest/'))
@@ -47,7 +46,7 @@ gulp.task('jade', function() {
   console.log("in html.js", dev_lang);
   return gulp.src('./src/html/index.jade')
     .pipe(jade({
-      locals: data.metadata
+      locals: data
     }))
     // .pipe(html({
     //   indent_char: ' ', indent_size: 2

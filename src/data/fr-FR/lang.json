@@ -12,61 +12,6 @@
       "CROISSANCE"
     ]
   },
-  "graph": {
-    "title": "Chômage : nouveau record en mai",
-    "subtitle": "+ 16 200 demandeurs d'emploi sans activité",
-    "triggers": [
-      {
-      "link": "1 an",
-      "filters": -24
-      },{
-      "link": "Depuis 1996",
-      "filters": ""
-      }
-    ],
-    "select": [
-      {
-        "name": "Sans activité",
-        "relation": "noActivity"
-      },
-      {
-        "name": "Hommes",
-        "relation": "men"
-      },
-      {
-        "name": "Femmes",
-        "relation": "women"
-      },
-      {
-        "name": "Moins de 25 ans",
-        "relation": "lessThan25"
-      },
-      {
-        "name": "Entre 25 et 49 ans",
-        "relation": "from25to49"
-      },
-      {
-        "name": "Plus de 50 ans",
-        "relation": "moreThan50"
-      },
-      {
-        "name": "Inscrits depuis moins d'un an",
-        "relation": "lessThanAYear"
-      },
-      {
-        "name": "Inscrits depuis un an et plus",
-        "relation": "moreThanAYear"
-      }
-    ],
-    "rolloverBlock": {
-      "unemployed": "demandeurs d’emploi",
-      "about_1_month": "sur 1 mois",
-      "about_1_year": "sur 1 an"
-    },
-    "footer": {
-      "informations": "source: Dares"
-    }
-  },
   "info": {
     "title": "A propos de cette infographie",
     "texte": "Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Curabitur blandit tempus porttitor. Cras justo odio, dapibus ac facilisis in, egestas eget quam.",
