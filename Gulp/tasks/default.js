@@ -21,7 +21,7 @@ gulp.task('default', ['jade', 'others', 'fonts', 'sass', 'scripts', 'images', 'd
   gulp.watch('./src/scripts/**/*.js', ['scripts', bs.reload]);
   // gulp.watch('./src/html/**/*.html', ['html', bs.reload]);
   gulp.watch('./src/images/**/*.{png,jpg}', ['images', bs.reload]);
-  gulp.watch('./src/data/'+ dev_lang +'/**/*.{json,csv,tsv,txt}', ['datum', bs.reload]);
+  gulp.watch('./src/data/'+ dev_lang +'/**/*.{json,csv,tsv,txt}', ['datum', 'jade', bs.reload]);
 
   if (typeof dev_lang === 'undefined') {
     gutil.log(gutil.colors.red('Veuillez indiquer la langue avec la commande "gulp --lang xx-XX"'));

@@ -35,7 +35,7 @@ var hashmap = {
     dir: "rtl"
   }
 };
-var data = JSON.parse(fs.readFileSync('./src/data/' + hashmap[dev_lang].lang + '/lang.json'));
+
 gulp.task('html', function() {
   return gulp.src('./src/html/*.{json,txt,png,ico,xml}')
     .pipe(newer('./dest/'))
@@ -43,7 +43,7 @@ gulp.task('html', function() {
 });
 
 gulp.task('jade', function() {
-  console.log("in html.js", dev_lang);
+  var data = JSON.parse(fs.readFileSync('./src/data/' + hashmap[dev_lang].lang + '/lang.json'));
   return gulp.src('./src/html/index.jade')
     .pipe(jade({
       locals: data
