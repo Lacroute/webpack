@@ -34,8 +34,6 @@ html(lang="replaceLanguage", dir="replaceDir")
     section#container.container
       h1.chapo.twelve #{content.title}
       h2.sub-chapo.twelve #{content.subtitle}
-      img(src="images/bla.jpg", alt="")
-      img(src="images/bla.png", alt="")
       ul.filters-list.row dddd
         li.filters.one-half.column
           a.filters-link(href="/")
@@ -70,9 +68,9 @@ html(lang="replaceLanguage", dir="replaceDir")
               span.button-click #{info.closeButton}
     .not-supported
       p #{warn.notsupported}
-    //scripts
+    //build:js
     include scripts.jade
     script(type="text/javascript", src="scripts/vendor/queue.min.js")
     script(type="text/javascript", src="scripts/vendor/pym.min.js")
     script(type="text/javascript", src="scripts/vendor/afp-pane.js")
-    ///scripts
+    //endbuild
