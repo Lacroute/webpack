@@ -1,10 +1,10 @@
 var gulp   = require('gulp');
 var gutil  = require('gulp-util');
-var bs     = require('browser-sync').create();
+var bs     = require('browser-sync');
 var newer  = require('gulp-newer');
 var imagemin = require('imagemin');
 var svgo = require('imagemin-svgo');
-var jpg = require('imagemin-jpgtran');
+var jpg = require('imagemin-jpegtran');
 var optipng = require('imagemin-optipng');
 
 
