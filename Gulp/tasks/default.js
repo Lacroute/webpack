@@ -17,11 +17,12 @@ gulp.task('default', ['jade', 'others', 'fonts', 'sass', 'scripts', 'images', 'd
     }
   });
 
-  gulp.watch(['./src/images/**/*.{png,jpg}', './src/data/'+ dev_lang +'/**/*.{json,csv,tsv,txt}', './src/html/**/*.{json,txt,svg,ico}', './src/styles/fonts/'+ dev_lang +'/*.{eot,svg,ttf,woff,woff2}'], [bs.reload]);
+  gulp.watch(['./src/images/**/*.{png,jpg}', './src/data/'+ dev_lang +'/**/*.{json,csv,tsv,txt}', './src/html/**/*.{json,txt,svg,ico}', './src/styles/fonts/'+ dev_lang +'/*.{eot,svg,ttf,woff,woff2}'], [bs.reload]); // reload for background tasks purpose
 
   gulp.watch('./src/html/**/*.jade', ['jade', bs.reload]);
 
   gulp.watch(['./src/styles/**/*.{scss,css}', '!.src/styles/fonts/**/*'], ['sass', bs.reload]);
+
   gulp.watch('./src/scripts/**/*.js', ['scripts', bs.reload]);
 
   watch('./src/images/**/*.{png,jpg}', function() {
@@ -49,4 +50,3 @@ gulp.task('default', ['jade', 'others', 'fonts', 'sass', 'scripts', 'images', 'd
     process.exit();
   }
 });
-module.exports.reload = reload;

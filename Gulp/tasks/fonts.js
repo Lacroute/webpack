@@ -4,7 +4,7 @@ var newer = require('gulp-newer');
 var argv = require('yargs').argv;
 var dev_lang = argv.lang;
 var combine = require('stream-combiner');
-var reload = require('./default').reload;
+
 
 function onthefly() {
   return combine(gulp.dest('./dest/styles/fonts'));
