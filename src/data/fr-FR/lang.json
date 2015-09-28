@@ -31,5 +31,7 @@
   },
   "warn": {
     "notsupported": "Votre navigateur ne supporte pas les fonctionnalités permettant d'afficher ce graphique."
-  }
+  },
+  "language": "fr",
+  "id": "eurogrowth"
 }
