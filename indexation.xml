@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<record>
+	<description>
+		<headline><%= source.headline %></headline>
+		<published><%= source.published %></published>
+		<caption><%= source.caption %></caption>
+		<language><%= source.lang %></language>
+		<slugs><%= source.slugs %></slugs>
+		<contributors><%= source.contributors %></contributors>
+		<authors><%= source.authors %></authors>
+		<specifications>Intégration avec Pym.js requise ; Spécimen : version de démonstration</specifications>
+		<cover>index-640.jpg</cover>
+		<link><%= source.link %></link>
+  </description>
+</record>
+</xml>
