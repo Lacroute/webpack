@@ -9,7 +9,7 @@
 		<contributors><%= source.contributors %></contributors>
 		<authors><%= source.authors %></authors>
 		<specifications>Intégration avec Pym.js requise ; Spécimen : version de démonstration</specifications>
-		<cover>indexation.jpg</cover>
+		<cover><%= source.cover %></cover>
 		<link><%= source.link %></link>
   </description>
 </record>

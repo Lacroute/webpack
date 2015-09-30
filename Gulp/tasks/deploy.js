@@ -9,6 +9,7 @@ var localScreenshots = require('gulp-local-screenshots');
 var getData = require('gulp-data');
 var template = require('gulp-template');
 var rename = require('gulp-rename');
+var del = require('del');
 
 var date = new Date();
 var month = ((date.getMonth()+1) < 10) ? '0' + (date.getMonth()+1) : date.getMonth()+1;
@@ -27,6 +28,7 @@ var source = {
   slugs: data.metadata.keywords.join(' ; '),
   contributors: data.metadata.captionWriter,
   authors: data.metadata.byline,
+  cover: folder+'.jpg',
   link: 'https://graphics.afp.com/builds/' + folder
 };
 
@@ -42,7 +44,7 @@ function endProcess() {
   });
   return gulpSSH
     .shell(
-      ['cd /phraseanet/hotfolder/interactiveCollection', 'mv index-640.jpg ' + folder +'.jpg', 'chown -R apache: *'],
+      ['cd /phraseanet/hotfolder/interactiveCollection', 'chown -R apache: *'],
       {filePath: 'shell.log'}
     )
     .pipe(gulp.dest('./build/logs'))
@@ -80,7 +82,17 @@ gulp.task('screenshot', function() {
     .pipe(gulp.dest('./build'));
 });
 
-gulp.task('deploy', ['screenshot', 'xml'], function(cb) {
+gulp.task('renameJPG', ['screenshot'], function() {
+  return gulp.src('./build/indexation/index-640.jpg')
+    .pipe(rename(folder + '.jpg'))
+    .pipe(gulp.dest('./build/indexation'));
+});
+
+gulp.task('delJPG', ['renameJPG'], function() {
+  del('./build/indexation/index-640.jpg');
+});
+
+gulp.task('deploy', ['xml', 'delJPG'], function(cb) {
   var buildsConfig = _.extend(config.sftp, {"remotePath": remotePath, "callback": indexationProcess});
   // initiate copy from build/ to folder named after 'folder' var on distant server
   gutil.log(folder);
