@@ -8,6 +8,7 @@ var _ = require('lodash');
 var localScreenshots = require('gulp-local-screenshots');
 var getData = require('gulp-data');
 var template = require('gulp-template');
+var rename = require('gulp-rename');
 
 var date = new Date();
 var month = ((date.getMonth()+1) < 10) ? '0' + (date.getMonth()+1) : date.getMonth()+1;
@@ -41,12 +42,14 @@ function endProcess() {
   });
   return gulpSSH
     .shell(
-      ['cd /phraseanet/hotfolder/interactiveCollection', 'chown -R apache: *'],
+      ['cd /phraseanet/hotfolder/interactiveCollection', 'mv index-640.jpg ' + folder +'.jpg', 'chown -R apache: *'],
       {filePath: 'shell.log'}
     )
-    .pipe(gulp.dest('./build/logs'));
-
-
+    .pipe(gulp.dest('./build/logs'))
+    .once('end', function() {
+      gulpSSH.close();
+    });
+  // réussir à quitter le process correctement.
 }
 function indexationProcess() {
   gutil.log("********************* xml, jpg, sftp OK *************************** ");
@@ -63,6 +66,7 @@ gulp.task('xml', function() {
       return {source : source};
     }))
     .pipe(template())
+    .pipe(rename(folder + '.xml'))
     .pipe(gulp.dest('./build/indexation'));
 });
 
