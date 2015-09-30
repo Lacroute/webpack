@@ -29,24 +29,32 @@ var source = {
   link: 'https://graphics.afp.com/builds/' + folder
 };
 
+// -Aller dans le repertoire /phraseanet/www/Phraseanet
+// -Changer d’utilisateur « sudo -u apache /bin/bash »
+// -Executer la commande bin/console task:run 5 -vvv
+
 function endProcess() {
-  gutil.log(" all ok ");
+  gutil.log(" ******************** copy to phrasea OK ************************** ");
+  var gulpSSH = new GulpSSH({
+    ignoreErrors: false,
+    sshConfig: config.phraseaSSH
+  });
+  return gulpSSH
+    .shell(
+      ['cd /phraseanet/hotfolder/interactiveCollection', 'chown -R apache: *'],
+      {filePath: 'shell.log'}
+    )
+    .pipe(gulp.dest('./build/logs'));
+
+
 }
 function indexationProcess() {
-  gutil.log("xml, jpg, sftp ok");
+  gutil.log("********************* xml, jpg, sftp OK *************************** ");
   // connect on ssh and copy ./build/indexation/** into phraseanet's hotfolder
-  var gulpSSH = new gulpSSH(config.phraseaSSH);
-  var indexConfig = _.extend(config.sftp, {"remotePath": remoteIndex, "callback": endProcess});
-  return gulp.src('./build/indexation/**')
-    .pipe(sftp(indexConfig))
-    .pipe(
-      gulpSSH.shell(
-        ['cd /phraseanet/hotfolder/interactiveCollection', 'touch .phraseanet.xml', 'chown -R apache: *'],
-        {filePath: 'shell.log'}
-      )
-    )
-    .pipe(gulp.dest('./build/logs'))
-    .pipe(gulpSSH.close());
+
+  var indexConfig = _.extend(config.phrasea, {"remotePath": remoteIndex, "callback": endProcess});
+  return gulp.src('./build/indexation/**/*')
+    .pipe(sftp(indexConfig));
 }
 
 gulp.task('xml', function() {
