@@ -14,7 +14,8 @@ var del = require('del');
 var date = new Date();
 var month = ((date.getMonth()+1) < 10) ? '0' + (date.getMonth()+1) : date.getMonth()+1;
 var hour = ((date.getHours()) < 10) ? '0' + date.getHours() : date.getHours();
-var prefix = '' + date.getFullYear() + month + date.getDate() + '-';
+var day = ((date.getDate()) < 10) ? '0' + date.getDate() : date.getDate();
+var prefix = '' + date.getFullYear() + month + day + '-';
 var data = JSON.parse(fs.readFileSync('./build/data/lang.json'));
 var folder = prefix + data.language + '-' + data.id;
 var remotePath = "/var/www/html/builds/" + folder;
@@ -22,7 +23,7 @@ var remoteIndex = "/phraseanet/hotfolder/interactiveCollection";
 var config = JSON.parse(fs.readFileSync('./config.json'));
 var source = {
   headline: data.metadata.headline,
-  published: date.getFullYear() + '-' + month + '-' +  date.getDate() + ' ' + hour + ':' + date.getMinutes(),
+  published: date.getFullYear() + '-' + month + '-' +  day + ' ' + hour + ':' + date.getMinutes(),
   caption: data.metadata.caption,
   language: data.language,
   slugs: data.metadata.keywords.join(' ; '),
@@ -36,32 +37,45 @@ var source = {
 // -Changer d’utilisateur « sudo -u apache /bin/bash »
 // -Executer la commande bin/console task:run 5 -vvv
 
+/**
+ * [endProcess description] copy generated xml and jpg files in /phraseanet/hotfolder/interactiveCollection
+ * @return void
+ */
 function endProcess() {
-  gutil.log(" ******************** copy to phrasea OK ************************** ");
   var gulpSSH = new GulpSSH({
     ignoreErrors: false,
     sshConfig: config.phraseaSSH
   });
   return gulpSSH
     .shell(
-      ['cd /phraseanet/hotfolder/interactiveCollection', 'chown -R apache: *'],
-      {filePath: 'shell.log'}
+      ['cd /phraseanet/hotfolder/interactiveCollection', 'chown -R apache: *'], // files must be apache's owned
+      {filePath: folder + '-shell.log'}
     )
     .pipe(gulp.dest('./build/logs'))
     .once('end', function() {
       gulpSSH.close();
+      gutil.log(" ******************** copy to phrasea OK ************************** ");
+      // cleaning
+      del('./build/indexation/**', {force: true});
+      gutil.log(" ******************** cleaning OK ************************** ");
     });
-  // réussir à quitter le process correctement.
 }
+/**
+ * [indexationProcess description] sftp copy of generated files on phraseanet server
+ * @return void
+ */
 function indexationProcess() {
-  gutil.log("********************* xml, jpg, sftp OK *************************** ");
   // connect on ssh and copy ./build/indexation/** into phraseanet's hotfolder
 
   var indexConfig = _.extend(config.phrasea, {"remotePath": remoteIndex, "callback": endProcess});
   return gulp.src('./build/indexation/**/*')
-    .pipe(sftp(indexConfig));
+    .pipe(sftp(indexConfig))
+    .once('end', function() {
+      gutil.log("********************* xml, jpg, sftp OK *************************** ");
+    })
 }
 
+// chained tasks
 gulp.task('xml', function() {
   return gulp.src('./indexation.xml')
     .pipe(getData(function() {
@@ -92,10 +106,14 @@ gulp.task('delJPG', ['renameJPG'], function() {
   del('./build/indexation/index-640.jpg');
 });
 
+// master task
 gulp.task('deploy', ['xml', 'delJPG'], function(cb) {
   var buildsConfig = _.extend(config.sftp, {"remotePath": remotePath, "callback": indexationProcess});
   // initiate copy from build/ to folder named after 'folder' var on distant server
   gutil.log(folder);
   return gulp.src('./build/**/*')
-    .pipe(sftp(buildsConfig));
+    .pipe(sftp(buildsConfig))
+    .once('end', function() {
+      gutil.log("********************* graphics sftp OK *************************** ");
+    });
 });
