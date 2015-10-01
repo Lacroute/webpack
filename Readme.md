@@ -10,12 +10,17 @@
 3. S'il y a un fichier "bower.json", faites un ```bower install```
 4. Lancer le serveur de dev avec une commande ```gulp --lang xx-XX``` (où xx-XX est la langue choisie, par ex: fr-FR)
 5. **S'il y a un problème d'affichage au lancement ou que vous ne voyez pas vos changements, coupez le process (ctrl + c) et lancer un 'gulp clean'**
+6. Pour déployer en prod : ```gulp deploy```
+  * le déploiement se nourrit essentiellement des infos contnues dans le fichier "lang.json" du répertoire "data" : les champs importants sont *keywords*, *language* et *id*
+  * la datesera la date d'indexation
+  * l'infographie sera ensuite automatiquement ajoutée dans phraseanet ou s'il s'agit d'une màj, il faudra passer par le volet upload > quarantaine
 
 ## Structure
 
 * En développant, vous modifier uniquement ***les fichiers du répertoire "src"***
 * Les fichiers du répertoire "dest" sont ceux affichés dans votre navigateur
 * Les fichiers du répertoire "build" sont le produit de la commande ```gulp build```
+* Les fichiers copiés sur le serveur et indexés sont ceux pris du répertoire "build"
 
 Dev : **Il faut d'ailleurs penser à modifier le fichier Gulp/tasks/build.js pour qu'il pointe sur les bons fichiers data : quand j'ai fait ce modèle, les noms des fichiers correspondaient au répertoire france-unemployment.**
 
@@ -31,7 +36,7 @@ Le dossier **src** contient généralement les répertoires traditionnels :
 
 1. Lancer le serveur avec une commande qui spécifie la langue ```gulp --lang fr-FR```, par exemple.
 
-2. Arrêtez le serveur avec la combinaison 'ctrl + c' et faites un build du langage : ```gulp build```, ces deux lettres en minuscule, cette fois.
+2. Arrêtez le serveur avec la combinaison 'ctrl + c' et faites un build du langage : ```gulp build```
 
 ### Troubleshootings
 
