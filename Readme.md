@@ -5,12 +5,19 @@
 
 1. Cloner ce repo sur le poste local
   * vous pouvez cloner un projet en nommant le dossier de destination à votre convenance en utilisant ```git clone https://... <nomPréféréDuDossier>```
+
 2. installer les modules npm
   * ```npm install```
+
 3. S'il y a un fichier "bower.json", faites un ```bower install```
+
 4. Lancer le serveur de dev avec une commande ```gulp --lang xx-XX``` (où xx-XX est la langue choisie, par ex: fr-FR)
+
 5. **S'il y a un problème d'affichage au lancement ou que vous ne voyez pas vos changements, coupez le process (ctrl + c) et lancer un 'gulp clean'**
-6. Pour déployer en prod : ```gulp deploy```
+
+6. Lancer une commande ```gulp build --lang xx-XX``` pour faire un builds
+
+7. Pour déployer en prod : ```gulp deploy```
   * le déploiement se nourrit essentiellement des infos contnues dans le fichier "lang.json" du répertoire "data" : les champs importants sont *keywords*, *language* et *id*
   * la datesera la date d'indexation
   * l'infographie sera ensuite automatiquement ajoutée dans phraseanet ou s'il s'agit d'une màj, il faudra passer par le volet upload > quarantaine
@@ -19,8 +26,10 @@
 
 * En développant, vous modifier uniquement ***les fichiers du répertoire "src"***
 * Les fichiers du répertoire "dest" sont ceux affichés dans votre navigateur
-* Les fichiers du répertoire "build" sont le produit de la commande ```gulp build```
+* Les fichiers du répertoire "build" sont le produit de la commande ```gulp build --lang xx-XX```
 * Les fichiers copiés sur le serveur et indexés sont ceux pris du répertoire "build"
+* Il ne peut il y a voir de build si vous n'avez pas lancé un dev au moins une fois.
+* il ne peut pas il y avoir de déploiement si vous n'avez pas buildé au moins une fois.
 
 Dev : **Il faut d'ailleurs penser à modifier le fichier Gulp/tasks/build.js pour qu'il pointe sur les bons fichiers data : quand j'ai fait ce modèle, les noms des fichiers correspondaient au répertoire france-unemployment.**
 
@@ -36,7 +45,7 @@ Le dossier **src** contient généralement les répertoires traditionnels :
 
 1. Lancer le serveur avec une commande qui spécifie la langue ```gulp --lang fr-FR```, par exemple.
 
-2. Arrêtez le serveur avec la combinaison 'ctrl + c' et faites un build du langage : ```gulp build```
+2. Arrêtez le serveur avec la combinaison 'ctrl + c' et faites un build du langage : ```gulp build --lang fr-FR``` par exemple.
 
 ### Troubleshootings
 

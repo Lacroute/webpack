@@ -10,13 +10,15 @@ var getData = require('gulp-data');
 var template = require('gulp-template');
 var rename = require('gulp-rename');
 var del = require('del');
+var argv   = require('yargs').argv;
+var dev_lang = argv.lang;
 
 var date = new Date();
 var month = ((date.getMonth()+1) < 10) ? '0' + (date.getMonth()+1) : date.getMonth()+1;
 var hour = ((date.getHours()) < 10) ? '0' + date.getHours() : date.getHours();
 var day = ((date.getDate()) < 10) ? '0' + date.getDate() : date.getDate();
 var prefix = '' + date.getFullYear() + month + day + '-';
-var data = JSON.parse(fs.readFileSync('./build/data/lang.json'));
+var data = JSON.parse(fs.readFileSync('./src/data/'+ dev_lang +'/lang.json'));
 var folder = prefix + data.language + '-' + data.id;
 var remotePath = "/var/www/html/builds/" + folder;
 var remoteIndex = "/phraseanet/hotfolder/interactiveCollection";
@@ -108,6 +110,10 @@ gulp.task('delJPG', ['renameJPG'], function() {
 
 // master task
 gulp.task('deploy', ['xml', 'delJPG'], function(cb) {
+  if (typeof dev_lang === 'undefined') {
+    gutil.log(gutil.colors.red('Veuillez indiquer la langue avec la commande "gulp --lang xx-XX"'));
+    process.exit();
+  }
   var buildsConfig = _.extend(config.sftp, {"remotePath": remotePath, "callback": indexationProcess});
   // initiate copy from build/ to folder named after 'folder' var on distant server
   gutil.log(folder);
