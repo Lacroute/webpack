@@ -1,225 +1,306 @@
-body{
-  background-color:  #849097;
-}
-.container{
-  max-width: 645px;
-  height: auto;
-  border-top: 4px solid black;
-  background-color: white;
-  box-shadow: 0px 0px 15px 0px #525E65;
-  @include rem(padding, 1.6rem 1.8rem 1.8rem);
-  .chapo{
-    @extend .brand-bold;
-    margin-bottom: 13px;
-    @include rem(letter-spacing, -.02rem);
-    @include rem(font-size, 2.8rem);
-  }
-  .sub-chapo{
-    @extend .brand-semi;
-    margin-bottom: 12px;
-    @include rem(letter-spacing, -.02rem);
-    @include rem(font-size, 1.8rem);
-  }
-}
+// Styles relatifs au module de présentation
+// import from former _index.scss
 
-.filters-list{
-  list-style-type: none;
-  text-align: left;
-  margin-bottom: 10px;
-  .filters{
-    @extend .brand-reg;
-    display: inline-block;
+.grid-example{
+  .column, .columns{
+    background-color: $light-grey;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: white;
     text-align: center;
-    width: 49%;
-    &:first-child{
-      margin-right: 2%;
-    }
-    .filters-link{
-      display: block;
-      color: black;
-      text-align: center;
-      text-decoration: none;
-      transition: all 200ms ease-in;
-      border-radius: 4px;
-      border: 1px solid white;
-      white-space: nowrap;
-      // width: 100px;
-      height: 30px;
-      @extend .brand-color;
-      @include rem(font-size, 1.5rem);
-      @include rem(line-height, 3rem);
-      &:hover{
-        /* text-decoration: underline; */
-        color: black;
-        border: 1px solid #b5bfc5;
-      }
-      &.active{
-        background-color: #6DB7A8;
-        color: white;
-      }
-    }
-    span{
-      padding-left: 20px;
-      color: $light-grey;
-      @include rem(font-size, 2.4rem);
-    }
   }
 }
 
-
-.cat{
-  @extend .u-cf;
-  margin-top: 24px;
-  margin-bottom: 24px;
-  .cat__child{
-    margin: 0;
-    padding: 0;
-    position: relative;
-    &:after{
-      @extend .brand-icons;
-      content:"\25BE";
-      font-size:18px;
-      color:black;
-      right:18px; top:10px;
-      position:absolute;
-      pointer-events:none;
-    }
-    &:before{
-      content:'';
-      right:6px; top:0px;
-      width:20px; height:20px;
-      // background:#f8f8f8;
-      position:absolute;
-      pointer-events:none;
-      display:block;
-    }
-  }
+// end of import
+.cat {
+	color: black;
+	font-family: $brand-bold;
+	text-transform: uppercase;
+  @include rem(font-size, 1.2rem);
+	@include rem(line-height, 1.2rem);
 }
 
-#categories{
-  border-color: #B6C0C6;
-  padding: 10px 18px 8px 22px;
-  height: 48px;
-  -webkit-appearance:none;
-  -moz-appearance:none;
-  appearance:none;
+
+.cat-info {
+	margin-bottom: 1.6em;
 }
 
-.infos{
-  @extend .brand-it;
-  font-style:   italic;
-  @include rem(font-size, 1.3rem);
+.cat-note {
+	color: $grey-cold-5;
+	@include rem(font-size, 1.2rem);
 }
 
-.footer{
-  margin-bottom: 18px;
-  .click-info{
-    color: black;
-    text-decoration: none;
-  }
-  .button-click{
-    color: $primary-color;
+.cat-note-classname {
+	background-color: $grey-cold-1;
+	border-radius: 10px;
+	padding: 0px 12px;
+	margin-right: 12px;
+	display:inline-block;
+	color: $grey-cold-6;
+	@include rem(font-size, 1.2rem);
+
+}
+
+// Mixins
+
+@mixin tint($color) {
+	background-color: $color;
+	text-shadow : 0px -1px darken($color, 10%);
+	border: 1px solid $color;
+	&:hover {
+		background-color: lighten($color, 2%);
+	}
+	&:active {
+		background-color: darken($color, 5%);
+	}
+}
+
+
+// Styles pour les modules AFP
+
+
+// Titres
+
+.titre-medium{
+	@extend .brand-semi;
+	@include rem(font-size, 1.8rem);
+	@include rem(line-height, 1.8rem);
+}
+
+.titre-small{
+	@extend .brand-semi;
+	@include rem(font-size, 1.5rem);
+	@include rem(line-height, 1.8rem);
+}
+
+// Paragraphes
+
+.large{
+	@include rem(font-size, 1.5rem);
+	@include rem(line-height, 2.4rem);
+}
+
+.compact{
+	@include rem(font-size, 1.5rem);
+	@include rem(line-height, 1.8rem);
+}
+
+.small{
+	@include rem(font-size, 1.3rem);
+	@include rem(line-height, 1.8rem);
+}
+
+.help{
+	@extend .brand-it;
+	color: $grey-cold-4;
+	@include rem(font-size, 1.2rem);
+	@include rem(line-height, 1.5rem);
+}
+
+
+// Liens
+//!\ re-définit la balise 'a' globalement /!\
+a {
+	color: $link-color;
+	text-decoration: none;
+	&:hover {
+    color: lighten($link-color, 10%);
     text-decoration: underline;
-    &:hover{
-      text-decoration: none;
-    }
   }
 }
-/* generic info panel */
-.afp-pane{
-  @extend .u-full-width;
-  display: none;
-  // opacity: 1;
-  z-index: 10;
-  position: absolute;
-  top:-1000px;
-  left:0;
-  background-color: white;
-  // height: 100%;
-  margin: 0;
-  padding: 24px 16px 18px;
-  border-top: 4px solid black;
-  transition: all 500ms ease-in;
-  &.slide-down{
-    animation-name: slidedown;
-    animation-duration: 500ms;
-    animation-iteration-count: 1;
+
+
+// Boutons
+// ghost
+%button{
+  display: inline-block;
+	width: auto;
+  height: 36px;
+  padding: 0 16px;
+  margin-right: 12px;
+	text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 36px;
+  letter-spacing: -.025rem;
+  white-space: nowrap;
+	text-decoration: none;
+  cursor: pointer;
+	border-radius: $global-radius;
+  border: 1px solid rgba($grey-cold-1,0); // ! @pablo : Alpha à zéro, peut-être trop sale !
+  box-sizing: border-box;
+  box-shadow: 0px 0px 4px $grey-cold-4;
+	&:last-child{
+  	margin-right: 0px;
   }
-  &.slide-up{
-    animation-name: slideup;
-    animation-duration: 500ms;
-    animation-iteration-count: 1;
-  }
-  hr{
-    margin: 16px 0;
-    padding:0;
-    width: 100%;
-    height: 1px;
-    border: none;
-    border-top: 1px solid #B6C0C6;
-  }
-  .info-title{
-    @extend .brand-semi;
-    color: black;
-    @include rem(font-size, 1.8rem);
-  }
-  .info-text{
-    @extend .brand-reg;
-    color: black;
-    @include rem(font-size, 1.5rem);
-  }
-  .list-title{
-    @extend .brand-semi;
-    color: black;
-    margin-bottom: 9px;
-    @include rem(font-size, 1.5rem);
-  }
-  .sources-list{
-    list-style-type: disc;
-    list-style-position: inside;
-  }
-  .sources-list-item{
-    @extend .brand-reg;
-    color: black;
-    @include rem(font-size, 1.5rem);
-  }
-  .update-date{
-    @extend .brand-reg;
-    color: black;
-    @include rem(font-size, 1.5rem);
-    span{
-      @extend .brand-semi;
-      color: black;
-      @include rem(font-size, 1.5rem);
-    }
-  }
-  .click-close{
-    color: black;
+	&:hover{
+  	outline: 0;
     text-decoration: none;
-    .button-click{
-      color: $primary-color;
-      text-decoration: underline;
-      &:hover{
-        text-decoration: none;
-      }
+  	transition: 0.25s;
+  }
+  &:active{
+  	outline: 0;
+    text-decoration: none;
+    box-shadow: 0px 0px 0px $grey-cold-3;
+    transform: translate(0px, 1px);
+		background: rgba($grey-cold-6,0.1);
+		background: -moz-linear-gradient(top, rgba($grey-cold-6,0.1) 0%, rgba($grey-cold-6,0) 25%, rgba($grey-cold-6,0) 100%);
+		background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba($grey-cold-6,0.1)), color-stop(25%, rgba($grey-cold-6,0)), color-stop(100%, rgba($grey-cold-6,0)));
+		background: -webkit-linear-gradient(top, rgba($grey-cold-6,0.1) 0%, rgba($grey-cold-6,0) 25%, rgba($grey-cold-6,0) 100%);
+		background: -webkit-linear-gradient(top, rgba($grey-cold-6,0.1) 0%, rgba($grey-cold-6,0) 25%, rgba($grey-cold-6,0) 100%);
+		background: -o-linear-gradient(top, rgba($grey-cold-6,0.1) 0%, rgba($grey-cold-6,0) 25%, rgba($grey-cold-6,0) 100%);
+		background: -ms-linear-gradient(top, rgba($grey-cold-6,0.1) 0%, rgba($grey-cold-6,0) 25%, rgba($grey-cold-6,0) 100%);
+		background: linear-gradient(to bottom, rgba($grey-cold-6,0.1) 0%, rgba($grey-cold-6,0) 25%, rgba($grey-cold-6,0) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=0);
+	}
+}
+
+.button{
+	@extend %button;
+}
+
+.inactive {
+	box-shadow: none;
+	color: $grey-cold-4;
+	&:hover {
+		border: 1px solid $grey-cold-1;
+	}
+}
+
+.color-button{
+	@extend %button;
+	color: $white ;
+	background-color: $button-color;
+	text-shadow : 0px -1px darken($button-color, 10%);
+	box-shadow: 0px 0px 4px $grey-cold-4;
+	border: 1px solid $button-color;
+	&:hover {
+		color: $white;
+		background-color: lighten($button-color, 2%);
+	}
+	&:active {
+		background-color: darken($button-color, 5%);
+	}
+}
+
+.button--pink{ @include tint($victoria-3); }
+
+.white-button {
+	@extend %button;
+	color: $grey-cold-6 ;
+	background-color: $white;
+	text-shadow : 0px -1px $white;
+	box-shadow: 0px 0px 4px $grey-cold-4;
+	border: 1px solid $white;
+	&:hover {
+		color: $link-color;
+		border: 1px solid $link-color;
+	}
+	&:active {
+		color: $link-color;
+		background-color: lighten($grey-cold-1, 20%);
+		border: 1px solid lighten($link-color, 10%);
+	}
+
+}
+
+// Onglets
+.tab{
+	list-style-type: none;
+  margin: 0;
+  padding: 0;
+	li {
+		padding:12px 16px 0px 16px;
+		list-style-type : none;
+		background-color: $panel-grey-2;
+		display: inline-block;
+		.tab-link {
+			color:$panel-grey-3;
+			text-shadow : 0px 1px rgba($panel-grey-1,0.4);
+			&:hover {
+				transition: 0.15s;
+				color : $panel-grey-1;
+				text-decoration: none;
+				text-shadow : 0px -1px rgba($panel-grey-3,0.4);
+			}
+			&:after {
+				content: "";
+				display: block;
+				margin: 0 auto; width: 0;
+				border: 6px solid $panel-grey-1;
+				border-color: transparent transparent transparent transparent;
+			}
+		}
+		.tab-active {
+			color : $white ;
+			text-shadow : 0px -1px rgba($panel-grey-3,0.4);
+			&:hover {
+				text-decoration: none;
+			}
+			&:after {
+				content: "";
+				display: block;
+				margin: 0 auto; width: 0;
+				border: 6px solid $panel-grey-1;
+				border-color: transparent transparent $panel-grey-1 transparent;
+			}
+		}
+	}
+}
+
+
+// slider
+
+.slider{
+	@extend .brand-icons;
+	color : $grey-cold-4;
+  font-size: 24px;
+  text-align: center;
+}
+
+.slider-arrow-left{
+	cursor: pointer;
+	float: left;
+	&:hover {
+    	color : $grey-cold-5;
     }
+}
+.slider-arrow-right{
+	cursor: pointer;
+	float: right;
+	&:hover {
+    	color : $grey-cold-5;
+    }
+}
+
+.points-container{
+	display: inline-block;
+	width: 16px;
+  height: 16px;
+}
+
+.point{
+	transform-origin: 50% 50%;
+	position: relative;
+  top: 4px;
+  left: 4px;
+  width: 6px;
+  height: 6px;
+  border-radius: 3px;
+  background-color: $grey-cold-2;
+  cursor: pointer;
+  transition: all 150ms ease-in-out;
+  &:hover {
+  	transform: scale(1.2);
+  	background-color: $grey-cold-3;
   }
 }
 
-.not-supported{
-  display: none;
-  &.slide-down{
-    animation-name: slidedown;
-    animation-duration: 500ms;
-    animation-iteration-count: 1;
+.point-active {
+	transform: scale(1.4);
+  background-color: $grey-cold-5;
+  &:hover {
+  	transform: scale(1.4);
+  	background-color: $grey-cold-5;
   }
-}
-
-@keyframes slidedown {
-  from {top: -1000px;}
-  to{top: 0;}
-}
-@keyframes slideup {
-  from {top: 0;}
-  to{top: -1000px;}
 }

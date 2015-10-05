@@ -1,0 +1,230 @@
+// Colors
+
+
+$black: #000000 !default;
+$white: #ffffff !default;
+$AFP-blue-dark: #00649d !default;
+$AFP-blue-light: #148bcb !default;
+
+$panel-grey-1 : #f6f2f0 !default;
+$panel-grey-2 : #d3cdcb !default;
+$panel-grey-3 : #88888a !default;
+
+$grey-neutral-1: #e2e2e2 !default;
+$grey-neutral-2: #c6c6c6 !default;
+$grey-neutral-3: #9d9c9b !default;
+$grey-neutral-4: #868685 !default;
+$grey-neutral-5: #585656 !default;
+$grey-neutral-6: #3c3c3b !default;
+
+
+$grey-warm-1: #e2dbd0 !default;
+$grey-warm-2: #c4bdb5 !default;
+$grey-warm-3: #b1aba4 !default;
+$grey-warm-4: #9b9188 !default;
+$grey-warm-5: #625c55 !default;
+$grey-warm-6: #1b1a18 !default;
+
+
+$grey-cold-1: #d1dce3 !default;
+$grey-cold-2: #d0dbe2 !default;
+$grey-cold-3: #b5bfc5 !default;
+$grey-cold-4: #a3acb1 !default;
+$grey-cold-5: #90979c !default;
+$grey-cold-6: #575e62 !default;
+$grey-cold-7: #181a1b !default;
+
+
+$red-alert-1: #fdebe4 !default;
+$red-alert-2: #ecac94 !default;
+$red-alert-3: #dc664b !default;
+$red-alert-4: #c9402d !default;
+$red-alert-5: #b72719 !default;
+
+
+$red-warm-1: #f8decf !default;
+$red-warm-2: #f4a488 !default;
+$red-warm-3: #e88063 !default;
+$red-warm-4: #e26742 !default;
+$red-warm-5: #d84026 !default;
+
+
+$orange-1: #f2ddcd !default;
+$orange-2: #f1c89f !default;
+$orange-3: #f1c89f !default;
+$orange-4: #e68748 !default;
+$orange-5: #db641f !default;
+
+
+$orange-tahiti-1: #fce2d0 !default;
+$orange-tahiti-2: #fbcca1 !default;
+$orange-tahiti-3: #f6ac6f !default;
+$orange-tahiti-4: #f3943e !default;
+$orange-tahiti-5: #e77c09 !default;
+
+
+$yellow-sun-1: #feeed5 !default;
+$yellow-sun-2: #fedda7 !default;
+$yellow-sun-3: #fdd27a !default;
+$yellow-sun-4: #fabb42 !default;
+$yellow-sun-5: #efad01 !default;
+
+
+$yellow-butter-1: #fff2d7 !default;
+$yellow-butter-2: #ffe6ab !default;
+$yellow-butter-3: #ffe17f !default;
+$yellow-butter-4: #ffd742 !default;
+$yellow-butter-5: #fecb00 !default;
+
+
+$green-lemon-1: #f5f6da !default;
+$green-lemon-2: #e4eab1 !default;
+$green-lemon-3: #d0d680 !default;
+$green-lemon-4: #c5cb4f !default;
+$green-lemon-5: #adbc14 !default;
+
+
+$green-avocado-1: #f0f5e3 !default;
+$green-avocado-2: #e0e1c5 !default;
+$green-avocado-3: #cccca7 !default;
+$green-avocado-4: #b7b87a !default;
+$green-avocado-5: #95a251 !default;
+
+
+$green-jewel-1: #e0e8de !default;
+$green-jewel-2: #c0d4bd !default;
+$green-jewel-3: #9cbf9e !default;
+$green-jewel-4: #52a06b !default;
+$green-jewel-5: #038b4a !default;
+
+
+$green-soccer-1: #e1efe2 !default;
+$green-soccer-2: #c1dfc3 !default;
+$green-soccer-3: #9bc597 !default;
+$green-soccer-4: #71b378 !default;
+$green-soccer-5: #3fa04f !default;
+
+
+$green-ocean-1: #e0f0eb !default;
+$green-ocean-2: #c0e0d6 !default;
+$green-ocean-3: #99c9bd !default;
+$green-ocean-4: #6bb6a7 !default;
+$green-ocean-5: #2ba391 !default;
+
+
+$blue-celestial-1: #dfeaf8 !default;
+$blue-celestial-2: #bcd9f3 !default;
+$blue-celestial-3: #a3cbe5 !default;
+$blue-celestial-4: #88badb !default;
+$blue-celestial-5: #41a3ce !default;
+
+
+$blue-pacific-1: #e9f5fd !default;
+$blue-pacific-2: #c1dff1 !default;
+$blue-pacific-3: #96c9e5 !default;
+$blue-pacific-4: #51afd7 !default;
+$blue-pacific-5: #0096c7 !default;
+
+
+$blue-matisse-1: #e3e9f4 !default;
+$blue-matisse-2: #a3c1dd !default;
+$blue-matisse-3: #5b98c2 !default;
+$blue-matisse-4: #378dbc !default;
+$blue-matisse-5: #177aac !default;
+
+
+$blue-chatham-1: #d8e3ea !default;
+$blue-chatham-2: #abbed1 !default;
+$blue-chatham-3: #85a7c2 !default;
+$blue-chatham-4: #4f80a4 !default;
+$blue-chatham-5: #105b81 !default;
+
+
+$blue-sanmarino-1: #dde1f2 !default;
+$blue-sanmarino-2: #bcc5e5 !default;
+$blue-sanmarino-3: #98a8d6 !default;
+$blue-sanmarino-4: #728ec8 !default;
+$blue-sanmarino-5: #506eb4 !default;
+
+
+$blue-sapphire-1: #d3d6ed !default;
+$blue-sapphire-2: #b1b1d9 !default;
+$blue-sapphire-3: #8489c2 !default;
+$blue-sapphire-4: #626aaf !default;
+$blue-sapphire-5: #304c9a !default;
+
+
+$victoria-1: #dedaee !default;
+$victoria-2: #bcb4da !default;
+$victoria-3: #9084be !default;
+$victoria-4: #7264a9 !default;
+$victoria-5: #4b3c90 !default;
+
+
+$violet-1: #ddd1e8 !default;
+$violet-2: #bba2cd !default;
+$violet-3: #9272b1 !default;
+$violet-4: #804996 !default;
+$violet-5: #5a2580 !default;
+
+
+$bordeaux-1: #e7d3d9 !default;
+$bordeaux-2: #d1a7b3 !default;
+$bordeaux-3: #bb798e !default;
+$bordeaux-4: #a84c6f !default;
+$bordeaux-5: #952356 !default;
+
+
+$cranberry-1: #fbe6f0 !default;
+$cranberry-2: #edc1d0 !default;
+$cranberry-3: #e7aac1 !default;
+$cranberry-4: #de7ea1 !default;
+$cranberry-5: #d04981 !default;
+
+
+$pink-1: #fce4e0 !default;
+$pink-2: #f8c5c0 !default;
+$pink-3: #f4a59f !default;
+$pink-4: #f08482 !default;
+$pink-5: #e95160 !default;
+
+
+$brown-rust-1: #eaded4 !default;
+$brown-rust-2: #d8c1aa !default;
+$brown-rust-3: #b59573 !default;
+$brown-rust-4: #a27457 !default;
+$brown-rust-5: #935d33 !default;
+
+
+$brown-sienna-1: #fdeadc !default;
+$brown-sienna-2: #f3d0b2 !default;
+$brown-sienna-3: #e8b884 !default;
+$brown-sienna-4: #dfa169 !default;
+$brown-sienna-5: #d1853b !default;
+
+
+$carto-background: #f3edea !default;
+$carto-other-border: #c5beb6 !default;
+$carto-border: #c4bdb5 !default;
+$carto-other-country-text: #9a9188 !default;
+$carto-situ: #eadbd4 !default;
+$carto-region: #fce1ce !default;
+$carto-region-border: #e77b05 !default;
+$carto-sea: #c1e0f2 !default;
+$carto-river: #96cae5 !default;
+$carto-sea-text: #53afd6 !default;
+$carto-forest: #c0dec3 !default;
+
+
+$dark-grey: #333 !default;
+$primary-color: #00649d !default;
+$secondary-color: lighten($dark-grey, 13.5%) !default;
+$border-color: #d1dce3    !default;
+$link-color: $AFP-blue-light ;
+$font-color: #231f20 !default;
+
+$button-color: $grey-cold-7;
+$form-button-color : $green-jewel-4;
+
+
+

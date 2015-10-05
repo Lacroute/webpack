@@ -29,6 +29,7 @@
 @import "fonts-brand";
 @import "ui-icons";
 @import "mixins/_mixins";
+@import "ui-colors";
 // Variables
 //––––––––––––––––––––––––––––––––––––––––––––––––––
 
@@ -661,6 +662,6 @@ hr {
 @media (#{$bp-larger-than-desktophd}) {}
 
 // adding custom pages
-@import "mgraphics/metricsgraphics";
+@import "pages/panes";
 @import "pages/index";
 @import "pages/breakpoints";
