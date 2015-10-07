@@ -5,7 +5,7 @@ html(lang="fr", dir="ltr")
     meta(http-equiv="Content-Type", content="text/html; charset=utf-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title ALL BLOCKS
+    title STYLES
     link(rel="apple-touch-icon", sizes="57x57", href="/apple-touch-icon-57x57.png")
     link(rel="apple-touch-icon", sizes="60x60", href="/apple-touch-icon-60x60.png")
     link(rel="apple-touch-icon", sizes="72x72", href="/apple-touch-icon-72x72.png")
@@ -36,38 +36,38 @@ html(lang="fr", dir="ltr")
 
       p#titres.cat Titres (modules)
 
-        h1.titre-cover 
+        h1.cover
           | Soudan du Sud: discussions à quelques heures de l'ultimatum pour un accord de paix
         .cat-info
           span.cat-note-classname
-            | .titre-cover
+            | .h1.cover
           span.cat-note
             | Titre grande taille employé sur les covers    
 
 
-        h2.titre 
+        h1
           | Soudan du Sud: discussions à quelques heures de l'ultimatum pour un accord de paix
         .cat-info
           span.cat-note-classname
-            | .titre
+            | .h1
           span.cat-note
             | Titre taille standard 
 
 
-        h3.titre-medium 
+        h2
           | Soudan du Sud: discussions à quelques heures de l'ultimatum pour un accord de paix
         .cat-info
           span.cat-note-classname
-            | .titre-medium 
+            | .h2
           span.cat-note
             | Titre taille moyenne, souvent suivi d'un paragraphe. Convient aux format mobiles avec imagette carrée.
 
 
-        h4.titre-small 
+        h3
           | Partager cette infographie
         .cat-info
           span.cat-note-classname
-            | .titre-small 
+            | .h3
           span.cat-note
             | Petit inter-titre pour chapeauter une section.
 
@@ -135,48 +135,52 @@ html(lang="fr", dir="ltr")
       hr
       p#boutons.cat Boutons
         
-          p
-            a.color-button(href="#",data-filters="1") Ok
-            a.color-button(href="#",data-filters="1") Par catégorie
-            a.color-button(href="#",data-filters="1") Par genre
-            a.color-button.button--pink(href="#",data-filters="1") Par age
-   
-      .cat-info
-        span.cat-note-classname
-          | .color-button
-        span.cat-note
-          | Bouton teinté. Permet de relier une action à un contenu par une teinte. Teinte par default [À déterminer].
-        p  
-        span.cat-note-classname
-          | .button--nom de la couleur
-        span.cat-note
-          | Surclasser par le nom de la teinte pour colorer le bouton [Classes 'teintes' à générer.].
+        p
+          button Ok
+          button Par catégorie
+          button Par genre
+          button.icon.UI-icon.UI-info Envoyer
+          .cat-info
+            span.cat-note-classname
+              | button, .button
+            span.cat-note
+              | Bouton par défaut
 
-          p
+        p
+          button.lg Ok
+          button.lg Par catégorie
+          button.lg Par genre
+          button.lg.icon.UI-icon.UI-info Envoyer
+          .cat-info
+            span.cat-note-classname
+              | .lg
+            span.cat-note
+              | Bouton large
+        p
+          button Inactive
+          button.active Active class 
+          .cat-info
+            span.cat-note-classname
+              | .active
+            span.cat-note
+              | Bouton neutre. Bordure de la couleur du lien au roll over.
 
-          p
-            a.white-button(href="#",data-filters="1") Rejouer l'animation
-   
-      .cat-info
-        span.cat-note-classname
-          | .white-button
-        span.cat-note
-          | Bouton neutre. Bordure de la couleur du lien au roll over.
-
-          p
-
-          p
-            a.button(href="#",data-filters="1") Actif
-            a.button.inactive(href="#",data-filters="1") .inactive class 
-   
-      .cat-info
-        span.cat-note-classname
-          | .button
-        span.cat-note-classname
-          | .inactive
-        span.cat-note
-          | Filtres. Bouton neutre. Prime par sa discrétion.
-
+        p
+          button.discret Union de la gauche
+          button.discret.active Union de la gauche
+          .cat-info
+            span.cat-note-classname
+              | .discret
+            span.cat-note
+              | Bouton discret, utilisé comme toggle électoral
+        p
+          button.system Rejouer l'animation
+          button.system.active Rejouer l'animation
+          .cat-info
+            span.cat-note-classname
+              | .system
+            span.cat-note
+              | Bouton système, type replay ou full screen
 
 
       //- * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
@@ -247,3 +251,9 @@ html(lang="fr", dir="ltr")
           | hr
         span.cat-note
           | Séparateur
+
+  script(type="text/javascript", src="scripts/vendor/pym.min.js")
+  script.
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var pymChild = new pym.Child();
+    });

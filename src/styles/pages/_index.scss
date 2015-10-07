@@ -1,3 +1,20 @@
+$custom : $cranberry-5;
+.discret:hover {
+	background-color: $custom;
+	border-color: $custom;
+}
+.discret.active {
+	background-color: $custom;
+	border-color: $custom;
+	text-shadow: 0px -1px darken($custom, 10%);
+}
+
+.container {
+	background-color: #f6f2f0;
+}
+
+
+
 // Styles relatifs au module de présentation
 // import from former _index.scss
 
@@ -61,17 +78,19 @@
 
 // Titres
 
-.titre-medium{
+h2 {
 	@extend .brand-semi;
 	@include rem(font-size, 1.8rem);
 	@include rem(line-height, 1.8rem);
 }
 
-.titre-small{
+
+h3 {
 	@extend .brand-semi;
 	@include rem(font-size, 1.5rem);
 	@include rem(line-height, 1.8rem);
 }
+
 
 // Paragraphes
 
@@ -95,6 +114,7 @@
 	color: $grey-cold-4;
 	@include rem(font-size, 1.2rem);
 	@include rem(line-height, 1.5rem);
+	font-style: italic;
 }
 
 
@@ -109,100 +129,6 @@ a {
   }
 }
 
-
-// Boutons
-// ghost
-%button{
-  display: inline-block;
-	width: auto;
-  height: 36px;
-  padding: 0 16px;
-  margin-right: 12px;
-	text-align: center;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 36px;
-  letter-spacing: -.025rem;
-  white-space: nowrap;
-	text-decoration: none;
-  cursor: pointer;
-	border-radius: $global-radius;
-  border: 1px solid rgba($grey-cold-1,0); // ! @pablo : Alpha à zéro, peut-être trop sale !
-  box-sizing: border-box;
-  box-shadow: 0px 0px 4px $grey-cold-4;
-	&:last-child{
-  	margin-right: 0px;
-  }
-	&:hover{
-  	outline: 0;
-    text-decoration: none;
-  	transition: 0.25s;
-  }
-  &:active{
-  	outline: 0;
-    text-decoration: none;
-    box-shadow: 0px 0px 0px $grey-cold-3;
-    transform: translate(0px, 1px);
-		background: rgba($grey-cold-6,0.1);
-		background: -moz-linear-gradient(top, rgba($grey-cold-6,0.1) 0%, rgba($grey-cold-6,0) 25%, rgba($grey-cold-6,0) 100%);
-		background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba($grey-cold-6,0.1)), color-stop(25%, rgba($grey-cold-6,0)), color-stop(100%, rgba($grey-cold-6,0)));
-		background: -webkit-linear-gradient(top, rgba($grey-cold-6,0.1) 0%, rgba($grey-cold-6,0) 25%, rgba($grey-cold-6,0) 100%);
-		background: -webkit-linear-gradient(top, rgba($grey-cold-6,0.1) 0%, rgba($grey-cold-6,0) 25%, rgba($grey-cold-6,0) 100%);
-		background: -o-linear-gradient(top, rgba($grey-cold-6,0.1) 0%, rgba($grey-cold-6,0) 25%, rgba($grey-cold-6,0) 100%);
-		background: -ms-linear-gradient(top, rgba($grey-cold-6,0.1) 0%, rgba($grey-cold-6,0) 25%, rgba($grey-cold-6,0) 100%);
-		background: linear-gradient(to bottom, rgba($grey-cold-6,0.1) 0%, rgba($grey-cold-6,0) 25%, rgba($grey-cold-6,0) 100%);
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=0);
-	}
-}
-
-.button{
-	@extend %button;
-}
-
-.inactive {
-	box-shadow: none;
-	color: $grey-cold-4;
-	&:hover {
-		border: 1px solid $grey-cold-1;
-	}
-}
-
-.color-button{
-	@extend %button;
-	color: $white ;
-	background-color: $button-color;
-	text-shadow : 0px -1px darken($button-color, 10%);
-	box-shadow: 0px 0px 4px $grey-cold-4;
-	border: 1px solid $button-color;
-	&:hover {
-		color: $white;
-		background-color: lighten($button-color, 2%);
-	}
-	&:active {
-		background-color: darken($button-color, 5%);
-	}
-}
-
-.button--pink{ @include tint($victoria-3); }
-
-.white-button {
-	@extend %button;
-	color: $grey-cold-6 ;
-	background-color: $white;
-	text-shadow : 0px -1px $white;
-	box-shadow: 0px 0px 4px $grey-cold-4;
-	border: 1px solid $white;
-	&:hover {
-		color: $link-color;
-		border: 1px solid $link-color;
-	}
-	&:active {
-		color: $link-color;
-		background-color: lighten($grey-cold-1, 20%);
-		border: 1px solid lighten($link-color, 10%);
-	}
-
-}
 
 // Onglets
 .tab{

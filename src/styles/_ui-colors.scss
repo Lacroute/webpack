@@ -217,7 +217,7 @@ $carto-forest: #c0dec3 !default;
 
 
 $dark-grey: #333 !default;
-$primary-color: #00649d !default;
+$primary-color: $AFP-blue-light !default;
 $secondary-color: lighten($dark-grey, 13.5%) !default;
 $border-color: #d1dce3    !default;
 $link-color: $AFP-blue-light ;
@@ -225,6 +225,5 @@ $font-color: #231f20 !default;
 
 $button-color: $grey-cold-7;
 $form-button-color : $green-jewel-4;
-
 
 
