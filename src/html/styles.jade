@@ -33,224 +33,185 @@ html(lang="fr", dir="ltr")
   body
     section#container.container
       
+      //- * * * * * * * * * * * * * * * * * * * 
+      //- TITRES
+      //- * * * * * * * * * * * * * * * * * * *
 
-      p#titres.cat Titres (modules)
-
-        h1.cover
-          | Soudan du Sud: discussions à quelques heures de l'ultimatum pour un accord de paix
-        .cat-info
-          span.cat-note-classname
-            | .h1.cover
-          span.cat-note
-            | Titre grande taille employé sur les covers    
-
-
-        h1
-          | Soudan du Sud: discussions à quelques heures de l'ultimatum pour un accord de paix
-        .cat-info
-          span.cat-note-classname
-            | .h1
-          span.cat-note
-            | Titre taille standard 
+      #titres.style-cat 
+        .style-title Titres (modules)
+        h1.cover Soudan du Sud: discussions à quelques heures de l'ultimatum pour un accord de paix
+        .style-info
+          span.style-note-classname .h1.cover
+          span.style-note Titre grande taille employé sur les covers    
 
 
-        h2
-          | Soudan du Sud: discussions à quelques heures de l'ultimatum pour un accord de paix
-        .cat-info
-          span.cat-note-classname
-            | .h2
-          span.cat-note
-            | Titre taille moyenne, souvent suivi d'un paragraphe. Convient aux format mobiles avec imagette carrée.
+        h1 Soudan du Sud: discussions à quelques heures de l'ultimatum pour un accord de paix
+        .style-info
+          span.style-note-classname .h1
+          span.style-note Titre taille standard 
 
 
-        h3
-          | Partager cette infographie
-        .cat-info
-          span.cat-note-classname
-            | .h3
-          span.cat-note
-            | Petit inter-titre pour chapeauter une section.
+        h2 Soudan du Sud: discussions à quelques heures de l'ultimatum pour un accord de paix
+        .style-info
+          span.style-note-classname .h2
+          span.style-note Titre taille moyenne, souvent suivi d'un paragraphe. Convient aux format mobiles avec imagette carrée.
 
 
-      //- * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+        h3 Partager cette infographie
+        .style-info
+          span.style-note-classname .h3
+          span.style-note Petit inter-titre pour chapeauter une section.
+
+
+      //- * * * * * * * * * * * * * * * * * * * 
+      //- PARAGRAPHES
+      //- * * * * * * * * * * * * * * * * * * *
 
       hr
-      p#paragraphes.cat Paragraphes
-
-        p.large
-          | Selon le quotidien les Nouvelles de Pékin, l'opération d'évacuation, dans un rayon de trois kilomètres autour du site, a été menée par des policiers en armes après la découverte de cyanure de sodium, un composant chimique hautement toxique, sur le site du désastre toujours en proie aux flammes.
-        .cat-info
-          span.cat-note-classname
-            | .large 
-          span.cat-note
-            | Bloc texte large. Convient aux textes longs.
+      #paragraphes.cat 
+        .style-title Paragraphes
+        p.large Selon le quotidien les Nouvelles de Pékin, l'opération d'évacuation, dans un rayon de trois kilomètres autour du site, a été menée par des policiers en armes après la découverte de cyanure de sodium, un composant chimique hautement toxique, sur le site du désastre toujours en proie aux flammes.
+        .style-info
+          span.style-note-classname .large 
+          span.style-note Bloc texte large. Convient aux textes longs.
 
 
-        p.compact
-          | Une forte explosion est survenue à Suruç, une ville proche de la frontière syrienne
-        .cat-info
-          span.cat-note-classname
-            | .compact 
-          span.cat-note
-            | Bloc texte compact. Convient aux blocs textes où l'espace est restraint.
+        p.compact Une forte explosion est survenue à Suruç, une ville proche de la frontière syrienne
+        .style-info
+          span.style-note-classname .compact 
+          span.style-note Bloc texte compact. Convient aux blocs textes où l'espace est restraint.
 
 
         p.small
           | Vendredi 13 août 2015, 17:01
           | Selon le quotidien les Nouvelles de Pékin, l'opération d'évacuation, dans un rayon de trois kilomètres autour du site, a été menée par des policiers en armes après la découverte de cyanure de sodium, un composant chimique hautement toxique, sur le site du désastre toujours en proie aux flammes.
-        .cat-info
-          span.cat-note-classname
-            | .small
-          span.cat-note
-            | Très petit texte, convient aux textes courts ou aux annotations.
+        .style-info
+          span.style-note-classname .small
+          span.style-note Très petit texte, convient aux textes courts ou aux annotations.
 
 
         p.help
           | Vendredi 13 août 2015, 17:01
           | Selon le quotidien les Nouvelles de Pékin, l'opération d'évacuation, dans un rayon de trois kilomètres autour du site, a été menée par des policiers en armes après la découverte de cyanure de sodium, un composant chimique hautement toxique, sur le site du désastre toujours en proie aux flammes.
-        .cat-info
-          span.cat-note-classname
-            | .help
-          span.cat-note
-            | Très petit texte d'annotation, convient aux textes courts ou aux annotations.
+        .style-info
+          span.style-note-classname .help
+          span.style-note Très petit texte d'annotation, convient aux textes courts ou aux annotations.
 
 
-      //- * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+      //- * * * * * * * * * * * * * * * * * * * 
+      //- LIENS
+      //- * * * * * * * * * * * * * * * * * * *
 
       hr
-      p#liens.cat Liens
-
-        p 
+      #liens.cat 
+        .style-title Liens
+        p
           a(href="#") La suite
-   
-      .cat-info
-        span.cat-note-classname
-          | a
-        span.cat-note
-          | Couleur de lien standard
+          .style-info
+            span.style-note-classname a
+            span.style-note Couleur de lien standard
 
 
-      //- * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+      //- * * * * * * * * * * * * * * * * * * * 
+      //- BOUTONS
+      //- * * * * * * * * * * * * * * * * * * *
 
       hr
-      p#boutons.cat Boutons
-        
+      #boutons.cat 
+        .style-title Boutons
         p
           button Ok
           button Par catégorie
-          button Par genre
+          button.icon.UI-icon.UI-info
           button.icon.UI-icon.UI-info Envoyer
-          .cat-info
-            span.cat-note-classname
-              | button, .button
-            span.cat-note
-              | Bouton par défaut
-
+          .style-info
+            span.style-note-classname button, .button
+            span.style-note Bouton par défaut
         p
           button.lg Ok
           button.lg Par catégorie
-          button.lg Par genre
+          button.lg.icon.UI-icon.UI-info
           button.lg.icon.UI-icon.UI-info Envoyer
-          .cat-info
-            span.cat-note-classname
-              | .lg
-            span.cat-note
-              | Bouton large
+          .style-info
+            span.style-note-classname .lg
+            span.style-note Bouton large
         p
           button Inactive
           button.active Active class 
-          .cat-info
-            span.cat-note-classname
-              | .active
-            span.cat-note
-              | Bouton neutre. Bordure de la couleur du lien au roll over.
-
+          .style-info
+            span.style-note-classname .active
+            span.style-note Bouton neutre. Bordure de la couleur du lien au roll over.
         p
           button.discret Union de la gauche
           button.discret.active Union de la gauche
-          .cat-info
-            span.cat-note-classname
-              | .discret
-            span.cat-note
-              | Bouton discret, utilisé comme toggle électoral
+          .style-info
+            span.style-note-classname .discret
+            span.style-note Bouton discret, utilisé comme toggle électoral
         p
           button.system Rejouer l'animation
           button.system.active Rejouer l'animation
-          .cat-info
-            span.cat-note-classname
-              | .system
-            span.cat-note
-              | Bouton système, type replay ou full screen
+          .style-info
+            span.style-note-classname .system
+            span.style-note Bouton système, type replay ou full screen
 
 
-      //- * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
-
-      hr
-      p#Onglets.cat Onglets
-        
-          p
-          ul.tab.u-full-width
-            li
-              a.tab-link.tab-active(href="#") Classement
-            li
-              a.tab-link(href="#") Comparatif
-            li
-              a.tab-link(href="#") Prévisions
-   
-      .cat-info
-        span.cat-note-classname
-          | .tab-link.tab-active
-        span.cat-note-classname
-          | .tab-link
-        span.cat-note
-          | Barre d'onglet pour les modules sur fond crème (panel-grey).
-
-
-
-
-      //- * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+      //- * * * * * * * * * * * * * * * * * * * 
+      //- ONGLETS
+      //- * * * * * * * * * * * * * * * * * * * 
 
       hr
-      p#slider.cat Slider
-        
+      #Onglets.cat 
+        .style-title Onglets
+        ul.tabs.u-full-width
+          li
+            a.active(href="#") Classement
+          li
+            a(href="#") Comparatif
+          li
+            a(href="#") Prévisions
+        .style-info
+          span.style-note-classname ul.tabs > li > a
+          span.style-note Barre d'onglet pour les modules sur fond crème (panel-grey).
+
+      //- * * * * * * * * * * * * * * * * * * * 
+      //- SLIDER
+      //- * * * * * * * * * * * * * * * * * * *
+
+      hr
+      #slider.cat 
+        .style-title Slider
         div.slider
-          span.slider-arrow-right.UI-slide-right
-          span.slider-arrow-left.UI-slide-left
+          span.arrow-right.UI-slide-right
+          span.arrow-left.UI-slide-left
           div.points-container
-            div.point
-          div.points-container
-            div.point
-          div.points-container
-            div.point
-          div.points-container
-            div.point.point-active
-          div.points-container
-            div.point
-          div.points-container
-            div.point
-          
-   
-      .cat-info
-        span.cat-note-classname
-          | .point
-        span.cat-note-classname
-          | .point.point-active
-        span.cat-note
-          | Suffixe -active pour highligter l'état actif 
+            div.point-container
+              div.point
+            div.point-container
+              div.point
+            div.point-container
+              div.point
+            div.point-container
+              div.point.active
+            div.point-container
+              div.point
+            div.point-container
+              div.point
+        .style-info
+          span.style-note-classname .point
+          span.style-note-classna Suffixe -active pour highligter l'état actif 
 
 
-      //- * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+      //- * * * * * * * * * * * * * * * * * * * 
+      //- SEPARATEURS
+      //- * * * * * * * * * * * * * * * * * * *
 
       hr
-      p#separateurs.cat Séparateurs
-
+      #separateurs.cat 
+        .style-title Séparateurs
         hr
-   
-      .cat-info
-        span.cat-note-classname
-          | hr
-        span.cat-note
-          | Séparateur
+        .style-info
+          span.style-note-classname hr
+          span.style-note Séparateur
 
   script(type="text/javascript", src="scripts/vendor/pym.min.js")
   script.

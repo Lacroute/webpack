@@ -46,3 +46,15 @@
     stroke: $color;
   }
 }
+
+@mixin tint($color) {
+  background-color: $color;
+  text-shadow : 0px -1px darken($color, 10%);
+  border: 1px solid $color;
+  &:hover {
+    background-color: lighten($color, 2%);
+  }
+  &:active {
+    background-color: darken($color, 5%);
+  }
+}
