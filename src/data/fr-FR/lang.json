@@ -1,15 +1,13 @@
 {
   "metadata": {
-    "headline": "Croissance : la zone euro va mieux",
-    "caption": "Evolution trimestrielle du Produit intérieur brut (PIB)",
-    "countryName": "France",
-    "byline": "J.Bonnard",
-    "captionWriter": "jub/",
+    "headline": "Titre de l'infographie",
+    "caption": "Description de l'infographie",
+    "countryName": "Pays",
+    "byline": "Auteurs",
+    "captionWriter": "Initiales",
     "keywords": [
-      "UE",
-      "ZONE EURO",
-      "ECONOMIE",
-      "CROISSANCE"
+      "keyword1",
+      "keyword2"
     ]
   },
   "content" :{
@@ -18,20 +16,19 @@
   },
   "info": {
     "title": "A propos de cette infographie",
-    "texte": "Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Curabitur blandit tempus porttitor. Cras justo odio, dapibus ac facilisis in, egestas eget quam.",
+    "texte": "Texte méthodologie",
     "listTitle": "Sources",
     "sourcesList": [
-      "Parlement turc",
-      "Ifpop",
-      "Sed posuere consectetur"
+      "Source 1",
+      "Source 2"
     ],
     "update": "Mise à jour",
-    "updateDate": "29 septembre 2012 5h23 GMT",
+    "updateDate": "Date de mise à jour",
     "closeButton": "Fermer"
   },
   "warn": {
     "notsupported": "Votre navigateur ne supporte pas les fonctionnalités permettant d'afficher ce graphique."
   },
   "language": "fr",
-  "id": "eurogrowth"
+  "id": "model"
 }
