@@ -197,8 +197,8 @@ html(lang="fr", dir="ltr")
             div.point-container
               div.point
         .style-info
-          span.style-note-classname .point
-          span.style-note-classna Suffixe -active pour highligter l'état actif 
+          span.style-note-classname .slider > .points-container > .point-container > .point
+          span.style-note-classna Class .active pour highligter l'état actif 
 
 
       //- * * * * * * * * * * * * * * * * * * * 
@@ -212,6 +212,25 @@ html(lang="fr", dir="ltr")
         .style-info
           span.style-note-classname hr
           span.style-note Séparateur
+
+      //- * * * * * * * * * * * * * * * * * * * 
+      //- SELECTS
+      //- * * * * * * * * * * * * * * * * * * *
+
+      hr
+      #selects.cat 
+        .style-title Selects
+        select
+          option(value="option1") Option 1
+          option(value="option2") Option 2
+        select.lg
+          option(value="option1") Option 1
+          option(value="option2") Option 2
+        .style-info
+          span.style-note-classname select, select.lg
+          span.style-note Liste déroulante
+
+      
 
   script(type="text/javascript", src="scripts/vendor/pym.min.js")
   script.

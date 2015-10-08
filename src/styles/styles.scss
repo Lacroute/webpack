@@ -8,21 +8,9 @@
 * Sass Version by Seth Coelen https://github.com/whatsnewsaes
 */
 
-// Table of contents
-//––––––––––––––––––––––––––––––––––––––––––––––––––
-//- Grid
-//- Base Styles
-//- Typography
-//- Links
-//- Buttons
-//- Forms
-//- Lists
-//- Code
-//- Tables
-//- Spacing
-//- Utilities
-//- Clearing
-//- Media Queries
+/*
+* Modified by AFP Graphics Team
+*/
 
 /* import fonts css */
 
@@ -98,7 +86,7 @@ $global-radius: 4px !default;
 // For devices larger than 400px
 @media (#{$bp-larger-than-mobile}) {
     .container {
-        width: $container-width-larger-than-mobile;
+        // width: $container-width-larger-than-mobile;
         padding: 0;
     }
 }
@@ -106,7 +94,7 @@ $global-radius: 4px !default;
 // For devices larger than 550px
 @media (#{$bp-larger-than-phablet}) {
     .container {
-        width: $container-width-larger-than-phablet;
+        // width: $container-width-larger-than-phablet;
     }
     .column,
     .columns {
@@ -385,8 +373,9 @@ button {
     transition: transform 100ms;
     &:active {
         transform: translate(0px, 1px);
-        background: linear-gradient(to bottom, rgba($grey-cold-6, 0.1) 0%, rgba($grey-cold-6, 0) 25%, rgba($grey-cold-6, 0) 100%);
+        background: linear-gradient(to bottom, rgba($grey-cold-6, 0.1) 0%, rgba($grey-cold-6, 0) 25%, rgba($grey-cold-6, 0) 100%), lighten($primary-color, 2%);
         box-shadow: none;
+        color: $white;
     }
     &:focus {
         outline: 0;
@@ -606,6 +595,9 @@ select {
     border-radius: $global-radius;
     box-shadow: none;
     box-sizing: border-box;
+}
+select.lg {
+    height: 48px;
 }
 
 // Removes awkward default styles on some inputs for iOS

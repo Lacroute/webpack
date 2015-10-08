@@ -1,46 +1,16 @@
 $custom : $cranberry-5;
+
+.container {
+  background-color: #f6f2f0;
+}
+
 .discret:hover {
 	background-color: $custom;
 	border-color: $custom;
 }
+
 .discret.active {
 	background-color: $custom;
 	border-color: $custom;
 	text-shadow: 0px -1px darken($custom, 10%);
-}
-
-.container {
-	background-color: #f6f2f0;
-}
-
-
-
-// Styles relatifs au module de présentation
-// import from former _index.scss
-
-.grid-example{
-  .column, .columns{
-    background-color: $light-grey;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    color: white;
-    text-align: center;
-  }
-}
-
-// end of import
-
-
-// Mixins
-
-@mixin tint($color) {
-	background-color: $color;
-	text-shadow : 0px -1px darken($color, 10%);
-	border: 1px solid $color;
-	&:hover {
-		background-color: lighten($color, 2%);
-	}
-	&:active {
-		background-color: darken($color, 5%);
-	}
 }
