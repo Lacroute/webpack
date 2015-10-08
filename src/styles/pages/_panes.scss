@@ -11,12 +11,6 @@ body {
   @include rem(padding, 1.6rem 1.8rem 1.8rem);
 }
 
-.infos{
-  @extend .brand-it;
-  font-style:   italic;
-  @include rem(font-size, 1.3rem);
-}
-
 .footer{
   margin-bottom: 18px;
   .click-info{
