@@ -25,6 +25,7 @@
 ## Structure
 
 * En développant, vous modifier uniquement ***les fichiers du répertoire "src"***
+* Vous pouvez afficher la liste des styles de base disponibles via ***styles.html***
 * Les fichiers du répertoire "dest" sont ceux affichés dans votre navigateur
 * Les fichiers du répertoire "build" sont le produit de la commande ```gulp build --lang xx-XX```
 * Les fichiers copiés sur le serveur et indexés sont ceux pris du répertoire "build"
