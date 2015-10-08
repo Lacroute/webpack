@@ -225,6 +225,8 @@ body {
     font-weight: 400;
     font-family: $brand-reg;
     color: $font-color;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: transparent; /* For some Androids */
 }
 
 // Polices
@@ -375,7 +377,7 @@ button {
     transition: transform 0.3s,box-shadow 0.3s;
 
     &:active {
-        transform: translate(0px, 1px);
+        transform: translateY(1px);
         background: linear-gradient(to bottom, rgba($grey-cold-6, 0.1) 0%, rgba($grey-cold-6, 0) 25%, rgba($grey-cold-6, 0) 100%), lighten($primary-color, 2%);
         box-shadow: 0px 0px 0px $grey-cold-4;
         color: $white;
@@ -407,6 +409,7 @@ button {
         border: 1px solid $primary-color;
     }
     &.active {
+        transform: translateY(1px);
         background-color: $primary-color;
         color: $white;
         border: 1px solid $primary-color;
