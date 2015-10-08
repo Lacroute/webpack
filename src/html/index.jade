@@ -31,21 +31,26 @@ html(lang="replaceLanguage", dir="replaceDir")
     link(rel="stylesheet", href="styles/styles.css")
     script(type="text/javascript", src="scripts/vendor/modernizr.custom.55890.js")
   body
+
+    //- * * * * * * * * * * * * * * * * * 
+    //- * * * * Main content
+    //- * * * * * * * * * * * * * * * * *
+    
     section#container.container
-      h1.twelve #{content.title}
-      h1.twelve #{content.subtitle}
+      h1 #{content.title}
+      h2 #{content.subtitle}
       
-      .cat.row.u-full-width
-        label(for="categories", class="cat__child")
-          select#categories.categories.u-full-width(name="categories")
-            option(value="bla") blah
       .row.footer.u-full-width.u-cf
-        p.infos.u-full-width Demandeurs d’emploi de catégorie A
+        p.infos.u-full-width Précision
         img.logo-AFP.u-pull-right(src="images/svg/afp_logo.svg", alt="logo AFP", width="32", height="12")
-        p.u-pull-left
-        a.click-info(href="/", title="")
+        a.u-pull-left.click-info(href="/", title="")
           span.UI-icon.UI-info
-          span.button-click infos
+
+
+    //- * * * * * * * * * * * * * * * * * 
+    //- * * * * Panneau infos déroulant
+    //- * * * * * * * * * * * * * * * * *
+
     .afp-pane.u-cf
       h2.info-title #{info.title}
       p.info-text #{info.texte}
@@ -63,8 +68,16 @@ html(lang="replaceLanguage", dir="replaceDir")
           a.click-close(href="/", title="")
             span.UI-icon.UI-close
               span.button-click #{info.closeButton}
+
+    //- * * * * * * * * * * * * * * * * * 
+    //- * * * * Incompatibilités
+    //- * * * * * * * * * * * * * * * * *
     .not-supported
       p #{warn.notsupported}
+
+    //- * * * * * * * * * * * * * * * * * 
+    //- * * * * Javascripts
+    //- * * * * * * * * * * * * * * * * *
     //build:js
     include scripts.jade
     script(type="text/javascript", src="scripts/vendor/queue.min.js")
