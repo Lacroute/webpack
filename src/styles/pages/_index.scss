@@ -9,6 +9,13 @@ $custom : $cranberry-5;
 	border-color: $custom;
 }
 
+.discret:active {
+	background-color: $custom;
+	border-color: $custom;
+	color: $white;
+	text-shadow: 0px -1px darken($custom, 10%);
+}
+
 .discret.active {
 	background-color: $custom;
 	border-color: $custom;
