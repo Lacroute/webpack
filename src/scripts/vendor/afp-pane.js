@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", function(event) {
   "use strict";
   var pane = document.querySelector('.afp-pane'),
-      paneClass = pane.className,
-      warn = document.querySelector('.not-supported'),
-      mandatoryList = ['queryselector', 'fontface', 'boxsizing'];
+    paneClass = pane.className,
+    warn = document.querySelector('.not-supported'),
+    mandatoryList = ['queryselector', 'fontface', 'boxsizing'];
 
   /**
    * [testfeatures description] use modernizr builtin test tool to test if the client browser is suitable for the widget
@@ -16,28 +16,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
       if (!Modernizr[el]) {
         callback(el + ' not implemented', el);
         return;
-      } if (i === (list.length-1) && Modernizr[list[(list.length-1)]])
+      }
+      if (i === (list.length - 1) && Modernizr[list[(list.length - 1)]])
         callback(null, true);
     });
-  }
-  /**
-   * [fetchJSONFile description] ajax fn() with queue.js callback
-   * @param  {[type]}   path     [description] uri to json source
-   * @param  {Function} callback [description] handler in queue.js
-   * @return void
-   */
-  function fetchJSONFile(path, callback) {
-    var httpRequest = new XMLHttpRequest();
-    httpRequest.onreadystatechange = function() {
-      if (httpRequest.readyState === 4) {
-        if (httpRequest.status === 200) {
-          var data = JSON.parse(httpRequest.responseText);
-          if (callback) callback(null, data);
-        }
-      }
-    };
-    httpRequest.open('GET', path);
-    httpRequest.send();
   }
 
   /**
@@ -46,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
    */
   function manageInfosPanel() {
     var infoButton = document.querySelector('.click-info'),
-        closeButton = document.querySelector('.click-close');
+      closeButton = document.querySelector('.click-close');
 
     infoButton.addEventListener('click', function(e) {
       e.preventDefault();
@@ -85,3 +67,23 @@ document.addEventListener("DOMContentLoaded", function(event) {
     });
 
 }, false);
+
+/**
+ * [fetchJSONFile description] ajax fn() with queue.js callback
+ * @param  {[type]}   path     [description] uri to json source
+ * @param  {Function} callback [description] handler in queue.js
+ * @return void
+ */
+function fetchJSONFile(path, callback) {
+  var httpRequest = new XMLHttpRequest();
+  httpRequest.onreadystatechange = function() {
+    if (httpRequest.readyState === 4) {
+      if (httpRequest.status === 200) {
+        var data = JSON.parse(httpRequest.responseText);
+        if (callback) callback(null, data);
+      }
+    }
+  };
+  httpRequest.open('GET', path);
+  httpRequest.send();
+}
