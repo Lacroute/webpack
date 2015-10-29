@@ -9,7 +9,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	function ready(error, lang) {
 
 		//Envoyer l'information de chargement à Google Analytics
-		ga('send', 'event', 'Infographie', 'loaded', lang.id + '-' + lang.language, {
+		ga('send', 'event', 'Infographie', 'loaded', lang.id, {
+			nonInteraction: true
+		});
+		ga('send', 'event', 'Language', 'loaded', lang.language, {
 			nonInteraction: true
 		});
 	}
@@ -34,7 +37,9 @@ Google Analytics
 	m.parentNode.insertBefore(a, m)
 })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-ga('create', 'UA-64253904-2', 'auto');
+ga('create', 'UA-64253904-2', {'alwaysSendReferrer': true});
 ga('set', 'anonymizeIp', true);
 ga('set', 'forceSSL', true);
+/(.*)\?/.exec(document.referrer);
+ga('set', 'referrer', RegExp.$1);
 ga('send', 'pageview', location.pathname);
