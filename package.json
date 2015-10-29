@@ -57,6 +57,7 @@
     "preprocess": "^3.0.0",
     "q": "^1.4.1",
     "require-dir": "^0.3.0",
+    "run-sequence": "^1.1.4",
     "stream-combiner": "^0.2.2",
     "weak": "^1.0.0",
     "yargs": "^3.12.0"

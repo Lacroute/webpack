@@ -17,7 +17,7 @@
 
 6. Lancer une commande ```gulp build --lang xx-XX``` pour faire un builds
 
-7. Pour déployer en prod : ```gulp deploy```
+7. Pour déployer en prod : ```gulp deploy --lang xx-XX```
   * le déploiement se nourrit essentiellement des infos contnues dans le fichier "lang.json" du répertoire "data" : les champs importants sont *keywords*, *language* et *id*
   * la datesera la date d'indexation
   * l'infographie sera ensuite automatiquement ajoutée dans phraseanet ou s'il s'agit d'une màj, il faudra passer par le volet upload > quarantaine
