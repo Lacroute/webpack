@@ -7,7 +7,7 @@ var dev_lang = argv.lang;
 var watch = require('gulp-watch');
 var rseq = require('run-sequence');
 
-gulp.task('default', ['jade', 'others', 'fonts', 'sass', 'scripts', 'images', 'datum'], function() {
+gulp.task('default', ['jade', 'others', 'fonts', 'sass', 'scripts', 'modernizr', 'images', 'datum'], function() {
 
   // server start
   bs.init({

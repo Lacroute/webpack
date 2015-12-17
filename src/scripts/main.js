@@ -1,45 +1,52 @@
-"use strict";
-document.addEventListener("DOMContentLoaded", function(event) {
 
-	//Chargement des données de traduction
-	queue()
-		.defer(fetchJSONFile, "data/lang.json")
-		.await(ready);
+var queue = require('./vendor/queue.min.js');
+var pym = require('./vendor/pym.min.js');
+var fetchJSONFile = require('./vendor/fetchJson');
 
-	function ready(error, lang) {
+module.exports = function() {
+    "use strict";
+    // document.addEventListener("DOMContentLoaded", function(event) {
 
-		//Envoyer l'information de chargement à Google Analytics
-		ga('send', 'event', 'Infographie', 'loaded', lang.id, {
-			nonInteraction: true
-		});
-		ga('send', 'event', 'Language', 'loaded', lang.language, {
-			nonInteraction: true
-		});
-	}
+    	//Chargement des données de traduction
+    	queue()
+    		.defer(fetchJSONFile, "data/lang.json")
+    		.await(ready);
 
-	//Initialisation de PymJS
-	var pymChild = new pym.Child();
-});
+    	function ready(error, lang) {
 
-/************
-Google Analytics
-************/
+    		//Envoyer l'information de chargement à Google Analytics
+    		ga('send', 'event', 'Infographie', 'loaded', lang.id, {
+    			nonInteraction: true
+    		});
+    		ga('send', 'event', 'Language', 'loaded', lang.language, {
+    			nonInteraction: true
+    		});
+    	}
 
-(function(i, s, o, g, r, a, m) {
-	i['GoogleAnalyticsObject'] = r;
-	i[r] = i[r] || function() {
-		(i[r].q = i[r].q || []).push(arguments)
-	}, i[r].l = 1 * new Date();
-	a = s.createElement(o),
-		m = s.getElementsByTagName(o)[0];
-	a.async = 1;
-	a.src = g;
-	m.parentNode.insertBefore(a, m)
-})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    	//Initialisation de PymJS
+    	var pymChild = new pym.Child();
+    // }, false);
 
-ga('create', 'UA-64253904-2', {'alwaysSendReferrer': true});
-ga('set', 'anonymizeIp', true);
-ga('set', 'forceSSL', true);
-/(.*)\?/.exec(document.referrer);
-ga('set', 'referrer', RegExp.$1);
-ga('send', 'pageview', location.pathname);
+    /************
+    Google Analytics
+    ************/
+
+    (function(i, s, o, g, r, a, m) {
+    	i['GoogleAnalyticsObject'] = r;
+    	i[r] = i[r] || function() {
+    		(i[r].q = i[r].q || []).push(arguments)
+    	}, i[r].l = 1 * new Date();
+    	a = s.createElement(o),
+    		m = s.getElementsByTagName(o)[0];
+    	a.async = 1;
+    	a.src = g;
+    	m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-64253904-2', {'alwaysSendReferrer': true});
+    ga('set', 'anonymizeIp', true);
+    ga('set', 'forceSSL', true);
+    /(.*)\?/.exec(document.referrer);
+    ga('set', 'referrer', RegExp.$1);
+    ga('send', 'pageview', location.pathname);
+};

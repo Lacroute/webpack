@@ -9,14 +9,16 @@ var newer = require('gulp-newer');
 var replace = require('gulp-html-replace');
 var concat = require('gulp-concat');
 var sort = require('gulp-sort');
+var browserify = require('browserify');
+var source = require('vinyl-source-stream');
 
-gulp.task('build', ['sortJs'], function(cb) {
-
+// gulp.task('build', ['sortJs'], function(cb) {
+gulp.task('build', function(cb) {
   gulp.src('dest/data/**/*.{jst,json,csv,tsv,txt}')
     .pipe(newer('build/data'))
     .pipe(gulp.dest('build/data'));
 
-  gulp.src('dest/scripts/vendor/modernizr.custom.55890.js')
+  gulp.src('dest/scripts/vendor/modernizr.custom.*')
     .pipe(ugly())
     .pipe(gulp.dest('build/scripts/vendor'));
 
@@ -31,7 +33,7 @@ gulp.task('build', ['sortJs'], function(cb) {
     .pipe(gulp.dest(('build')));
 
   gulp.src('dest/index.html')
-    .pipe(replace({js: 'scripts/all.js'}))
+    // .pipe(replace({js: 'scripts/all.js'}))
     .pipe(newer('build'))
     .pipe(gulp.dest(('build')));
 
@@ -48,20 +50,24 @@ gulp.task('build', ['sortJs'], function(cb) {
   gulp.src('dest/images/**/*.{png,jpg,svg}')
     .pipe(newer('build/images'))
     .pipe(gulp.dest('build/images'));
-});
 
-gulp.task('sortJs', function() {
-  return gulp.src(['./src/scripts/**/*.js', '!./scr/scripts/vendor/modernizr.custom.55890.js'])
-    .pipe(sort({
-      comparator: function(file1, file2) {
-        if (file1.path.indexOf('.min.') > -1)
-          return -1;
-        if (file2.path.indexOf('.min.') > -1)
-          return 1;
-        return 0;
-      }
-    }))
-    .pipe(concat('all.js'))
+  gulp.src('./dest/scripts/bundle.js')
     .pipe(ugly())
     .pipe(gulp.dest('./build/scripts'));
-})
+});
+
+// gulp.task('sortJs', function() {
+//   return gulp.src(['./src/scripts/**/*.js', '!./scr/scripts/vendor/modernizr.custom.55890.js'])
+//     .pipe(sort({
+//       comparator: function(file1, file2) {
+//         if (file1.path.indexOf('.min.') > -1)
+//           return -1;
+//         if (file2.path.indexOf('.min.') > -1)
+//           return 1;
+//         return 0;
+//       }
+//     }))
+//     .pipe(concat('all.js'))
+//     .pipe(ugly())
+//     .pipe(gulp.dest('./build/scripts'));
+// })

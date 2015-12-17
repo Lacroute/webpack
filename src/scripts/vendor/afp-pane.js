@@ -1,17 +1,20 @@
-document.addEventListener("DOMContentLoaded", function(event) {
-  "use strict";
-  var pane = document.querySelector('.afp-pane'),
+// document.addEventListener("DOMContentLoaded", function(event) {
+var queue = require('./queue.min.js');
+
+module.exports = function() {
+    "use strict";
+    var pane = document.querySelector('.afp-pane'),
     paneClass = pane.className,
     warn = document.querySelector('.not-supported'),
     mandatoryList = ['queryselector', 'fontface', 'boxsizing'];
 
-  /**
-   * [testfeatures description] use modernizr builtin test tool to test if the client browser is suitable for the widget
-   * @param  {[type]}   list     [description] array of tested features
-   * @param  {Function} callback [description]
-   * @return {[type]}            [description]
-   */
-  function testfeatures(list, callback) {
+    /**
+    * [testfeatures description] use modernizr builtin test tool to test if the client browser is suitable for the widget
+    * @param  {[type]}   list     [description] array of tested features
+    * @param  {Function} callback [description]
+    * @return {[type]}            [description]
+    */
+    function testfeatures(list, callback) {
     list.forEach(function(el, i) {
       if (!Modernizr[el]) {
         callback(el + ' not implemented', el);
@@ -20,13 +23,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
       if (i === (list.length - 1) && Modernizr[list[(list.length - 1)]])
         callback(null, true);
     });
-  }
+    }
 
-  /**
-   * [manageInfosPanel description] CTA buttons for displaying info panels
-   * @return void
-   */
-  function manageInfosPanel() {
+    /**
+    * [manageInfosPanel description] CTA buttons for displaying info panels
+    * @return void
+    */
+    function manageInfosPanel() {
     var infoButton = document.querySelector('.click-info'),
       closeButton = document.querySelector('.click-close');
 
@@ -47,9 +50,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
       pane.style.top = '-1000px';
       pane.className = paneClass;
     }, false);
-  }
-  // test du tableau des mandatory features
-  queue()
+    }
+    // test du tableau des mandatory features
+    queue()
     .defer(testfeatures, mandatoryList)
     .await(function(err, result) {
       if (err) console.log("Error ", err);
@@ -66,24 +69,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       }
     });
 
-}, false);
+    // }, false);
 
-/**
- * [fetchJSONFile description] ajax fn() with queue.js callback
- * @param  {[type]}   path     [description] uri to json source
- * @param  {Function} callback [description] handler in queue.js
- * @return void
- */
-function fetchJSONFile(path, callback) {
-  var httpRequest = new XMLHttpRequest();
-  httpRequest.onreadystatechange = function() {
-    if (httpRequest.readyState === 4) {
-      if (httpRequest.status === 200) {
-        var data = JSON.parse(httpRequest.responseText);
-        if (callback) callback(null, data);
-      }
-    }
-  };
-  httpRequest.open('GET', path);
-  httpRequest.send();
-}
+
+};
