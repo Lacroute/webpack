@@ -37,7 +37,7 @@ gulp.task('build', function(cb) {
     .pipe(newer('build'))
     .pipe(gulp.dest(('build')));
 
-  sass('./src/styles/styles.scss', {sourcemap: true})
+  sass('./src/styles/styles.scss', {sourcemap: false})
   .pipe(prefix("last 1 version", "> 1%", "ie 8", "ie 7"))
   .pipe(minify())
   .pipe(gulp.dest('./build/styles'));
