@@ -8,6 +8,7 @@ var html = require('gulp-html-prettify');
 var fs = require('fs');
 var argv   = require('yargs').argv;
 var dev_lang = argv.lang;
+var plumber = require('gulp-plumber');
 
 var hashmap = {
   "fr-FR": {
@@ -45,6 +46,7 @@ gulp.task('html', function() {
 gulp.task('jade', function() {
   var data = JSON.parse(fs.readFileSync('./src/data/' + hashmap[dev_lang].lang + '/lang.json'));
   return gulp.src(['./src/html/index.jade', './src/html/styles.jade'])
+    .pipe(plumber())
     .pipe(jade({
       locals: data
     }))

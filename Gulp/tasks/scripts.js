@@ -3,6 +3,7 @@ var gutil  = require('gulp-util');
 var newer  = require('gulp-newer');
 var jshint = require('gulp-jshint');
 var browserify = require('browserify');
+var riotify    = require('riotify');
 var source = require('vinyl-source-stream');
 
 // gulp.task('scripts', function() {
@@ -14,7 +15,8 @@ var source = require('vinyl-source-stream');
 // });
 //
 gulp.task('scripts', function() {
-    return browserify('./src/scripts/entry.js', {debug: true})
+    return browserify({entries:['./src/scripts/entry.js']}, {debug: true})
+    	.transform(riotify, { template: 'jade' })
         .bundle()
         .pipe(source('bundle.js'))
         .pipe(gulp.dest('./dest/scripts'));

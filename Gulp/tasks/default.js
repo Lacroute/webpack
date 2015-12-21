@@ -6,7 +6,7 @@ var dev_lang = argv.lang;
 var watch = require('gulp-watch');
 var rseq = require('run-sequence');
 
-gulp.task('default', ['jade', 'others', 'fonts', 'sass', 'scripts', 'modernizr', 'images', 'datum'], function() {
+gulp.task('default', ['jade', 'others', 'fonts', 'scripts', 'modernizr', 'images', 'datum'], function() {
 
   // server start
   browserSync.init({
@@ -19,7 +19,7 @@ gulp.task('default', ['jade', 'others', 'fonts', 'sass', 'scripts', 'modernizr',
 
   gulp.watch(['./src/styles/**/*.{scss,css}', '!.src/styles/fonts/**/*'], ['sass']);
 
-  gulp.watch('./src/scripts/**/*.js', ['scripts', browserSync.reload]);
+  gulp.watch('./src/scripts/**/*.{js,tag}', ['scripts', browserSync.reload]);
 
   watch('./src/images/**/*.{png,jpg}', function() {
     gutil.log('change images');

@@ -3,6 +3,10 @@ var queue = require('./vendor/queue.min.js');
 var pym = require('./vendor/pym.min.js');
 var fetchJSONFile = require('./vendor/fetchJson');
 
+//Tags
+var riot = require('riot');
+var todo = require('./todo.tag');
+
 module.exports = function() {
     "use strict";
 
@@ -21,6 +25,7 @@ module.exports = function() {
 			nonInteraction: true
 		});
 
+        riot.mount(todo, {title:"Ma todolist", items:[{title: "Premier item"},{title: "Deuxième item"}]});
 	}
 
 	//Initialisation de PymJS
