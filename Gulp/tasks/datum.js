@@ -10,7 +10,7 @@ function onthefly() {
 }
 
 gulp.task('datum', function() {
-  return gulp.src('src/data/'+ dev_lang +'/**/*.{json,txt,csv,tsv}')
+  return gulp.src(['src/data/'+ dev_lang +'/**/*.{json,txt,csv,tsv}','src/data/common/*.{json,txt,csv,tsv,geojson}'])
     .pipe(newer('dest/data'))
     // .pipe(gulp.dest('dest/data'));
     .pipe(onthefly());
