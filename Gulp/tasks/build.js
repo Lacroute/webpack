@@ -11,9 +11,10 @@ var concat = require('gulp-concat');
 var sort = require('gulp-sort');
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
+var minifyHTML = require('gulp-minify-html');
 
 // gulp.task('build', ['sortJs'], function(cb) {
-gulp.task('build', function(cb) {
+gulp.task('build', ['clean:build'], function(cb) {
   gulp.src('dest/data/**/*.{jst,json,csv,tsv,txt}')
     .pipe(newer('build/data'))
     .pipe(gulp.dest('build/data'));
@@ -33,8 +34,8 @@ gulp.task('build', function(cb) {
     .pipe(gulp.dest(('build')));
 
   gulp.src('dest/index.html')
-    // .pipe(replace({js: 'scripts/all.js'}))
     .pipe(newer('build'))
+    .pipe(minifyHTML())
     .pipe(gulp.dest(('build')));
 
   sass('./src/styles/styles.scss', {sourcemap: false})

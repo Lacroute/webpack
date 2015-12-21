@@ -5,3 +5,7 @@ var del = require('del');
 gulp.task('clean', function() {
   return del(['./build', './dest', './sass-cache']);
 });
+
+gulp.task('clean:build', function() {
+  return del(['./build']);
+});
