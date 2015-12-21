@@ -1,7 +1,6 @@
 var gulp   = require('gulp');
 var gutil  = require('gulp-util');
-var bs     = require('browser-sync');
-var reload = bs.reload;
+var browserSync     = require('browser-sync').create('DevServer');
 var argv   = require('yargs').argv;
 var dev_lang = argv.lang;
 var watch = require('gulp-watch');
@@ -10,17 +9,17 @@ var rseq = require('run-sequence');
 gulp.task('default', ['jade', 'others', 'fonts', 'sass', 'scripts', 'modernizr', 'images', 'datum'], function() {
 
   // server start
-  bs.init({
+  browserSync.init({
     server: {
       baseDir: "./dest"
     }
   });
 
-  gulp.watch('./src/html/**/*.jade', ['jade', bs.reload]);
+  gulp.watch('./src/html/**/*.jade', ['jade', browserSync.reload]);
 
-  gulp.watch(['./src/styles/**/*.{scss,css}', '!.src/styles/fonts/**/*'], ['sass', bs.reload]);
+  gulp.watch(['./src/styles/**/*.{scss,css}', '!.src/styles/fonts/**/*'], ['sass']);
 
-  gulp.watch('./src/scripts/**/*.js', ['scripts', bs.reload]);
+  gulp.watch('./src/scripts/**/*.js', ['scripts', browserSync.reload]);
 
   watch('./src/images/**/*.{png,jpg}', function() {
     gutil.log('change images');

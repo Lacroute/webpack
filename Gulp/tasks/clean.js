@@ -1,8 +1,7 @@
 var gulp   = require('gulp');
 var gutil  = require('gulp-util');
-var clean = require('gulp-rimraf');
+var del = require('del');
 
 gulp.task('clean', function() {
-  return gulp.src(['./dest', './build'])
-    .pipe(clean({force: true}));
+  return del(['./build', './dest', './sass-cache']);
 });
