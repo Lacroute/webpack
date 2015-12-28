@@ -14,7 +14,7 @@ var source = require('vinyl-source-stream');
 // });
 //
 gulp.task('scripts', function() {
-    return browserify('./src/scripts/entry.js')
+    return browserify('./src/scripts/entry.js', {debug: true})
         .bundle()
         .pipe(source('bundle.js'))
         .pipe(gulp.dest('./dest/scripts'));

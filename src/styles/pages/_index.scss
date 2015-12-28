@@ -3,21 +3,3 @@ $custom : $cranberry-5;
 .container {
   background-color: #f6f2f0;
 }
-
-.discret:hover {
-	background-color: $custom;
-	border-color: $custom;
-}
-
-.discret:active {
-	background-color: $custom;
-	border-color: $custom;
-	color: $white;
-	text-shadow: 0px -1px darken($custom, 10%);
-}
-
-.discret.active {
-	background-color: $custom;
-	border-color: $custom;
-	text-shadow: 0px -1px darken($custom, 10%);
-}

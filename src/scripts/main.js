@@ -5,27 +5,26 @@ var fetchJSONFile = require('./vendor/fetchJson');
 
 module.exports = function() {
     "use strict";
-    // document.addEventListener("DOMContentLoaded", function(event) {
 
-    	//Chargement des données de traduction
-    	queue()
-    		.defer(fetchJSONFile, "data/lang.json")
-    		.await(ready);
+	//Chargement des données de traduction
+	queue()
+		.defer(fetchJSONFile, "data/lang.json")
+		.await(ready);
 
-    	function ready(error, lang) {
+	function ready(error, lang) {
 
-    		//Envoyer l'information de chargement à Google Analytics
-    		ga('send', 'event', 'Infographie', 'loaded', lang.id, {
-    			nonInteraction: true
-    		});
-    		ga('send', 'event', 'Language', 'loaded', lang.language, {
-    			nonInteraction: true
-    		});
-    	}
+		//Envoyer l'information de chargement à Google Analytics
+		ga('send', 'event', 'Infographie', 'loaded', lang.id, {
+			nonInteraction: true
+		});
+		ga('send', 'event', 'Language', 'loaded', lang.language, {
+			nonInteraction: true
+		});
 
-    	//Initialisation de PymJS
-    	var pymChild = new pym.Child();
-    // }, false);
+	}
+
+	//Initialisation de PymJS
+	var pymChild = new pym.Child();
 
     /************
     Google Analytics
