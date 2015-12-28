@@ -1,0 +1,9 @@
+before_script:
+  - npm install gulp -g && npm install
+  - gulp --lang fr-FR
+  - ctr+c
+jobs:
+  script: gulp build --lang fr-FR
+
+on_success:
+  - echo success!
