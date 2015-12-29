@@ -13,6 +13,10 @@ var del = require('del');
 var argv   = require('yargs').argv;
 var dev_lang = argv.lang;
 
+if (typeof argv.lang === 'undefined') {
+ return false;
+}
+
 var date = new Date();
 var month = ((date.getMonth()+1) < 10) ? '0' + (date.getMonth()+1) : date.getMonth()+1;
 var hour = ((date.getHours()) < 10) ? '0' + date.getHours() : date.getHours();
