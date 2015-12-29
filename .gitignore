@@ -13,6 +13,7 @@ src/components/
 !.gitignore
 !.jshintrc
 !.jshintignore
+!.gitlab-ci.yml
 
 # Temporary Directories
 tmp
