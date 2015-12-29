@@ -1,6 +1,6 @@
 var gulp   = require('gulp');
 var gutil  = require('gulp-util');
-var bs     = require('browser-sync');
+var bs     = require('browser-sync').create('DevServer');
 var reload = bs.reload;
 var argv   = require('yargs').argv;
 var dev_lang = argv.lang;
@@ -18,7 +18,7 @@ gulp.task('default', ['jade', 'others', 'fonts', 'sass', 'scripts', 'images', 'd
 
   gulp.watch('./src/html/**/*.jade', ['jade', bs.reload]);
 
-  gulp.watch(['./src/styles/**/*.{scss,css}', '!.src/styles/fonts/**/*'], ['sass', bs.reload]);
+  gulp.watch(['./src/styles/**/*.{scss,css}', '!.src/styles/fonts/**/*'], ['sass']);
 
   gulp.watch('./src/scripts/**/*.js', ['scripts', bs.reload]);
 
