@@ -11,7 +11,7 @@ var concat = require('gulp-concat');
 var sort = require('gulp-sort');
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
-var minifyHTML = require('gulp-minify-html');
+var minifyHTML = require('gulp-htmlmin');
 
 // gulp.task('build', ['sortJs'], function(cb) {
 gulp.task('build', ['clean:build'], function(cb) {
@@ -35,7 +35,7 @@ gulp.task('build', ['clean:build'], function(cb) {
 
   gulp.src('dest/index.html')
     .pipe(newer('build'))
-    .pipe(minifyHTML())
+    .pipe(minifyHTML({collapseWhitespace: true}))
     .pipe(gulp.dest(('build')));
 
   sass('./src/styles/styles.scss', {sourcemap: false})
