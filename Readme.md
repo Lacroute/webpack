@@ -1,5 +1,26 @@
+                                                                       ``--:/+ysssyyo++:``
+                                                                      `-/+yh:/+ohdhysmNNdhy/`       
+                                                                  ``-/+oo`.`+hy/+syddysyNNMmmo`     
+                                                                  -   `.+md/`::/hmdo++dNMmsdNMm/    
+              `sddddddddh-    /ddddddddddddddd+   +dddddddddhy+-     -s+..``dMMo.-:mMMs-+NMMMMMMs`  
+             -dMMMMMMMMMN:    +MMMMMMMMMMMMMm/  -dMMMMMMMMMMMMMMd-   :o-:ss-`.`sNMNs--+NMMNNMmMMMy`
+            +NMMMMNMMMMMN:    +MMMMMNhhhhhho.  +NMMMMmsssshNMMMMMm.     yNd/:+::sdhsso+yNMNyNMMMMN+
+          .hMMMMMh.NMMMMN:    +MMMMMd.        `sMMMMMs     /NMMMMN+        oMMM+  .dMMN-`/dMMMNdMMm.
+    `````:mMMMMNs.`NMMMMN/````oMMMMMd-`````````sMMMMMs    `+NMMMMN+     :ys:+s/+hmdyos+smNMMMMMNMMM:
+  :dmmmmmMMMMMMMmmmMMMMMMNmmmmNMMMMMMmmmmmmmmmmNMMMMMNddddNMMMMMMd`    `dMM+  `yMMMm` :mMMMMMMMMMMN+
+`sNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNy`      `:-/hmy//o/+hmhoyhNMMMMmMMM-
++yyyhNMMMMMNyyyyyyyMMMMMMhyyyydMMMMMNhyyyyyyyyymMMMMMNyyyyyso/-`        `-./mMN/ ``hMMN/:omMMMMNMMy`
+   .hMMMMMm-       NMMMMN:    +MMMMMd.        `sMMMMMd                 `hMMo`` +mMNs::+mMMdsMMMMMd:
+  /mMMMMMy.        NMMMMN:    +MMMMMd.        `sMMMMMd               +h/.:/.:+/+dmdsooohdNMMMmMMN:  
+ :syyyyy/          yyyyys-    :yyyyyo`         /yyyyyo               `/::+/-ymm+`.:dNms+oNmNMMMd-   
+                                                                  -` `.++sy:`..+mNm+-/mNMmhhNmo`    
+                                                                    -+/:/`:-odh//oymmdsydmNmo.      
+                                                                      `:+/+s+ooohhysyhddyo:`        
+                                                                         `.-:-///+o+:--`
+
 # Model pour les projets AFP
 ============================
+
 
 ## Installation
 
@@ -9,18 +30,17 @@
 2. installer les modules npm
   * ```npm install```
 
-3. S'il y a un fichier "bower.json", faites un ```bower install```
+3. Lancer le serveur de dev avec une commande ```gulp --lang xx-XX``` (où xx-XX est la langue choisie, par ex: fr-FR)
 
-4. Lancer le serveur de dev avec une commande ```gulp --lang xx-XX``` (où xx-XX est la langue choisie, par ex: fr-FR)
+4. **S'il y a un problème d'affichage au lancement ou que vous ne voyez pas vos changements, coupez le process (ctrl + c) et lancer un 'gulp clean'**
 
-5. **S'il y a un problème d'affichage au lancement ou que vous ne voyez pas vos changements, coupez le process (ctrl + c) et lancer un 'gulp clean'**
+5. Lancer une commande ```gulp build --lang xx-XX``` pour faire un builds
 
-6. Lancer une commande ```gulp build --lang xx-XX``` pour faire un builds
-
-7. Pour déployer en prod : ```gulp deploy --lang xx-XX```
+6. Pour déployer en prod : ```gulp deploy --lang xx-XX```
   * le déploiement se nourrit essentiellement des infos contnues dans le fichier "lang.json" du répertoire "data" : les champs importants sont *keywords*, *language* et *id*
   * la datesera la date d'indexation
   * l'infographie sera ensuite automatiquement ajoutée dans phraseanet ou s'il s'agit d'une màj, il faudra passer par le volet upload > quarantaine
+
 
 ## Structure
 
