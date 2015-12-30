@@ -1,10 +1,14 @@
 before_script:
   - npm install gulp -g && npm install
-  - gulp --lang fr-FR
-  - ctr+c
-jobs:
+
+deploy:
   script: gulp build --lang fr-FR
+  stage: build
+  only:
+    - master
+  tags:
+    - deployBuild
+  allow_failure: true
 
 on_success:
   - echo success!
-
