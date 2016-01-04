@@ -3,7 +3,6 @@ before_script:
 
 deploy:
   script: gulp build --lang fr-FR
-  stage: build
   only:
     - master
   tags:
