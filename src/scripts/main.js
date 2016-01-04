@@ -1,4 +1,3 @@
-
 var queue = require('./vendor/queue.min.js');
 var pym = require('./vendor/pym.min.js');
 var fetchJSONFile = require('./vendor/fetchJson');
@@ -6,6 +5,8 @@ var fetchJSONFile = require('./vendor/fetchJson');
 //Tags
 var riot = require('riot');
 var todo = require('./todo.tag');
+var Dispatcher = riot.observable();
+window.Dispatcher = Dispatcher;
 
 //Initialisation de Google Analytics
 var googleAnalytics = require('./vendor/googleAnalytics')('UA-64253904-2');
