@@ -9,6 +9,3 @@ deploy:
   tags:
     - deployBuild
   allow_failure: true
-
-on_success:
-  - echo success!
