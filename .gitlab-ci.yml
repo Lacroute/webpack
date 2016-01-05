@@ -1,5 +1,8 @@
+image: mvertes/gitlab-runner-node:latest
+
 before_script:
   - npm install gulp -g && npm install
+  - npm install gulp
 
 deploy:
   script: gulp build --lang fr-FR
