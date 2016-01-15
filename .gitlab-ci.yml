@@ -4,7 +4,7 @@ cache:
 
 stages:
   - build
-
+  - cleanup
 
 build:
   stage: build
@@ -16,3 +16,8 @@ build:
   tags:
     - deployBuild
   allow_failure: true
+
+cleaning:
+  stage: cleanup
+  script: rm -rf /home/gitlab-runner/builds/*
+  
