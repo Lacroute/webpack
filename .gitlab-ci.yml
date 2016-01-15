@@ -1,10 +1,20 @@
-before_script:
-  - npm install
+cache:
+  paths:
+    - ./node_modules/
 
-deploy:
-  script: gulp build --lang fr-FR
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  script: npm install && gulp build --lang fr-FR
   only:
     - master
   tags:
     - deployBuild
   allow_failure: true
+
+deploy:
+  stage: deploy
+  script: mkdir /home/gitlab-runner && cp -R ./build /home/gitlab-runner/deploy/
