@@ -14,10 +14,5 @@ build:
   allow_failure: true
 
 on_success:
-  stage: cleanup
+  stage: build
   script: rm -rf /home/gitlab-runner/builds/*
-  only:
-    - master
-  tags:
-    - deployBuild
-  allow_failure: true
