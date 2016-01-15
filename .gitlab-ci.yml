@@ -10,7 +10,7 @@ build:
   stage: build
   script:
     - npm install && gulp build --lang fr-FR
-    - mkdir /home/gitlab-runner/deploy && cp -R ./build /home/gitlab-runner/deploy/
+    - cp -R ./build /home/gitlab-runner/deploy/
   only:
     - master
   tags:
@@ -20,4 +20,3 @@ build:
 cleaning:
   stage: cleanup
   script: rm -rf /home/gitlab-runner/builds/*
-  
