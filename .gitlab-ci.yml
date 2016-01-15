@@ -4,13 +4,22 @@ cache:
 
 stages:
   - build
+  - cleanup
 
 build:
   stage: build
   script:
     - npm install && gulp build --lang fr-FR
     - cp -R ./build /home/gitlab-runner/deploy/
-    - rm -rf /home/gitlab-runner/builds/*
+  only:
+    - master
+  tags:
+    - deployBuild
+  allow_failure: true
+
+on_success:
+  stage: cleanup
+  script: rm -rf /home/gitlab-runner/builds/*
   only:
     - master
   tags:
