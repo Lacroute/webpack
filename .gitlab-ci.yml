@@ -4,17 +4,15 @@ cache:
 
 stages:
   - build
-  - deploy
+
 
 build:
   stage: build
-  script: npm install && gulp build --lang fr-FR
+  script:
+    - npm install && gulp build --lang fr-FR
+    - mkdir /home/gitlab-runner && cp -R ./build /home/gitlab-runner/deploy/
   only:
     - master
   tags:
     - deployBuild
   allow_failure: true
-
-deploy:
-  stage: deploy
-  script: mkdir /home/gitlab-runner && cp -R ./build /home/gitlab-runner/deploy/
