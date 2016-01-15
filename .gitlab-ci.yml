@@ -1,6 +1,5 @@
 before_script:
-  - npm install gulp -g && npm install
-  - npm install gulp
+  - npm install
 
 deploy:
   script: gulp build --lang fr-FR

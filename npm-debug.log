@@ -1,0 +1,139 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/Users/pablosinivassin/.nvm/versions/node/v5.3.0/bin/node',
+1 verbose cli   '/Users/pablosinivassin/.nvm/versions/node/v5.3.0/bin/npm',
+1 verbose cli   'publish' ]
+2 info using npm@3.5.2
+3 info using node@v5.3.0
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/Users/pablosinivassin/Sites/AFP/model',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /Users/pablosinivassin/.npm/project-model/0.0.1/package.tgz not in flight; packing
+9 info lifecycle project-model@0.0.1~prepublish: project-model@0.0.1
+10 silly lifecycle project-model@0.0.1~prepublish: no script for prepublish, continuing
+11 verbose tar pack [ '/Users/pablosinivassin/.npm/project-model/0.0.1/package.tgz',
+11 verbose tar pack   '/Users/pablosinivassin/Sites/AFP/model' ]
+12 verbose tarball /Users/pablosinivassin/.npm/project-model/0.0.1/package.tgz
+13 verbose folder /Users/pablosinivassin/Sites/AFP/model
+14 verbose addLocalTarball adding from inside cache /Users/pablosinivassin/.npm/project-model/0.0.1/package.tgz
+15 silly cache afterAdd project-model@0.0.1
+16 verbose afterAdd /Users/pablosinivassin/.npm/project-model/0.0.1/package/package.json not in flight; writing
+17 verbose afterAdd /Users/pablosinivassin/.npm/project-model/0.0.1/package/package.json written
+18 silly publish { name: 'project-model',
+18 silly publish   version: '0.0.1',
+18 silly publish   description: 'slug for AFP projects',
+18 silly publish   main: 'gulpfile.js',
+18 silly publish   scripts: { test: 'none (for the moment)' },
+18 silly publish   repository:
+18 silly publish    { type: 'git',
+18 silly publish      url: 'git+ssh://git@gitlab.com/afp_dataviz/project-model.git' },
+18 silly publish   keywords: [ 'AFP', 'gulp', 'projects', 'dataviz' ],
+18 silly publish   author: { name: 'AFP' },
+18 silly publish   license: 'ISC',
+18 silly publish   devDependencies:
+18 silly publish    { 'browser-sync': '^2.7.6',
+18 silly publish      del: '^2.0.2',
+18 silly publish      exif: '^0.4.0',
+18 silly publish      gulp: '^3.9.0',
+18 silly publish      'gulp-autoprefixer': '^2.3.1',
+18 silly publish      'gulp-concat': '^2.6.0',
+18 silly publish      'gulp-data': '^1.2.0',
+18 silly publish      'gulp-extend': '^0.2.0',
+18 silly publish      'gulp-html-replace': '^1.5.1',
+18 silly publish      'gulp-imagemin': '^2.3.0',
+18 silly publish      'gulp-jade': '^1.0.1',
+18 silly publish      'gulp-jshint': '^1.11.0',
+18 silly publish      'gulp-load-plugins': '^0.10.0',
+18 silly publish      'gulp-local-screenshots': '^2.1.0',
+18 silly publish      'gulp-minify-css': '^1.1.6',
+18 silly publish      'gulp-newer': '^0.5.0',
+18 silly publish      'gulp-rename': '^1.2.2',
+18 silly publish      'gulp-replace': '^0.5.4',
+18 silly publish      'gulp-rimraf': '^0.1.1',
+18 silly publish      'gulp-ruby-sass': '^1.0.5',
+18 silly publish      'gulp-sftp': '^0.1.5',
+18 silly publish      'gulp-sort': '^1.1.1',
+18 silly publish      'gulp-sourcemaps': '^1.5.2',
+18 silly publish      'gulp-ssh': '^0.5.3',
+18 silly publish      'gulp-template': '^3.0.0',
+18 silly publish      'gulp-tools': '^0.0.1',
+18 silly publish      'gulp-uglify': '^1.2.0',
+18 silly publish      'gulp-util': '^3.0.5',
+18 silly publish      'gulp-watch': '^4.3.5',
+18 silly publish      imagemin: '^3.2.0',
+18 silly publish      'imagemin-jpegtran': '^4.3.0',
+18 silly publish      'imagemin-optipng': '^4.3.0',
+18 silly publish      'imagemin-svgo': '^4.1.2',
+18 silly publish      'jshint-stylish': '^2.0.0',
+18 silly publish      lodash: '^3.10.1',
+18 silly publish      preprocess: '^3.0.0',
+18 silly publish      q: '^1.4.1',
+18 silly publish      'require-dir': '^0.3.0',
+18 silly publish      'run-sequence': '^1.1.4',
+18 silly publish      'stream-combiner': '^0.2.2',
+18 silly publish      weak: '^1.0.0',
+18 silly publish      yargs: '^3.12.0' },
+18 silly publish   readme: '```\n                                                                       ``--:/+ysssyyo++:``\n                                                                      `-/+yh:/+ohdhysmNNdhy/`       \n                                                                  ``-/+oo`.`+hy/+syddysyNNMmmo`     \n                                                                  -   `.+md/`::/hmdo++dNMmsdNMm/    \n              `sddddddddh-    /ddddddddddddddd+   +dddddddddhy+-     -s+..``dMMo.-:mMMs-+NMMMMMMs`  \n             -dMMMMMMMMMN:    +MMMMMMMMMMMMMm/  -dMMMMMMMMMMMMMMd-   :o-:ss-`.`sNMNs--+NMMNNMmMMMy`\n            +NMMMMNMMMMMN:    +MMMMMNhhhhhho.  +NMMMMmsssshNMMMMMm.     yNd/:+::sdhsso+yNMNyNMMMMN+\n          .hMMMMMh.NMMMMN:    +MMMMMd.        `sMMMMMs     /NMMMMN+        oMMM+  .dMMN-`/dMMMNdMMm.\n    `````:mMMMMNs.`NMMMMN/````oMMMMMd-`````````sMMMMMs    `+NMMMMN+     :ys:+s/+hmdyos+smNMMMMMNMMM:\n  :dmmmmmMMMMMMMmmmMMMMMMNmmmmNMMMMMMmmmmmmmmmmNMMMMMNddddNMMMMMMd`    `dMM+  `yMMMm` :mMMMMMMMMMMN+\n`sNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNy`      `:-/hmy//o/+hmhoyhNMMMMmMMM-\n+yyyhNMMMMMNyyyyyyyMMMMMMhyyyydMMMMMNhyyyyyyyyymMMMMMNyyyyyso/-`        `-./mMN/ ``hMMN/:omMMMMNMMy`\n   .hMMMMMm-       NMMMMN:    +MMMMMd.        `sMMMMMd                 `hMMo`` +mMNs::+mMMdsMMMMMd:\n  /mMMMMMy.        NMMMMN:    +MMMMMd.        `sMMMMMd               +h/.:/.:+/+dmdsooohdNMMMmMMN:  \n :syyyyy/          yyyyys-    :yyyyyo`         /yyyyyo               `/::+/-ymm+`.:dNms+oNmNMMMd-   \n                                                                  -` `.++sy:`..+mNm+-/mNMmhhNmo`    \n                                                                    -+/:/`:-odh//oymmdsydmNmo.      \n                                                                      `:+/+s+ooohhysyhddyo:`        \n                                                                         `.-:-///+o+:--`\n```\n# Model pour les projets AFP\n============================\n\n\n## Installation\n\n1. Cloner ce repo sur le poste local\n  * vous pouvez cloner un projet en nommant le dossier de destination à votre convenance en utilisant ```git clone https://... <nomPréféréDuDossier>```\n\n2. installer les modules npm\n  * ```npm install```\n\n3. Lancer le serveur de dev avec une commande ```gulp --lang xx-XX``` (où xx-XX est la langue choisie, par ex: fr-FR)\n\n4. **S\'il y a un problème d\'affichage au lancement ou que vous ne voyez pas vos changements, coupez le process (ctrl + c) et lancer un \'gulp clean\'**\n\n5. Lancer une commande ```gulp build --lang xx-XX``` pour faire un builds\n\n6. Pour déployer en prod : ```gulp deploy --lang xx-XX```\n  * le déploiement se nourrit essentiellement des infos contnues dans le fichier "lang.json" du répertoire "data" : les champs importants sont *keywords*, *language* et *id*\n  * la datesera la date d\'indexation\n  * l\'infographie sera ensuite automatiquement ajoutée dans phraseanet ou s\'il s\'agit d\'une màj, il faudra passer par le volet upload > quarantaine\n\n\n## Structure\n\n* En développant, vous modifier uniquement ***les fichiers du répertoire "src"***\n* Vous pouvez afficher la liste des styles de base disponibles via ***styles.html***\n* Les fichiers du répertoire "dest" sont ceux affichés dans votre navigateur\n* Les fichiers du répertoire "build" sont le produit de la commande ```gulp build --lang xx-XX```\n* Les fichiers copiés sur le serveur et indexés sont ceux pris du répertoire "build"\n* Il ne peut il y a voir de build si vous n\'avez pas lancé un dev au moins une fois.\n* il ne peut pas il y avoir de déploiement si vous n\'avez pas buildé au moins une fois.\n\nDev : **Il faut d\'ailleurs penser à modifier le fichier Gulp/tasks/build.js pour qu\'il pointe sur les bons fichiers data : quand j\'ai fait ce modèle, les noms des fichiers correspondaient au répertoire france-unemployment.**\n\n### Dossier "src"\nLe dossier **src** contient généralement les répertoires traditionnels :\n* data : pour stocker les fichiers de trad et de data dans leurs répertoires de lang respectifs\n* html : pour les fichiers html et le fichier graphics.json pour les metadatas\n* images\n* scripts : pour toutes les librairies javascript\n* styles : pour la css et les polices dans leurs répertoires de lang respectifs\n\n### Traductions\n\n1. Lancer le serveur avec une commande qui spécifie la langue ```gulp --lang fr-FR```, par exemple.\n\n2. Arrêtez le serveur avec la combinaison \'ctrl + c\' et faites un build du langage : ```gulp build --lang fr-FR``` par exemple.\n\n### Troubleshootings\n\n### Issue tracking\n\nje propose qu\'on procède comme suit :\n* attribution d\'une plage pour les issues par catégories:\n\n    - display : ce qui a trait à l\'affichage (plage de 0 à 99)\n    - features : ce qui a trait aux fonctionnalités (plage de 100 à 199)\n    - lang : ce qui a trait aux traductions (plge de 200 à 299)\n    - scaffolder : ce qui a trait aux outils de dev et déploiement (plage de 300 à 399)\n\n* former les titres d\'issue dans gitlab comme suit\n    > "001 : display : bouton - le bouton x ne fonctionne pas\n\n* et commentez bien sûr, avec des screenshots si possible\n* Un aspect plus pratique serait de créer des labels ! D\'ailleurs ne vous en privez pas, créez des labels, vos issues laisseront une trace indélébile dans les mémoires...\n',
+18 silly publish   readmeFilename: 'Readme.md',
+18 silly publish   gitHead: '3511666d83cc1993e154f40d6ec023d6573076e3',
+18 silly publish   bugs: { url: 'https://gitlab.com/afp_dataviz/project-model/issues' },
+18 silly publish   homepage: 'https://gitlab.com/afp_dataviz/project-model#README',
+18 silly publish   _id: 'project-model@0.0.1',
+18 silly publish   _shasum: 'd11b2fdce87c886eed74aefda5f3db860dbac975',
+18 silly publish   _from: '.' }
+19 verbose getPublishConfig undefined
+20 silly mapToRegistry name project-model
+21 silly mapToRegistry using default registry
+22 silly mapToRegistry registry https://registry.npmjs.org/
+23 silly mapToRegistry uri https://registry.npmjs.org/project-model
+24 verbose publish registryBase https://registry.npmjs.org/
+25 silly publish uploading /Users/pablosinivassin/.npm/project-model/0.0.1/package.tgz
+26 verbose request uri https://registry.npmjs.org/project-model
+27 verbose request sending authorization for write operation
+28 info attempt registry request try #1 at 10:26:22
+29 verbose request using bearer token for auth
+30 verbose request id 5d9f9b3588e10659
+31 http request PUT https://registry.npmjs.org/project-model
+32 http 403 https://registry.npmjs.org/project-model
+33 verbose headers { 'content-type': 'application/json',
+33 verbose headers   'cache-control': 'max-age=300',
+33 verbose headers   'content-length': '128',
+33 verbose headers   'accept-ranges': 'bytes',
+33 verbose headers   date: 'Fri, 08 Jan 2016 09:27:25 GMT',
+33 verbose headers   via: '1.1 varnish',
+33 verbose headers   connection: 'keep-alive',
+33 verbose headers   'x-served-by': 'cache-ams4140-AMS',
+33 verbose headers   'x-cache': 'MISS',
+33 verbose headers   'x-cache-hits': '0',
+33 verbose headers   'x-timer': 'S1452245242.958654,VS0,VE2374' }
+34 verbose request invalidating /Users/pablosinivassin/.npm/registry.npmjs.org/project-model on PUT
+35 error publish Failed PUT 403
+36 verbose stack Error: "You cannot publish over the previously published version 0.0.1. Try bumping the version to 1.0.0" : project-model
+36 verbose stack     at makeError (/Users/pablosinivassin/.nvm/versions/node/v5.3.0/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:264:12)
+36 verbose stack     at CachingRegistryClient.<anonymous> (/Users/pablosinivassin/.nvm/versions/node/v5.3.0/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:252:14)
+36 verbose stack     at Request._callback (/Users/pablosinivassin/.nvm/versions/node/v5.3.0/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:172:14)
+36 verbose stack     at Request.self.callback (/Users/pablosinivassin/.nvm/versions/node/v5.3.0/lib/node_modules/npm/node_modules/request/request.js:198:22)
+36 verbose stack     at emitTwo (events.js:87:13)
+36 verbose stack     at Request.emit (events.js:172:7)
+36 verbose stack     at Request.<anonymous> (/Users/pablosinivassin/.nvm/versions/node/v5.3.0/lib/node_modules/npm/node_modules/request/request.js:1082:10)
+36 verbose stack     at emitOne (events.js:82:20)
+36 verbose stack     at Request.emit (events.js:169:7)
+36 verbose stack     at IncomingMessage.<anonymous> (/Users/pablosinivassin/.nvm/versions/node/v5.3.0/lib/node_modules/npm/node_modules/request/request.js:1009:12)
+37 verbose statusCode 403
+38 verbose pkgid project-model
+39 verbose cwd /Users/pablosinivassin/Sites/AFP/model
+40 error Darwin 15.2.0
+41 error argv "/Users/pablosinivassin/.nvm/versions/node/v5.3.0/bin/node" "/Users/pablosinivassin/.nvm/versions/node/v5.3.0/bin/npm" "publish"
+42 error node v5.3.0
+43 error npm  v3.5.2
+44 error code E403
+45 error "You cannot publish over the previously published version 0.0.1. Try bumping the version to 1.0.0" : project-model
+46 error If you need help, you may report this error at:
+46 error     <https://github.com/npm/npm/issues>
+47 verbose exit [ 1, true ]
