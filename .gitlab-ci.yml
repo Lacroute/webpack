@@ -7,7 +7,7 @@ build:
   script:
     - npm install && gulp build --lang fr-FR
     - cp -R ./build /home/gitlab-runner/deploy/
-    - rm -rf /home/gitlab-runner/builds/*
+    - rm -rf /home/gitlab-runner/builds/
   only:
     - master
   tags:
