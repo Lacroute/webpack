@@ -5,13 +5,12 @@ cache:
 stages:
   - build
   - cleanup
+  - deploy
 
 build:
   stage: build
   script:
     - npm install && gulp build --lang fr-FR
-    - cp -R ./build /home/gitlab-runner/deploy/
-    - export
   only:
     - master
   tags:
@@ -23,3 +22,8 @@ cleaning:
   stage: cleanup
   script: rm -rf $PWD
   when: always
+
+deploying:
+  stage: deploy
+  script: - curl --data "rep=$CI_PROJECT_DIR" http://vspar-infodyn-p-db-01.afp.com/
+  when: on_success
