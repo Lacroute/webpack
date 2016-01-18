@@ -2,14 +2,23 @@ cache:
   paths:
     - ./node_modules/
 
+stage:
+  - build
+  - cleanup
+
 build:
   stage: build
   script:
     - npm install && gulp build --lang fr-FR
     - cp -R ./build /home/gitlab-runner/deploy/
-    - rm -rf $PWD
   only:
     - master
   tags:
     - deployBuild
   allow_failure: true
+
+
+cleaning:
+  stage: cleanup
+  script: rm -rf $PWD
+  when: always
