@@ -10,7 +10,7 @@ build:
   tags:
     - deployBuild
 cleaning:
-  stage: cleanup
+  stage: build
   script: rm -rf $PWD
   when: always
 deploying:
