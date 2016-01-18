@@ -1,12 +1,6 @@
 cache:
   paths:
     - ./node_modules/
-
-stages:
-  - build
-  - cleanup
-  - deploy
-
 build:
   stage: build
   script:
@@ -15,12 +9,10 @@ build:
     - master
   tags:
     - deployBuild
-
 cleaning:
   stage: cleanup
   script: rm -rf $PWD
   when: always
-
 deploying:
   stage: deploy
   script: curl --data "rep=$CI_PROJECT_DIR" http://vspar-infodyn-p-db-01.afp.com/
