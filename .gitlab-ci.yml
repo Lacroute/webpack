@@ -15,8 +15,6 @@ build:
     - master
   tags:
     - deployBuild
-  allow_failure: true
-
 
 cleaning:
   stage: cleanup
