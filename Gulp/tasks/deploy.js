@@ -1,7 +1,6 @@
 var gulp   = require('gulp');
 var gutil  = require('gulp-util');
 var fs = require('fs');
-var Q = require('q');
 var GulpSSH = require('gulp-ssh');
 var sftp = require('gulp-sftp');
 var _ = require('lodash');
