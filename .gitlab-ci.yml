@@ -11,6 +11,7 @@ build:
   script:
     - npm install && gulp build --lang fr-FR
     - cp -R ./build /home/gitlab-runner/deploy/
+    - export
   only:
     - master
   tags:
