@@ -3,6 +3,7 @@ build:
   script:
     - npm install && gulp build --lang fr-FR
     - mkdir $HOME/deploy/$CI_BUILD_ID && cp -R ./build/* $HOME/deploy/$CI_BUILD_ID/
+    - export $CI_BUILD_TARGET = $HOME/deploy/$CI_BUILD_ID/
   only:
     - master
   tags:
@@ -11,9 +12,10 @@ build:
 deploying:
   stage: deploy
   script:
-    - curl --data "toclean=$CI_PROJECT_DIR&build=$HOME/deploy/$CI_BUILD_ID" http://vspar-infodyn-p-db-01.afp.com:8666
+    - curl --data "toclean=$CI_PROJECT_DIR&build=$CI_BUILD_TARGET" http://vspar-infodyn-p-db-01.afp.com:8666
   when: on_success
   only:
     - master
   tags:
     - deployBuild
+    
