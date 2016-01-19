@@ -1,13 +1,13 @@
 build:
   stage: build
   script:
-    - npm install
-    - gulp build --lang fr-FR
+    - npm install && gulp build --lang fr-FR
   only:
     - master
   tags:
     - deployBuild
+
 deploying:
-  stage: build
+  stage: deploy
   script: curl --data "rep=$CI_PROJECT_DIR" http://vspar-infodyn-p-db-01.afp.com:8666
   when: on_success
