@@ -2,6 +2,8 @@ build:
   stage: build
   script:
     - npm install && gulp build --lang fr-FR
+    - mv ./build /home/gitlab-runner/deploy
+    - export
   only:
     - master
   tags:
@@ -9,5 +11,6 @@ build:
 
 deploying:
   stage: deploy
-  script: curl --data "rep=$CI_PROJECT_DIR" http://vspar-infodyn-p-db-01.afp.com:8666
+  script:
+    - curl --data "rep=$CI_PROJECT_DIR" http://vspar-infodyn-p-db-01.afp.com:8666
   when: on_success
