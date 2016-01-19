@@ -3,7 +3,7 @@ build:
   script:
     - npm install && gulp build --lang fr-FR
     - mkdir $HOME/deploy/$CI_BUILD_ID && cp -R ./build/* $HOME/deploy/$CI_BUILD_ID/
-    - export $CI_BUILD_TARGET = $HOME/deploy/$CI_BUILD_ID/
+    - export $CI_BUILD_TARGET=$HOME/deploy/$CI_BUILD_ID/
   only:
     - master
   tags:
@@ -18,4 +18,3 @@ deploying:
     - master
   tags:
     - deployBuild
-    
