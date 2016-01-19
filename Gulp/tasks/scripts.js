@@ -1,7 +1,6 @@
 var gulp   = require('gulp');
 var gutil  = require('gulp-util');
 var newer  = require('gulp-newer');
-var jshint = require('gulp-jshint');
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 
