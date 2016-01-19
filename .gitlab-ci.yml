@@ -3,8 +3,7 @@ cache:
     - ./node_modules/
 build:
   stage: build
-  script:
-    - npm install && gulp build --lang fr-FR
+  script: npm install && gulp build --lang fr-FR
   only:
     - master
   tags:
