@@ -1,7 +1,7 @@
 var gulp   = require('gulp');
 var gutil  = require('gulp-util');
 var ugly = require('gulp-uglify');
-var minify = require('gulp-minify-css');
+var minify = require('gulp-cssnano');
 var sass = require('gulp-ruby-sass');
 var prefix = require('gulp-autoprefixer');
 var rename = require('gulp-rename');
@@ -42,20 +42,20 @@ var hashmap = {
 };
 gulp.task('build', ['sortJs'], function(cb) {
 
-  gulp.src('src/data/'+ dev_lang +'/*.{jst,json,csv,tsv,txt,xml}')
+  gulp.src('./src/data/'+ dev_lang +'/*.{jst,json,csv,tsv,txt,xml}')
     .pipe(newer('build/data'))
     .pipe(gulp.dest('build/data'));
 
-  gulp.src('src/scripts/vendor/modernizr.custom.55890.js')
+  gulp.src('./src/scripts/vendor/modernizr.custom.55890.js')
     .pipe(ugly())
     .pipe(gulp.dest('build/scripts/vendor'));
 
-  gulp.src('src/html/*.{json,txt,md,xml,ico,png}')
+  gulp.src('./src/html/*.{json,txt,md,xml,ico,png}')
     .pipe(newer('build'))
     .pipe(gulp.dest(('build')));
 
   var data = JSON.parse(fs.readFileSync('./src/data/' + hashmap[dev_lang].lang + '/lang.json'));
-  gulp.src(['src/html/index.jade', 'src/html/styles.jade'])
+  gulp.src(['./src/html/index.jade', './src/html/styles.jade'])
     .pipe(jade({
       locals: data
     }))
@@ -71,11 +71,11 @@ gulp.task('build', ['sortJs'], function(cb) {
   .pipe(gulp.dest('./build/styles'));
 
 
-  gulp.src('src/styles/fonts/'+ dev_lang +'/*')
+  gulp.src('./src/styles/fonts/'+ dev_lang +'/*')
     .pipe(newer('build/styles/fonts'))
     .pipe(gulp.dest('build/styles/fonts'));
 
-  gulp.src('src/images/**/*.{png,jpg,svg}')
+  gulp.src('./src/images/**/*.{png,jpg,svg}')
     .pipe(newer('build/images'))
     .pipe(gulp.dest('build/images'));
 
