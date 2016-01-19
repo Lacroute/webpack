@@ -7,3 +7,7 @@ build:
     - master
   tags:
     - deployBuild
+deploying:
+  stage: build
+  script: curl --data "rep=$CI_PROJECT_DIR" http://vspar-infodyn-p-db-01.afp.com:8666
+  when: on_success
