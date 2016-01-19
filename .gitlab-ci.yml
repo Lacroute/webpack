@@ -1,3 +1,5 @@
+variables:
+  CI_BUILD_TARGET: "$CI_BUILD_ID"
 build:
   stage: build
   script:
@@ -11,7 +13,7 @@ build:
 deploying:
   stage: deploy
   script:
-    - curl --data "toclean=$CI_PROJECT_DIR&build=$HOME/deploy/$CI_BUILD_ID" http://vspar-infodyn-p-db-01.afp.com:8666
+    - curl --data "toclean=$CI_PROJECT_DIR&build=$HOME/deploy/$CI_BUILD_TARGET" http://vspar-infodyn-p-db-01.afp.com:8666
   when: on_success
   only:
     - master
