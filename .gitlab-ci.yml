@@ -4,7 +4,7 @@ build:
   stage: build
   script:
     - npm install && gulp build --lang fr-FR
-    - mkdir $HOME/deploy/$CI_BUILD_TARGET && cp -R $HOME/builds/* $HOME/deploy/$CI_BUILD_TARGET/
+    - mkdir $HOME/deploy/$CI_BUILD_TARGET && cp -R ./builds/* $HOME/deploy/$CI_BUILD_TARGET/
   only:
     - master
   tags:
