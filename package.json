@@ -59,7 +59,6 @@
     "run-sequence": "^1.1.4",
     "stream-combiner": "^0.2.2",
     "vinyl-source-stream": "^1.1.0",
-    "weak": "^1.0.0",
     "yargs": "^3.12.0"
   }
 }
