@@ -51,3 +51,5 @@ gulp.task('jade', function() {
     .pipe(replace(/replaceDir/, hashmap[dev_lang].dir))
     .pipe(gulp.dest('dest/'));
 });
+
+gulp.task('changedDatas', ['datum', 'jade']);

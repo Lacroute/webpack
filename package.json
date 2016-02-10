@@ -43,7 +43,6 @@
     "gulp-tools": "^0.0.1",
     "gulp-uglify": "^1.2.0",
     "gulp-util": "^3.0.5",
-    "gulp-watch": "^4.3.5",
     "imagemin": "^3.2.0",
     "imagemin-jpegtran": "^4.3.0",
     "imagemin-optipng": "^4.3.0",
@@ -52,10 +51,8 @@
     "lodash": "^3.10.1",
     "preprocess": "^3.0.0",
     "require-dir": "^0.3.0",
-    "run-sequence": "^1.1.4",
     "stream-combiner": "^0.2.2",
     "vinyl-source-stream": "^1.1.0",
-    "weak": "^1.0.0",
     "yargs": "^3.12.0"
   }
 }
