@@ -1,7 +1,7 @@
 var gulp   = require('gulp');
 var gutil  = require('gulp-util');
 var ugly = require('gulp-uglify');
-var minify = require('gulp-minify-css');
+var minify = require('gulp-cssnano');
 var sass = require('gulp-ruby-sass');
 var prefix = require('gulp-autoprefixer');
 var rename = require('gulp-rename');
@@ -11,7 +11,7 @@ var concat = require('gulp-concat');
 var sort = require('gulp-sort');
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
-var minifyHTML = require('gulp-minify-html');
+
 
 // gulp.task('build', ['sortJs'], function(cb) {
 gulp.task('build', ['clean:build'], function(cb) {
@@ -35,7 +35,6 @@ gulp.task('build', ['clean:build'], function(cb) {
 
   gulp.src('dest/index.html')
     .pipe(newer('build'))
-    .pipe(minifyHTML())
     .pipe(gulp.dest(('build')));
 
   sass('./src/styles/styles.scss', {sourcemap: false})
