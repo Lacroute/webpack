@@ -4,10 +4,8 @@ var bs     = require('browser-sync').create('DevServer');
 var reload = bs.reload;
 var argv   = require('yargs').argv;
 var dev_lang = argv.lang;
-var watch = require('gulp-watch');
-var rseq = require('run-sequence');
 
-gulp.task('default', ['jade', 'others', 'fonts', 'sass', 'scripts', 'images', 'datum'], function() {
+gulp.task('default', ['changeDatas', 'others', 'fonts', 'images', 'scripts', 'sass'], function() {
 
   // server start
   bs.init({
@@ -22,25 +20,13 @@ gulp.task('default', ['jade', 'others', 'fonts', 'sass', 'scripts', 'images', 'd
 
   gulp.watch('./src/scripts/**/*.js', ['scripts', bs.reload]);
 
-  watch('./src/images/**/*.{png,jpg}', function() {
-    gutil.log('change images');
-    rseq('images');
-  });
+  gulp.watch('./src/images/**/*.{png,jpg,svg}', ['images', bs.reload]);
 
-  watch('./src/data/'+ dev_lang +'/**/*.{json,csv,tsv,txt}', function() {
-    gutil.log('change images');
-    rseq('datum', 'jade');
-  });
+  gulp.watch('./src/data/'+ dev_lang +'/**/*.{json,csv,tsv,txt}', ['changeDatas', bs.reload]);
 
-  watch('./src/html/**/*.{json,txt,svg,ico}', function() {
-    gutil.log('change others');
-    rseq('others');
-  });
+  gulp.watch('./src/html/**/*.{json,txt,svg,ico}', ['others', bs.reload]);
 
-  watch('./src/styles/fonts/'+ dev_lang +'/*.{eot,svg,ttf,woff,woff2}', function() {
-    gutil.log('change others');
-    rseq('fonts');
-  });
+  gulp.watch('./src/styles/fonts/'+ dev_lang +'/*.{eot,svg,ttf,woff,woff2}', ['fonts', bs.reload]);
 
   if (typeof dev_lang === 'undefined') {
     gutil.log(gutil.colors.red('Veuillez indiquer la langue avec la commande "gulp --lang xx-XX"'));

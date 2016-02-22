@@ -4,7 +4,6 @@ var newer  = require('gulp-newer');
 var replace = require('gulp-replace');
 var path = require('path');
 var jade = require('gulp-jade');
-// var html = require('gulp-html-prettify');
 var fs = require('fs');
 var argv   = require('yargs').argv;
 var dev_lang = argv.lang;
@@ -44,14 +43,11 @@ gulp.task('html', function() {
 
 gulp.task('jade', function() {
   var data = JSON.parse(fs.readFileSync('./src/data/' + hashmap[dev_lang].lang + '/lang.json'));
-  return gulp.src(['./src/html/index.jade', './src/html/styles.jade'])
-    .pipe(jade({
-      locals: data
-    }))
-    // .pipe(html({
-    //   indent_char: ' ', indent_size: 2
-    // }))
+  return gulp.src(['./src/html/index.jade', '!./src/html/styles.jade'])
+    .pipe(jade({ locals: data }))
     .pipe(replace(/replaceLanguage/, hashmap[dev_lang].lang))
     .pipe(replace(/replaceDir/, hashmap[dev_lang].dir))
     .pipe(gulp.dest('dest/'));
 });
+
+gulp.task('changeDatas', ['datum', 'jade']);
