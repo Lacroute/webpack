@@ -159,9 +159,7 @@ only:
 
 - Je veux déployer pour la première fois :
 
-  * je tag ma branche avec le tag "deployBuild"
-
-  ```git tag -a deploybuild -m "la raison de ce tag"```
+  * je tag ma branche avec le tag "deployBuild" ```git tag -a deploybuild -m "la raison de ce tag"```
 
   * je vérifie que les champs "record_id" et "url_to_update" sont vides dans le fichier "lang.json" de la langue choisie
 
