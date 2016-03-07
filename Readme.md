@@ -128,7 +128,8 @@ Ce nom devra rester immuable dès qu'il est indexé pour la première fois dans 
 ```
 
 #### EXEMPLE DE .GITLAB-CI.YML
-```variables:
+```
+variables:
   CI_BUILD_TARGET: "$CI_PROJECT_ID"
 cache:
   untracked: true
@@ -151,7 +152,8 @@ deploying:
 only:
  - master << choix de la branche
   tags:
-    - deployBuild```
+    - deployBuild
+```
 
 ### Scénarios de déploiement
 
