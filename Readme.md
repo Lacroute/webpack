@@ -118,12 +118,14 @@ Ce nom devra rester immuable dès qu'il est indexé pour la première fois dans 
 - "url_to_update" : si vous voulez mettre à jour le contenu d'un répertoire existant et déjà indexé dans Phraseanet, il vous suffit de renseigner ce champ avec le nom du dossier cible sur graphics (celui qui se trouve dans "builds")
 
 #### EXEMPLE DE LANG.JSON
-```...
+```
+...
 "language": "fr",
   "id": "model",
   "record_id": "",
   "url_to_update": ""
-}```
+}
+```
 
 #### EXEMPLE DE .GITLAB-CI.YML
 ```variables:
