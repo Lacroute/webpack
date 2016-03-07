@@ -86,3 +86,115 @@ je propose qu'on procède comme suit :
 
 * et commentez bien sûr, avec des screenshots si possible
 * Un aspect plus pratique serait de créer des labels ! D'ailleurs ne vous en privez pas, créez des labels, vos issues laisseront une trace indélébile dans les mémoires...
+
+## deploying
+
+### How-to:
+
+Le principe de déploiement a changé !
+
+En ajoutant un tag à la branche master de votre projet, vous pouvez d'ors et déjà bénéficier du déploiement automatique de vos builds.
+
+Cela implique :
+
+- le déploiement d'un build généré au dernier commit sur la branche
+
+- son indexation au choix (3 scénarios) dans Phraseanet, incrémentale dans Phraseanet ou une mise à jour d'un build existant
+
+#### Préambule
+
+Au préalable, je dois rappeler quelques principes pour que le système fonctionne sans accroc.
+
+Le fichier lang.json de la langue choisie devient une pièce maîtresse du dispositif. Il comporte trois nouveaux champs, tout à la fin, qui servent à déterminer les scénarios de déploiement.
+
+La branche choisie pour développer est aussi très importante : elle est nommée dans le fichier ".gitlab-ci.yml" à la racine du projet et doit correspondre à la branche choisie au paramètre "only" (l'explication suit).
+
+- "id" : doit toujours être renseigné par le nom du projet, sous sa forme sans espace et sans caractères exotiques (accents, etc.)
+
+Ce nom devra rester immuable dès qu'il est indexé pour la première fois dans Phraseanet.
+
+- "record_id" : sert uniquement au scénario dans lequel vous souhaitez mettre à jour l'url un build indexé auparavant. Les champs contenant l'url seront modifiés, et uniquement ces champs.
+
+- "url_to_update" : si vous voulez mettre à jour le contenu d'un répertoire existant et déjà indexé dans Phraseanet, il vous suffit de renseigner ce champ avec le nom du dossier cible sur graphics (celui qui se trouve dans "builds")
+
+#### EXEMPLE DE LANG.JSON
+```...
+"language": "fr",
+  "id": "model",
+  "record_id": "",
+  "url_to_update": ""
+}```
+
+#### EXEMPLE DE .GITLAB-CI.YML
+```variables:
+  CI_BUILD_TARGET: "$CI_PROJECT_ID"
+cache:
+  untracked: true
+  paths:
+    - node_modules/
+build:
+  stage: build
+  script:
+- npm install && gulp build --lang fr-FR >> vérifiez s'il s'agit de la langue désirée
+    - mkdir $HOME/deploy/$CI_BUILD_TARGET && cp -R ./build/* $HOME/deploy/$CI_BUILD_TARGET
+only:
+ - master << choix de la branche
+tags:
+ - deployBuild << choix du nom du tag
+deploying:
+  stage: deploy
+  script:
+    - curl --data "toclean=$CI_PROJECT_DIR&build=$HOME/deploy/$CI_BUILD_TARGET&scenario=create" http://vspar-infodyn-p-db-01.afp.com:8666
+  when: on_success
+only:
+ - master << choix de la branche
+  tags:
+    - deployBuild```
+
+### Scénarios de déploiement
+
+- Je veux déployer pour la première fois :
+
+  * je tag ma branche avec le tag "deployBuild"
+
+  ```git tag -a deploybuild -m "la raison de ce tag"```
+
+  * je vérifie que les champs "record_id" et "url_to_update" sont vides dans le fichier "lang.json" de la langue choisie
+
+  * je vérifie que le fichier ".gitlab-ci.yml" à la racine est conforme et que la commande de build est correcte
+
+  * je commit et je push et je vérifie sur gitlab que tout est ok
+
+  * je vérifie sur interactive.afp.com que mon build apparaît
+
+- Je veux déployer et modifier une entrée déjà indexée :
+
+  * Ma branche est déjà tagguée "deployBuild"
+
+  * je me connecte à Phraseanet back pour récupérer le record_id de mon projet
+
+  * je renseigne le champs "record_id" dans le fichier lang.json de la langue choisie
+
+  * je vérifie que les fichiers "lang.json" et ".gitlab-ci.yml" sont conformes à ce que je veux faire
+
+  * je commit et push mon changement
+
+  * je vérifie dans gitlab que tout se passe bien
+
+  * je vérifie que les urls ont été mises à jours dans Phraseanet back ou sur interactive.afp.com
+
+- Je veux mettre à jour un build existant dans changer son indexation :
+
+  * ma branche est déjà tagguée "deploybuild"
+
+  * je renseigne le champ "url_to_update" avec le nom du répertoire existant sur graphics (je peux récupérer ce nom via un logiciel de ftp au besoin)
+
+  * je vérifie que les fichiers "lang.json" et ".gitlab-ci.yml" sont conformes à ce que je veux faire
+
+  * je commit et push
+
+  * je vérifie dans gitlab que le build est un succès
+
+  * je vérifie l'affichage de mon infographie qui doit être à jour
+
+**Et dans tous les cas, je reste dispo pour du debug, car je sais qu'au début ça ne va pas être facile, nous allons essayer d'améliorer la prise en main au fil de vos bugs**

@@ -1,5 +1,9 @@
 variables:
   CI_BUILD_TARGET: "$CI_PROJECT_ID"
+cache:
+  untracked: true
+  paths:
+    - node_modules/
 build:
   stage: build
   script:
