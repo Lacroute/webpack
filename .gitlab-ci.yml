@@ -9,9 +9,8 @@ build:
   script:
     - npm install && gulp build --lang fr-FR
     - mkdir $HOME/deploy/$CI_BUILD_TARGET && cp -R ./build/* $HOME/deploy/$CI_BUILD_TARGET
-  except:
+  only:
     - master
-    - deployBuild
   tags:
     - deployBuild
 
@@ -20,8 +19,7 @@ deploying:
   script:
     - curl --data "toclean=$CI_PROJECT_DIR&build=$HOME/deploy/$CI_BUILD_TARGET&scenario=create" http://vspar-infodyn-p-db-01.afp.com:8666
   when: on_success
-  except:
+  only:
     - master
-    - deployBuild
   tags:
     - deployBuild

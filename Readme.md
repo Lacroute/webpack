@@ -199,4 +199,8 @@ only:
 
   * je vérifie l'affichage de mon infographie qui doit être à jour
 
+- Je veux pusher des modifs sans builder :
+
+  * il me suffit d'ajouter "[ci skip]" dans mon message de commit pour ce faire
+
 **Et dans tous les cas, je reste dispo pour du debug, car je sais qu'au début ça ne va pas être facile, nous allons essayer d'améliorer la prise en main au fil de vos bugs**
