@@ -11,6 +11,7 @@ build:
     - mkdir $HOME/deploy/$CI_BUILD_TARGET && cp -R ./build/* $HOME/deploy/$CI_BUILD_TARGET
   only:
     - master
+    - deployBuild
   tags:
     - deployBuild
 
@@ -21,5 +22,6 @@ deploying:
   when: on_success
   only:
     - master
+    - deployBuild
   tags:
     - deployBuild
