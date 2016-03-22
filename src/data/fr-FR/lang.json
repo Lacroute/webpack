@@ -11,8 +11,13 @@
     ]
   },
   "content" :{
-    "title": "Le grand titre",
-    "subtitle": "Le sous-titre"
+    "year": "2015",
+    "day": "13 novembre",
+    "place": "France",
+    "morts": "130",
+    "blesses": "350",
+    "image": "filename",
+    "caption": "Le pays est frappé par les pires attaques terroristes de son histoire, avec pour la première fois des actions kamikazes. Les attentats sont perpétrés à Paris dans la salle de concerts du Bataclan, contre plusieurs bars et restaurants du coeur de la capitale, et près du Stade de France, à Saint-Denis. 130 personnes sont tuées et plus de 350 sont blessées. L'Etat islamique (EI) revendique les attaques. "
   },
   "info": {
     "title": "A propos de cette infographie",

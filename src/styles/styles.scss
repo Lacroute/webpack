@@ -68,6 +68,9 @@ $global-radius: 4px !default;
     @return grid-column-width($n) + $column-margin;
 }
 
+    .container {
+        padding: 3.7% 4.8%;
+    }
 
 //flex-container
 

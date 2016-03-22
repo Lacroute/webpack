@@ -6,10 +6,32 @@ block content
     //- * * * * * * * * * * * * * * * * *
     
     section#container.container
-      h1 #{content.title}
-      h2 #{content.subtitle}
+      #coverImg
+        img(src='images/png/gabarit.png')
+        h1 #{content.year} #{content.day}
+        h2 #{content.place}
+        p #{content.morts} morts
+        p #{content.blesses} blesses
+        p #{content.caption} 
 
-      todo
+
+        .slider
+          span.arrow-right.UI-slide-right
+          span.arrow-left.UI-slide-left
+          .points-container
+            .point-container
+              .point
+            .point-container
+              .point
+            .point-container
+              .point
+            .point-container
+              .point.active
+            .point-container
+              .point
+            .point-container
+              .point
+        
       
       .row.footer.u-full-width.u-cf
         img.logo-AFP.u-pull-right(src="images/svg/afp_logo.svg", alt="logo AFP", width="32", height="12")
