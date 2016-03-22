@@ -35,29 +35,29 @@ html(lang="replaceLanguage", dir="replaceDir")
     //- * * * * Panneau infos déroulant
     //- * * * * * * * * * * * * * * * * *
 
-    //- .afp-pane.u-cf
-    //-   h2.info-title #{info.title}
-    //-   p.info-text #{info.texte}
-    //-   hr
-    //-   h3.list-title #{info.listTitle}
-    //-   ul.sources-list
-    //-     each val in info.sourcesList
-    //-       li.sources-list-item= val 
-    //-   hr
-    //-   p.update-date
-    //-     span #{info.update} : #{info.updateDate}
-    //-   .info-footer
-    //-     img.logo-AFP.u-pull-right(src="images/svg/afp_logo.svg", alt="logo AFP", width="32", height="12")
-    //-     p.u-pull-left
-    //-       a.click-close(href="/", title="")
-    //-         span.UI-icon.UI-close
-    //-           span.button-click #{info.closeButton}
+    .afp-pane.u-cf
+      h2.info-title #{info.title}
+      p.info-text #{info.texte}
+      hr
+      h3.list-title #{info.listTitle}
+      ul.sources-list
+        each val in info.sourcesList
+          li.sources-list-item= val 
+      hr
+      p.update-date
+        span #{info.update} : #{info.updateDate}
+      .info-footer
+        img.logo-AFP.u-pull-right(src="images/svg/afp_logo.svg", alt="logo AFP", width="32", height="12")
+        p.u-pull-left
+          a.click-close(href="/", title="")
+            span.UI-icon.UI-close
+              span.button-click #{info.closeButton}
 
     //- * * * * * * * * * * * * * * * * * 
     //- * * * * Incompatibilités
     //- * * * * * * * * * * * * * * * * *
-    //- .not-supported
-    //-   p #{warn.notsupported}
+    .not-supported
+      p #{warn.notsupported}
 
     //- * * * * * * * * * * * * * * * * * 
     //- * * * * Javascripts
