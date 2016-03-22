@@ -19,12 +19,13 @@
 @import "ui-icons";
 @import "mixins/_mixins";
 @import "ui-colors";
+
 // Variables
 //––––––––––––––––––––––––––––––––––––––––––––––––––
 // Breakpoints
 $bp-larger-than-mobile: "min-width: 400px" !default;
 $bp-larger-than-phablet: "min-width: 560px" !default;
-$bp-larger-than-tablet: "min-width: 640px" !default;
+$bp-larger-than-tablet: "min-width: 750px" !default;
 $bp-larger-than-desktop: "min-width: 1000px" !default;
 $bp-larger-than-desktophd: "min-width: 1200px" !default;
 // Colors
@@ -38,14 +39,16 @@ $font-color: $grey-cold-5 !default;
 // Typography
 $brand-reg: "Source Sans Pro",
 sans-serif !default;
-$brand-bold: "Source Sans Pro Bold",
-sans-serif !default;
+// $brand-bold: "Source Sans Pro Bold",
+// sans-serif !default;
 $brand-semi: "Source Sans Pro Semibold",
 sans-serif !default;
 $brand-it: "Source Sans Pro Italic",
 sans-serif !default;
 $brand-li: "Source Sans Pro Light",
 sans-serif !default;
+$brand-mono: "Roboto Mono",
+monospace !default;
 $brand-icons: 'ui_essential72regular' !default;
 //Grid Variables
 $container-width: 960px !default;
@@ -65,149 +68,162 @@ $global-radius: 4px !default;
     @return grid-column-width($n) + $column-margin;
 }
 
+
+//flex-container
+
+// @import "flexboxgrid";
+
+
 // Grid
 //––––––––––––––––––––––––––––––––––––––––––––––––––
-.container {
-    position: relative;
-    width: 100%;
-    // max-width: $container-width;
-    margin: 0 auto;
-    padding: 0 20px;
-    box-sizing: border-box;
-}
+// .container {
+//     position: relative;
+//     width: 100%;
+//     // max-width: $container-width;
+//     margin: 0 auto;
+//     padding: 0 20px;
+//     box-sizing: border-box;
+// }
 
-.column,
-.columns {
-    width: 100%;
-    float: left;
-    box-sizing: border-box;
-}
+// .column,
+// .columns {
+//     width: 100%;
+//     float: left;
+//     box-sizing: border-box;
+// }
 
-// For devices larger than 400px
-@media (#{$bp-larger-than-mobile}) {
-    .container {
-        // width: $container-width-larger-than-mobile;
-        padding: 0;
-    }
-}
+// // For devices larger than 400px
+// @media (#{$bp-larger-than-mobile}) {
+//     .container {
+//         // width: $container-width-larger-than-mobile;
+//         padding: 0;
+//     }
+// }
 
-// For devices larger than 550px
-@media (#{$bp-larger-than-phablet}) {
-    .container {
-        // width: $container-width-larger-than-phablet;
-    }
-    .column,
-    .columns {
-        margin-left: $column-margin;
-    }
-    .column:first-child,
-    .columns:first-child {
-        margin-left: 0;
-    }
-    .one.column,
-    .one.columns {
-        width: grid-column-width(1);
-    }
-    .two.columns {
-        width: grid-column-width(2);
-    }
-    .three.columns {
-        width: grid-column-width(3);
-    }
-    .four.columns {
-        width: grid-column-width(4);
-    }
-    .five.columns {
-        width: grid-column-width(5);
-    }
-    .six.columns {
-        width: grid-column-width(6);
-    }
-    .seven.columns {
-        width: grid-column-width(7);
-    }
-    .eight.columns {
-        width: grid-column-width(8);
-    }
-    .nine.columns {
-        width: grid-column-width(9);
-    }
-    .ten.columns {
-        width: grid-column-width(10);
-    }
-    .eleven.columns {
-        width: grid-column-width(11);
-    }
-    .twelve.columns {
-        width: 100%;
-        margin-left: 0;
-    }
-    .one-third.column {
-        width: grid-column-width(4);
-    }
-    .two-thirds.column {
-        width: grid-column-width(8);
-    }
-    .one-half.column {
-        width: grid-column-width(6);
-    }
-    // Offsets
-    .offset-by-one.column,
-    .offset-by-one.columns {
-        margin-left: grid-offset-length(1);
-    }
-    .offset-by-two.column,
-    .offset-by-two.columns {
-        margin-left: grid-offset-length(2);
-    }
-    .offset-by-three.column,
-    .offset-by-three.columns {
-        margin-left: grid-offset-length(3);
-    }
-    .offset-by-four.column,
-    .offset-by-four.columns {
-        margin-left: grid-offset-length(4);
-    }
-    .offset-by-five.column,
-    .offset-by-five.columns {
-        margin-left: grid-offset-length(5);
-    }
-    .offset-by-six.column,
-    .offset-by-six.columns {
-        margin-left: grid-offset-length(6);
-    }
-    .offset-by-seven.column,
-    .offset-by-seven.columns {
-        margin-left: grid-offset-length(7);
-    }
-    .offset-by-eight.column,
-    .offset-by-eight.columns {
-        margin-left: grid-offset-length(8);
-    }
-    .offset-by-nine.column,
-    .offset-by-nine.columns {
-        margin-left: grid-offset-length(9);
-    }
-    .offset-by-ten.column,
-    .offset-by-ten.columns {
-        margin-left: grid-offset-length(10);
-    }
-    .offset-by-eleven.column,
-    .offset-by-eleven.columns {
-        margin-left: grid-offset-length(11);
-    }
-    .offset-by-one-third.column,
-    .offset-by-one-third.columns {
-        margin-left: grid-offset-length(4);
-    }
-    .offset-by-two-thirds.column,
-    .offset-by-two-thirds.columns {
-        margin-left: grid-offset-length(8);
-    }
-    .offset-by-one-half.column,
-    .offset-by-one-half.column {
-        margin-left: grid-offset-length(6);
-    }
+// // For devices larger than 550px
+// @media (#{$bp-larger-than-phablet}) {
+//     .container {
+//         // width: $container-width-larger-than-phablet;
+//     }
+//     .column,
+//     .columns {
+//         margin-left: $column-margin;
+//     }
+//     .column:first-child,
+//     .columns:first-child {
+//         margin-left: 0;
+//     }
+//     .one.column,
+//     .one.columns {
+//         width: grid-column-width(1);
+//     }
+//     .two.columns {
+//         width: grid-column-width(2);
+//     }
+//     .three.columns {
+//         width: grid-column-width(3);
+//     }
+//     .four.columns {
+//         width: grid-column-width(4);
+//     }
+//     .five.columns {
+//         width: grid-column-width(5);
+//     }
+//     .six.columns {
+//         width: grid-column-width(6);
+//     }
+//     .seven.columns {
+//         width: grid-column-width(7);
+//     }
+//     .eight.columns {
+//         width: grid-column-width(8);
+//     }
+//     .nine.columns {
+//         width: grid-column-width(9);
+//     }
+//     .ten.columns {
+//         width: grid-column-width(10);
+//     }
+//     .eleven.columns {
+//         width: grid-column-width(11);
+//     }
+//     .twelve.columns {
+//         width: 100%;
+//         margin-left: 0;
+//     }
+//     .one-third.column {
+//         width: grid-column-width(4);
+//     }
+//     .two-thirds.column {
+//         width: grid-column-width(8);
+//     }
+//     .one-half.column {
+//         width: grid-column-width(6);
+//     }
+//     // Offsets
+//     .offset-by-one.column,
+//     .offset-by-one.columns {
+//         margin-left: grid-offset-length(1);
+//     }
+//     .offset-by-two.column,
+//     .offset-by-two.columns {
+//         margin-left: grid-offset-length(2);
+//     }
+//     .offset-by-three.column,
+//     .offset-by-three.columns {
+//         margin-left: grid-offset-length(3);
+//     }
+//     .offset-by-four.column,
+//     .offset-by-four.columns {
+//         margin-left: grid-offset-length(4);
+//     }
+//     .offset-by-five.column,
+//     .offset-by-five.columns {
+//         margin-left: grid-offset-length(5);
+//     }
+//     .offset-by-six.column,
+//     .offset-by-six.columns {
+//         margin-left: grid-offset-length(6);
+//     }
+//     .offset-by-seven.column,
+//     .offset-by-seven.columns {
+//         margin-left: grid-offset-length(7);
+//     }
+//     .offset-by-eight.column,
+//     .offset-by-eight.columns {
+//         margin-left: grid-offset-length(8);
+//     }
+//     .offset-by-nine.column,
+//     .offset-by-nine.columns {
+//         margin-left: grid-offset-length(9);
+//     }
+//     .offset-by-ten.column,
+//     .offset-by-ten.columns {
+//         margin-left: grid-offset-length(10);
+//     }
+//     .offset-by-eleven.column,
+//     .offset-by-eleven.columns {
+//         margin-left: grid-offset-length(11);
+//     }
+//     .offset-by-one-third.column,
+//     .offset-by-one-third.columns {
+//         margin-left: grid-offset-length(4);
+//     }
+//     .offset-by-two-thirds.column,
+//     .offset-by-two-thirds.columns {
+//         margin-left: grid-offset-length(8);
+//     }
+//     .offset-by-one-half.column,
+//     .offset-by-one-half.column {
+//         margin-left: grid-offset-length(6);
+//     }
+// }
+
+.demi {
+    width: 50%;
+}
+.hidden {
+    display: none;
 }
 
 // Base Styles
@@ -227,7 +243,10 @@ body {
     color: $font-color;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     -webkit-tap-highlight-color: transparent; /* For some Androids */
-}
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: subpixel-antialiased;
+
+}   
 
 // Polices
 //––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -239,8 +258,8 @@ body {
     font-family: $brand-semi;
 }
 
-.brand-bold {
-    font-family: $brand-bold;
+.brand-mono {
+    font-family: $brand-mono;
 }
 
 .brand-it {
@@ -334,17 +353,25 @@ h6 {
 
 .help {
     @extend .brand-it;
-    color: $grey-cold-4;
-    @include rem(font-size, 1.2rem);
+    color: $grey-warm-4;
+    @include rem(font-size, 1.1rem);
     @include rem(line-height, 1.5rem);
     font-style: italic;
 }
+
+
+sub,sup{
+    font-size: 50%;
+    top: -0.7rem;
+}
+
 
 // Links
 //––––––––––––––––––––––––––––––––––––––––––––––––––
 a {
     color: $link-color;
     text-decoration: none;
+    cursor: pointer;
     &:hover {
         color: darken($link-color, 5%);
         text-decoration: underline;
@@ -366,7 +393,7 @@ button {
     font-weight: 400;
     line-height: 36px;
     letter-spacing: -.025rem;
-    white-space: nowrap;
+    // white-space: nowrap;
     text-decoration: none;
     cursor: pointer;
     border-radius: $global-radius;
@@ -444,6 +471,161 @@ button {
         }
     }
 }
+
+
+// Liste de boutons critères éditorialisés
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+.list {
+    list-style: none;
+    li,a {
+        color : $font-color;
+        line-height: 1.5rem;
+        padding: 15px;
+        display: block;
+        border-left: 0px solid $white;
+        border-top : 1px solid $grey-warm-1;
+        cursor: pointer;
+        transition: border-left 0.2s;
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        &:hover{
+            text-decoration: none;
+            background-color: rgba($white, 0.5);
+        }
+        &.active{
+            background-color: $white;
+            border-left : 10px solid $violet-2;
+            &:hover{
+                background-color: $white;
+            }
+        }
+    }
+    &.light {
+        padding-left: 10px;
+        margin: 0px;
+        list-style: none;
+        li,a {
+            margin: 0;
+            width: 100%;
+            padding: 1.2rem 0.8rem ;
+            font-family: $brand-mono;
+            font-size: 1.0rem;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: none;
+            &:hover, &:focus { 
+                background: rgba($white,0.3);
+                color: black;
+                cursor: pointer;
+            }
+            &.active {
+                background: rgba($white,1);
+            }
+        }
+    }
+    
+}
+
+
+// classes d'apparition d'animation 
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+$speed-factor: 0.25;
+$global-timing: 1 * $speed-factor;
+$global-animation-duration : 1 * $speed-factor;
+
+
+.delay-1 {
+    animation-delay: 0.25s * $global-timing;
+}
+
+.delay-1 {
+    animation-delay: 1s * $global-timing;
+}
+
+.delay-2 {
+    animation-delay: 2s * $global-timing;
+}
+
+.delay-3 {
+    animation-delay: 3s * $global-timing;
+}
+
+.delay-4 {
+    animation-delay: 4s * $global-timing;
+}
+
+.delay-5 {
+    animation-delay: 5s * $global-timing;
+}
+
+.delay-6 {
+    animation-delay: 6s * $global-timing;
+}
+
+.fadein {
+    opacity: 0;
+    animation-fill-mode: forwards;
+    animation-duration: 1s * $global-animation-duration;
+    animation-iteration-count : 1;
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-name: fadein;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+   
+   to {
+        opacity: 1;
+    }
+}
+
+.slideleft {
+    transform: translateX(-48px);
+    animation-fill-mode: forwards;
+    animation-duration: 1s * $global-animation-duration;
+    animation-iteration-count : 1;
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-name: slideleft;
+}
+
+@keyframes slideleft {
+    from {
+        transform: translateX(-48px);
+    }
+   
+   to {
+        transform: translateX(-0px);
+    }
+}
+
+.slideleft.fadein {
+    opacity: 0;
+    transform: translateX(-48px);
+    animation-fill-mode: forwards;
+    animation-duration: 1s * $global-animation-duration;
+    animation-iteration-count : 1;
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-name: slideleftfadein;
+}
+
+@keyframes slideleftfadein {
+    from {
+        opacity: 0;
+        transform: translateX(-48px);
+
+    }
+   
+   to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+
+// Style guide
+//––––––––––––––––––––––––––––––––––––––––––––––––––
 
 input {
     &[type="submit"],
@@ -551,6 +733,26 @@ ul.tabs {
     }
 }
 
+// FLEX
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+.flex {
+    display: flex;
+    &.row {
+        flex-direction: row;
+    }
+    &.row-reverse {
+        flex-direction: row-reverse;
+    }
+    &.column {
+        flex-direction: column;
+    }
+    &.column-reverse {
+        flex-direction: column-reverse;
+    }
+}
+
+
 // Slider
 //––––––––––––––––––––––––––––––––––––––––––––––––––
 .slider {
@@ -616,6 +818,9 @@ select {
     border-radius: $global-radius;
     box-shadow: none;
     box-sizing: border-box;
+    // -webkit-appearance: none;
+    // -moz-appearance: none;
+    // appearance: none;
 }
 select.lg {
     height: 48px;
@@ -851,7 +1056,7 @@ hr {
 //––––––––––––––––––––––––––––––––––––––––––––––––––
 .style-title {
     color: black;
-    font-family: $brand-bold;
+    font-family: $brand-semi;
     text-transform: uppercase;
 }
 
@@ -874,8 +1079,11 @@ hr {
     @include rem(font-size, 1.2rem);
 }
 
+
+
+
 // Adding custom css
 //––––
-@import "pages/panes";
+
 @import "pages/index";
 @import "pages/breakpoints";
