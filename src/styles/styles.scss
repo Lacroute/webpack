@@ -246,7 +246,7 @@ body {
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: subpixel-antialiased;
 
-}   
+}
 
 // Polices
 //––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -467,7 +467,7 @@ button {
             color: $link-color;
             border: 1px solid lighten($link-color, 10%);
             background-color: $white;
-            
+
         }
     }
 }
@@ -512,7 +512,7 @@ button {
             text-transform: uppercase;
             text-decoration: none;
             border: none;
-            &:hover, &:focus { 
+            &:hover, &:focus {
                 background: rgba($white,0.3);
                 color: black;
                 cursor: pointer;
@@ -522,11 +522,11 @@ button {
             }
         }
     }
-    
+
 }
 
 
-// classes d'apparition d'animation 
+// classes d'apparition d'animation
 //––––––––––––––––––––––––––––––––––––––––––––––––––
 
 $speed-factor: 0.25;
@@ -575,7 +575,7 @@ $global-animation-duration : 1 * $speed-factor;
     from {
         opacity: 0;
     }
-   
+
    to {
         opacity: 1;
     }
@@ -594,7 +594,7 @@ $global-animation-duration : 1 * $speed-factor;
     from {
         transform: translateX(-48px);
     }
-   
+
    to {
         transform: translateX(-0px);
     }
@@ -616,7 +616,7 @@ $global-animation-duration : 1 * $speed-factor;
         transform: translateX(-48px);
 
     }
-   
+
    to {
         opacity: 1;
         transform: translateX(0px);
@@ -1084,6 +1084,6 @@ hr {
 
 // Adding custom css
 //––––
-
+@import "pages/panes";
 @import "pages/index";
 @import "pages/breakpoints";
