@@ -1,12 +1,22 @@
 var queue = require('./vendor/queue.min.js');
 var pym = require('./vendor/pym.min.js');
 var fetchJSONFile = require('./vendor/fetchJson');
+var debounce = require('debounce');
+
+//Initialisation de PymJS
+var pymChild = new pym.Child({polling: 500});
 
 //Tags
 var riot = require('riot');
 var todo = require('./todo.tag');
-var Dispatcher = riot.observable();
-window.Dispatcher = Dispatcher;
+window.Dispatcher = riot.observable();
+
+//Gestion du responsive
+window.onresize = debounce(resize,25);
+function resize() {
+	window.Dispatcher.trigger('resize');
+	pymChild.sendHeight();
+}
 
 //Initialisation de Google Analytics
 var googleAnalytics = require('./vendor/googleAnalytics')('UA-64253904-2');
@@ -29,9 +39,24 @@ module.exports = function() {
 			nonInteraction: true
 		});
 
-        riot.mount(todo, {title:"Ma todolist", items:[{title: "Premier item"},{title: "Deuxième item"}]});
-	}
+		var sharedMixins = {
+			init: function() {
+				console.log(this)
+				this.on('updated', function() { console.log(this.root.localName + ' updated !') });
+			},
+			getOpts: function() {
+				return this.opts;
+			},
+			setOpts: function(opts, update) {
+				this.opts = opts;
+				if(!update) this.update();
+				return this;
+			}
+		}
+		riot.mixin(sharedMixins);
 
-	//Initialisation de PymJS
-	var pymChild = new pym.Child();
+        riot.mount(todo, {title:"Ma todolist", items:[{title: "Premier item"},{title: "Deuxième item"}]});
+
+        pymChild.sendHeight();
+	}	
 };

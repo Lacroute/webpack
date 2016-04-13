@@ -61,5 +61,8 @@
     "stream-combiner": "^0.2.2",
     "vinyl-source-stream": "^1.1.0",
     "yargs": "^3.12.0"
+  },
+  "dependencies": {
+    "debounce": "^1.0.0"
   }
 }
