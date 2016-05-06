@@ -14,18 +14,6 @@
     "title": "Le grand titre",
     "subtitle": "Le sous-titre"
   },
-  "info": {
-    "title": "A propos de cette infographie",
-    "texte": "Texte méthodologie",
-    "listTitle": "Sources",
-    "sourcesList": [
-      "Source 1",
-      "Source 2"
-    ],
-    "update": "Mise à jour",
-    "updateDate": "Date de mise à jour",
-    "closeButton": "Fermer"
-  },
   "warn": {
     "notsupported": "Votre navigateur ne supporte pas les fonctionnalités permettant d'afficher ce graphique."
   },

@@ -51,7 +51,20 @@ module.exports = function() {
 				this.opts = opts;
 				if(!update) this.update();
 				return this;
-			}
+			},
+			getQueryParams: function(qs) {
+		      qs = qs.split('+').join(' ');
+		      var params = {},
+		          tokens,
+		          re = /[?&]?([^=]+)=([^&]*)/g;
+		      while (tokens = re.exec(qs)) {
+		        params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
+		      }
+		      return params;
+		    },
+		    trackEvent: function(category, action, label, value) {
+		    	ga('send', 'event', category, action, label, value);
+		    }
 		}
 		riot.mixin(sharedMixins);
 
