@@ -63,6 +63,8 @@
     "yargs": "^3.12.0"
   },
   "dependencies": {
-    "debounce": "^1.0.0"
+    "d3": "^3.5.17",
+    "debounce": "^1.0.0",
+    "tether-tooltip": "^1.2.0"
   }
 }

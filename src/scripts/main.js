@@ -8,7 +8,7 @@ var pymChild = new pym.Child({polling: 500});
 
 //Tags
 var riot = require('riot');
-var todo = require('./todo.tag');
+var graph = require('./graph.tag');
 window.Dispatcher = riot.observable();
 
 //Gestion du responsive
@@ -30,6 +30,10 @@ module.exports = function() {
 		.await(ready);
 
 	function ready(error, lang) {
+
+		var d3 = require('d3');
+		window.lang = lang;
+		window.locale = d3.locale(lang.locale);
 
 		//Envoyer l'information de chargement à Google Analytics
 		ga('send', 'event', 'Infographie', 'loaded', lang.id, {
@@ -68,7 +72,9 @@ module.exports = function() {
 		}
 		riot.mixin(sharedMixins);
 
-        riot.mount(todo, {title:"Ma todolist", items:[{title: "Premier item"},{title: "Deuxième item"}]});
+        riot.mount(graph, {
+        	data: []
+        });
 
         pymChild.sendHeight();
 	}	
