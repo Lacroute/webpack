@@ -33,6 +33,16 @@ graph
       left: 30
     };
 
+    var x = '';
+    var xScale = d3.scale.linear();
+    var xDomain;
+    var xAxis = d3.svg.axis().orient('bottom');
+
+    var y = '';
+    var yScale = d3.scale.linear();
+    var yDomain;
+    var yAxis = d3.svg.axis().orient('left');
+
     this.on('mount',function() {
       svg = d3.select(self.root);
       svg.attr('version','1.1').attr('xmlns','http://www.w3.org/2000/svg').attr('xmlns:xlink','http://www.w3.org/1999/xlink');
@@ -46,7 +56,17 @@ graph
     });
 
     this.on('update',function() {
-      
+      var xDomain = d3.extent(self.opts.data,function(d) {
+        return parseFloat(d[x]);
+      });
+      console.log('xDomain is now ',xDomain);
+      xScale.domain(xDomain);
+
+      var yDomain = d3.extent(self.opts.data,function(d) {
+        return parseFloat(d[y]);
+      });
+      console.log('yDomain is now ',yDomain);
+      yScale.domain(yDomain);
     });
 
     function updateElements() {
@@ -80,6 +100,12 @@ graph
       console.log('Largeur : ',width,' | Hauteur : ',height);
 
       chart.attr('width',width).attr('height',height).attr('transform','translate('+margin.left+','+margin.top+')');
+
+      xScale.range([0,width]);
+      yScale.range([height,0]);
+
+      xAxis.scale(xScale);
+      yAxis.scale(yScale);
 
       svg.select('.x.axis').attr('transform','translate(0,'+(height+margin.top)+')');
       svg.select('.y.axis').call(yAxis.tickSize(-width));
