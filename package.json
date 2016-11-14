@@ -1,59 +1,10 @@
 {
   "name": "project-model",
-  "version": "0.1.5",
-  "description": "slug for AFP projects",
-  "main": "gulpfile.js",
+  "version": "2.0.1",
+  "license": "MIT",
+  "description": "Based on http://vuejs-templates.github.io/webpack 2.0 : A full-featured Webpack setup with hot-reload, lint-on-save, unit testing & css extraction.",
   "scripts": {
-    "test": "none (for the moment)"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@gitlab.com:afp_dataviz/project-model.git"
-  },
-  "keywords": [
-    "AFP",
-    "gulp",
-    "projects",
-    "dataviz"
-  ],
-  "author": "AFP",
-  "license": "ISC",
-  "devDependencies": {
-    "browser-sync": "^2.7.6",
-    "browserify": "^12.0.1",
-    "del": "^2.2.0",
-    "exif": "^0.4.0",
-    "gulp": "^3.9.0",
-    "gulp-autoprefixer": "^2.3.1",
-    "gulp-concat": "^2.6.0",
-    "gulp-cssnano": "*",
-    "gulp-data": "^1.2.0",
-    "gulp-extend": "^0.2.0",
-    "gulp-html-replace": "^1.5.1",
-    "gulp-imagemin": "^2.3.0",
-    "gulp-jade": "^1.0.1",
-    "gulp-load-plugins": "^0.10.0",
-    "gulp-newer": "^0.5.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-replace": "^0.5.4",
-    "gulp-ruby-sass": "^1.0.5",
-    "gulp-sort": "^1.1.1",
-    "gulp-sourcemaps": "^1.5.2",
-    "gulp-template": "^3.0.0",
-    "gulp-tools": "^0.0.1",
-    "gulp-uglify": "^1.2.0",
-    "gulp-util": "^3.0.5",
-    "imagemin": "^3.2.0",
-    "imagemin-jpegtran": "^4.3.0",
-    "imagemin-optipng": "^4.3.0",
-    "imagemin-svgo": "^4.1.2",
-    "jshint-stylish": "^2.0.0",
-    "lodash": "^3.10.1",
-    "postcss-normalize-url": "3.0.7",
-    "preprocess": "^3.0.0",
-    "require-dir": "^0.3.0",
-    "stream-combiner": "^0.2.2",
-    "vinyl-source-stream": "^1.1.0",
-    "yargs": "^3.12.0"
+    "docs": "cd docs && gitbook serve",
+    "deploy-docs": "bash ./deploy-docs.sh"
   }
 }
