@@ -40,6 +40,26 @@ module.exports = {
         }
       ]
     },
+    "cssPreprocessor": {
+      "type": "confirm",
+      "message": "Need a css preprocessor ?"
+    },
+    "cssPreprocessorConfig": {
+      "when": "cssPreprocessor",
+      "type": "list",
+      "choices": [
+        {
+          "name": "SCSS (brackets & semicolon)",
+          "value": "scss",
+          "short": "SCSS"
+        },
+        {
+          "name": "SASS (indented syntax)",
+          "value": "sass",
+          "short": "SASS"
+        }
+      ]
+    },
     "router": {
       "type": "confirm",
       "message": "Need a router ?"

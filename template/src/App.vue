@@ -18,13 +18,27 @@ export default {
 }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style {{#if_eq cssPreprocessorConfig "sass"}}lang="sass"{{/if_eq}}{{#if_eq cssPreprocessorConfig "scss"}}lang="scss"{{/if_eq}}>
+
+  {{#if_eq cssPreprocessorConfig "scss"}}
+  @import 'fonts';
+  #app {
+    font-family: $source_sans_pro;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 60px;
+  }
+  {{/if_eq}}
+  {{#if_eq cssPreprocessorConfig "sass"}}
+  @import fonts
+  #app
+    font-family: $source_sans_pro
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+    text-align: center
+    color: #2c3e50
+    margin-top: 60px
+  {{/if_eq}}
 </style>

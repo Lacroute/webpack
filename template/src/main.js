@@ -3,12 +3,12 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 {{/if_eq}}
 import Vue from 'vue'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import Pym from 'pym.js'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 {{#ressource}}
 import VueResource from 'vue-resource'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 {{/ressource}}
 {{#router}}
 import VueRouter from 'vue-router'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-import Pym from 'pym.js'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 import Hello from './components/Hello'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 {{/router}}
 import App from './App'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}

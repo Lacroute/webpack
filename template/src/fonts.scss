@@ -1,0 +1,13 @@
+$font_path: '~assets/fonts/';
+
+@font-face{
+  font-family    : 'Source Sans Pro';
+  src            : url($font_path +'SourceSansPro-Regular.eot'); /* IE9 Compat; Modes */
+  src            : url($font_path +'SourceSansPro-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url($font_path +'SourceSansPro-Regular.woff2') format('woff2'), /* Modern Browsers */ url($font_path +'SourceSansPro-Regular.woff') format('woff'); /* Modern Browsers */
+  font-style     : normal;
+  font-weight    : 400;
+  text-rendering : optimizeLegibility;
+}
+
+$source_sans_pro : 'Source Sans Pro', sans-serif;
+// Use "font-family: $source_sans_pro" in your code.
