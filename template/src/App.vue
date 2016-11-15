@@ -18,6 +18,7 @@ export default {
 }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 </script>
 
+<style src="normalize.css"></style>
 <style {{#if_eq cssPreprocessorConfig "sass"}}lang="sass"{{/if_eq}}{{#if_eq cssPreprocessorConfig "scss"}}lang="scss"{{/if_eq}}>
 
   {{#if_eq cssPreprocessorConfig "scss"}}
