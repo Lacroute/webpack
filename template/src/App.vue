@@ -4,16 +4,19 @@
     {{#router}}
     <router-view></router-view>
     {{/router}}
+    <logo></logo>
   </div>
 </template>
 
 <script>
 import Hello from './components/Hello'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import Logo from './components/Logo'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 export default {
   name: 'app',
   components: {
-    Hello{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+    Hello,
+    Logo{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
   }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
 }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 </script>
