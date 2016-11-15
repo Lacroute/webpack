@@ -36,6 +36,7 @@ $ npm run dev
   - autoprefixer post-css
   - shim for es6 retro compatibility
   - font folder with separate config file
+  - test
 
 - `npm run build`: Production ready build.
   - JavaScript minified with [UglifyJS](https://github.com/mishoo/UglifyJS2).
