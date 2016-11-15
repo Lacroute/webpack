@@ -4,6 +4,7 @@
     {{#router}}
     <router-view></router-view>
     {{/router}}
+    <modal></modal>
     <logo></logo>
   </div>
 </template>
@@ -11,6 +12,7 @@
 <script>
 import Hello from './components/Hello'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 import Logo from './components/Logo'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import Modal from './components/common/Modal'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 export default {
   name: 'app',

@@ -13,5 +13,7 @@ export default {}
   display: flex;
   justify-content: flex-end;
   padding: 12px;
+  position: relative;
+  z-index: 9999;
 }
 </style>
