@@ -35,6 +35,7 @@ $ npm run dev
   - vue-resource conditionnal implementation
   - autoprefixer post-css
   - shim for es6 retro compatibility
+  - font folder with separate config file
 
 - `npm run build`: Production ready build.
   - JavaScript minified with [UglifyJS](https://github.com/mishoo/UglifyJS2).
