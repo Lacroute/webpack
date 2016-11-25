@@ -41,7 +41,6 @@ router.beforeEach((to, from, next) => {
 
 /* global window */
 /* eslint no-undef: "error" */
-window.bus = new Vue()
 Vue.config.fallbackLang = 'fr'
 Vue.config.lang = '' // Init to nothing to force update cicle.
 
