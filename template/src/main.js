@@ -1,49 +1,56 @@
-{{#if_eq build "runtime"}}
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-{{/if_eq}}
 import Vue from 'vue'
 import Pym from 'pym.js'
-{{#ressource}}
-import VueResource from 'vue-resource'
-{{/ressource}}
-{{#router}}
 import VueRouter from 'vue-router'
+import VueResource from 'vue-resource'
+import VueI18n from 'vue-i18n'
 import Hello from './components/Hello'
-{{/router}}
-import App from './App'
+import Data from './components/Data'
+import store from './store'
 
-{{#ressource}}
-Vue.use(VueResource)
-{{/ressource}}
-{{#router}}
 Vue.use(VueRouter)
+Vue.use(VueResource)
+Vue.use(VueI18n)
 
 const router = new VueRouter({
   routes: [
     { path: '/', redirect: '/fr/hello' },
-    { name: 'hello', path: '/:lang/hello', component: Hello }
+    { name: 'hello', path: '/:lang/hello', component: Hello },
+    { name: 'data', path: '/:lang/data', component: Data },
   ]
 })
-{{/router}}
+
+// Global guards for dynamic translation
+router.beforeEach((to, from, next) => {
+  if (to.params.lang && to.params.lang != Vue.config.lang){
+    try{
+      store.dispatch('updateLocale', to.params.lang)
+    } catch (error) {
+      console.warn(error);
+      console.warn(`Reroute to fallback lang: ${Vue.config.fallbackLang}.`);
+      next({
+        name: to.name,
+        params: {
+          lang: Vue.config.fallbackLang
+        }
+      })
+    }
+  }
+
+  next()
+})
 
 /* global window */
 /* eslint no-undef: "error" */
 window.bus = new Vue()
+Vue.config.fallbackLang = 'fr'
+Vue.config.lang = '' // Init to nothing to force update cicle.
 
 /* eslint-disable no-new */
 new Pym.Child({ polling: 500 })
 
 new Vue({
-  {{#router}}
   router,
-  {{/router}}
+  store,
   el: '#app',
-  {{#if_eq build "runtime"}}
-  render: h => h(App)
-  {{/if_eq}}
-  {{#if_eq build "standalone"}}
-  template: '<App/>',
-  components: { App }
-  {{/if_eq}}
+  render: h => h(require('./App'))
 })

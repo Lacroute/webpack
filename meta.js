@@ -60,17 +60,9 @@ module.exports = {
         }
       ]
     },
-    "router": {
-      "type": "confirm",
-      "message": "Need a router ?"
-    },
-    "resource": {
-      "type": "confirm",
-      "message": "Need an external request manager (vue-resource) ?"
-    },
     "lint": {
       "type": "confirm",
-      "message": "Use ESLint to lint your code? Standard (https://github.com/feross/standard)"
+      "message": "Use ESLint to lint your code with Standard preset (https://github.com/feross/standard)?"
     },
     "unit": {
       "type": "confirm",
@@ -88,5 +80,6 @@ module.exports = {
     "test/unit/**/*": "unit",
     "test/e2e/**/*": "e2e"
   },
+  "skipInterpolation": "src/**/*.vue",
   "completeMessage": "To get started:\n\n  cd {{destDirName}}\n  npm install\n  npm run dev\n\nDocumentation can be found at https://vuejs-templates.github.io/webpack"
 };

@@ -1,9 +1,26 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    {{#router}}
+    <loading></loading>
+    <div class="">
+      <router-link to="data">Data</router-link>
+      <router-link to="hello">Hello</router-link>
+    </div>
+    <div class="lang-selector">
+      <router-link :to="{name: $route.name, params: {lang: 'fr'}}">
+        fr
+      </router-link>
+      <router-link :to="{name: $route.name, params: {lang: 'en'}}">
+        en
+      </router-link>
+      <router-link :to="{name: $route.name, params: {lang: 'es'}}">
+        es
+      </router-link>
+      <router-link :to="{name: $route.name, params: {lang: 'nimp'}}">
+        nimp
+      </router-link>
+    </div>
+    <img src="~assets/img/logo.png">
     <router-view></router-view>
-    {{/router}}
     <modal></modal>
     <logo></logo>
   </div>
@@ -13,22 +30,28 @@
 import Hello from './components/Hello'
 import Logo from './components/common/Logo'
 import Modal from './components/common/Modal'
+import Loading from './components/common/Loading'
 
 export default {
   name: 'app',
+
   components: {
     Hello,
     Logo,
-    Modal
-  }
+    Modal,
+    Loading
+  },
+
+  created () {
+    // this.$store.dispatch('fetchLocale')
+  },
 }
 </script>
 
 <style src="normalize.css"></style>
-<style {{#if_eq cssPreprocessorConfig "sass"}}lang="sass"{{/if_eq}}{{#if_eq cssPreprocessorConfig "scss"}}lang="scss"{{/if_eq}}>
+<style lang="scss">
+  @import '~utils/global';
 
-  {{#if_eq cssPreprocessorConfig "scss"}}
-  @import 'fonts';
   #app {
     font-family: $source_sans_pro;
     -webkit-font-smoothing: antialiased;
@@ -37,15 +60,8 @@ export default {
     color: #2c3e50;
     margin-top: 60px;
   }
-  {{/if_eq}}
-  {{#if_eq cssPreprocessorConfig "sass"}}
-  @import fonts
-  #app
-    font-family: $source_sans_pro
-    -webkit-font-smoothing: antialiased
-    -moz-osx-font-smoothing: grayscale
-    text-align: center
-    color: #2c3e50
-    margin-top: 60px
-  {{/if_eq}}
+
+  .lang-selector a + a{
+    margin-left: 10px
+  }
 </style>
