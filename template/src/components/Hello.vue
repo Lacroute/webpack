@@ -24,9 +24,6 @@
       {{#if_eq lintConfig "standard"}}
       <li><a href="https://github.com/feross/standard">lint standard</a></li>
       {{/if_eq}}
-      {{#if_eq lintConfig "airbnb"}}
-      <li><a href="https://github.com/airbnb/javascript">lint airbnb</a></li>
-      {{/if_eq}}
       {{#unit}}
       <li><a href="https://github.com/karma-runner/karma">Karma</a></li>
       <li><a href="https://github.com/mochajs/mocha">Mocha</a></li>
@@ -46,12 +43,12 @@
 <script>
 export default {
   name: 'hello',
-  data{{#unless_eq lintConfig "airbnb"}} {{/unless_eq}}() {
+  data () {
     return {
-      msg: 'Welcome to Your Vue.js App'{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-    }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-  }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-}{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+      msg: 'Welcome to Your Vue.js App'
+    }
+  }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

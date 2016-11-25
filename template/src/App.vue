@@ -10,17 +10,18 @@
 </template>
 
 <script>
-import Hello from './components/Hello'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-import Logo from './components/Logo'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-import Modal from './components/common/Modal'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import Hello from './components/Hello'
+import Logo from './components/common/Logo'
+import Modal from './components/common/Modal'
 
 export default {
   name: 'app',
   components: {
     Hello,
-    Logo{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-  }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-}{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+    Logo,
+    Modal
+  }
+}
 </script>
 
 <style src="normalize.css"></style>
