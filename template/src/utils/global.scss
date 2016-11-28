@@ -1,3 +1,5 @@
+@import '~utils/fonts';
+
 $navy: #001f3f;
 $blue: #0074D9;
 $aqua: #7FDBFF;
@@ -16,4 +18,7 @@ $gray: #AAAAAA;
 $silver: #DDDDDD;
 $white: #FFFFFF;
 
-@import '~utils/fonts'
+$main_padding: 12px;
+
+$loading_bg: #fff;
+$loading_color: #A5A5A5;
