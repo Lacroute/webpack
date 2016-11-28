@@ -19,7 +19,6 @@ export default {
 
   data () {
     return {
-      testD : null
     }
   },
 
@@ -31,5 +30,5 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style {{#if cssPreprocessor}}{{#if_eq cssPreprocessorConfig "scss"}}lang="scss"{{/if_eq}}{{#if_eq cssPreprocessorConfig "sass"}}lang="sass"{{/if_eq}}{{else}}lang="css"{{/if}}>
 </style>

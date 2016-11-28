@@ -8,7 +8,7 @@
 export default {}
 </script>
 
-<style lang="css">
+<style lang="css" scoped>
 .logo-container{
   display: flex;
   justify-content: flex-end;
