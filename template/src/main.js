@@ -21,22 +21,23 @@ const router = new VueRouter({
 
 // Global guards for dynamic translation
 router.beforeEach((to, from, next) => {
+  let dest
   if (to.params.lang && to.params.lang != Vue.config.lang){
     try{
       store.dispatch('updateLocale', to.params.lang)
     } catch (error) {
       console.warn(error);
       console.warn(`Reroute to fallback lang: ${Vue.config.fallbackLang}.`);
-      next({
+      dest = {
         name: to.name,
         params: {
           lang: Vue.config.fallbackLang
         }
-      })
+      }
     }
   }
 
-  next()
+  next(dest)
 })
 
 /* global window */
