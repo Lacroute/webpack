@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <loading></loading>
     <div class="">
       <router-link to="data">Data</router-link>
       <router-link to="hello">Hello</router-link>

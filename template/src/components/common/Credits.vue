@@ -115,6 +115,7 @@ section{
   bottom: 50px;
   padding: $meta_padding;
   transition: opacity .4s ease;
+  z-index: 1;
 
   .container-close{
     position: relative;

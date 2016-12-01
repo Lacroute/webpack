@@ -8,7 +8,6 @@
       </div>
     </div>
   </section>
-</div>
 </template>
 
 <script>
@@ -26,10 +25,11 @@ section{
   top: 0;
   left: 0;
   right: 0;
-  bottom: 50px;
+  bottom: 0;
   padding: $modal_padding;
   background: $loading_bg;
   color: $loading_color;
+  z-index: 1;
 }
 
 .container{
@@ -48,6 +48,16 @@ section{
 
   h1 {font-size: 1em;}
   h2 {font-size: 0.8em;}
+
+  button {
+    @extend %reset-button;
+    border: 1px solid lighten($loading_color, 20%);
+    border-radius: 3px;
+    padding: 10px 9px;
+    color: inherit;
+    text-transform: uppercase;
+    font-size: 0.9em;
+  }
 }
 
 .loader-animation {

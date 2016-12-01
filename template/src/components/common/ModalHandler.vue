@@ -2,26 +2,33 @@
   <div class="modal-handler" :style="{minWidth: minWidth + 'px'}">
 
     <!-- Splash screen during loading -->
-    <modal v-if="!isLoaded">
+    <transition name="fade">
+      <modal v-if="!isLoaded">
         <div slot="header" class="loader-animation">
           <svg class="circular" viewBox="25 25 50 50">
             <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
           </svg>
         </div>
-      <h2 slot="body">\{{ $t('loading') }}</h2>
-    </modal>
+        <h2 slot="body">\{{ $t('loading') }}</h2>
+      </modal>
+    </transition>
 
     <!-- Splash screen when it's too small -->
-    <modal v-if="tooSmall">
-      <h1 slot="header">\{{ $t('warn_too_small') }}</h1>
-      <h1 slot="body">\{{ $t('warn_too_small_tips') }}</h1>
-    </modal>
+    <transition name="fade">
+      <modal v-if="tooSmall">
+        <h1 slot="header">\{{ $t('warn_too_small') }}</h1>
+        <h1 slot="body">\{{ $t('warn_too_small_tips') }}</h1>
+      </modal>
+    </transition>
 
     <!-- Splash screen when it's an outdated browser -->
-    <modal v-if="tooOld">
-      <h1 slot="header">\{{ $t('warn_obsolete') }}</h1>
-      <h1 slot="body">\{{ $t('warn_obsolete_tips') }}</h1>
-    </modal>
+    <transition name="fade">
+      <modal v-if="tooOld && !aborted">
+        <h1 slot="header">\{{ $t('warn_obsolete') }}</h1>
+        <h1 slot="body">\{{ $t('warn_obsolete_tips') + ' ' + browser.name}}</h1>
+        <button slot="footer" @click="abort()">\{{ $t('warn_obsolete_continue') }}</button>
+      </modal>
+    </transition>
 
   </div>
 </template>
@@ -29,6 +36,7 @@
 <script>
 import Modal from 'components/common/Modal'
 import { mapGetters } from 'vuex'
+import * as supported from 'utils/supported'
 
 export default {
   name: 'ModalHandler',
@@ -40,7 +48,8 @@ export default {
   data () {
     return {
       minWidth: 300,
-      windowWidth: 0
+      windowWidth: Infinity,
+      aborted: false
     }
   },
 
@@ -53,8 +62,31 @@ export default {
       return this.windowWidth < this.minWidth
     },
 
+    // http://stackoverflow.com/a/16938481/3759551
+    browser() {
+      var ua=navigator.userAgent,tem,M=ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
+      if(/trident/i.test(M[1])){
+        tem=/\brv[ :]+(\d+)/g.exec(ua) || [];
+        return {name:'IE',version:(tem[1]||'')};
+      }
+      if(M[1]==='Chrome'){
+        tem=ua.match(/\bOPR|Edge\/(\d+)/)
+        if(tem!=null)   {return {name:'Opera', version:tem[1]};}
+      }
+      M=M[2]? [M[1], M[2]]: [navigator.appName, navigator.appVersion, '-?'];
+      if((tem=ua.match(/version\/(\d+)/i))!=null) {M.splice(1,1,tem[1]);}
+      return {
+        name: M[0].toLowerCase(),
+        version: M[1]
+      }
+    },
+
     tooOld () {
-      return false
+      return this.minSupported > this.browser.version || this.minSupported === -Infinity
+    },
+
+    minSupported () {
+      return Math.max.apply(Math, supported.BROWSERLIST[this.browser.name])
     }
   },
 
@@ -63,12 +95,15 @@ export default {
       window.addEventListener('resize', this.getWindowWidth);
       this.getWindowWidth()
     })
-
   },
 
   methods: {
-    getWindowWidth(event) {
+    getWindowWidth (event) {
       this.windowWidth = document.documentElement.clientWidth;
+    },
+
+    abort () {
+      this.aborted = true
     }
   },
 

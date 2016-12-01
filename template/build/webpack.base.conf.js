@@ -83,3 +83,26 @@ module.exports = {
     ]
   }
 }
+
+// Print browserlist into src/utils/supported.hjs
+let list = require('browserslist')('last 2 versions')
+
+obj = {}
+list.map( val => {
+  val = val.split(' ')
+  if(obj[val[0]] === undefined) obj[val[0]] = []
+  obj[val[0]].push(val[1])
+})
+let file = 'export const BROWSERLIST = ' + JSON.stringify(obj) + '\n'
+
+require('fs').writeFile(
+  path.resolve(__dirname, '../src/utils/supported.js'),
+  file,
+  function(err) {
+    if(err) {
+      return console.log(err);
+    }
+
+    console.log("supported.js saved");
+  }
+);
