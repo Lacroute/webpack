@@ -10,17 +10,17 @@
 
           <article>
             <h2>\{{ $t('last_update') }}</h2>
-            <p>{{ lastUpdate }}</p>
+            <p>\{{ lastUpdate }}</p>
           </article>
 
           <article v-if="about">
             <h2>\{{ $t('about') }}</h2>
-            <p>{{ about }}</p>
+            <p>\{{ about }}</p>
           </article>
 
           <article v-if="sources">
             <h2>\{{ $t('sources') }}</h2>
-            <p>{{ sources }}</p>
+            <p>\{{ sources }}</p>
           </article>
 
           <article>
