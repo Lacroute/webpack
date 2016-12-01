@@ -20,7 +20,7 @@
     </section>
 
     <footer>
-      <meta-container></meta-container>
+
     </footer>
 
   </div>
@@ -28,14 +28,12 @@
 
 <script>
 import Hello from 'components/Hello'
-import MetaContainer from 'components/common/MetaContainer'
 
 export default {
   name: 'Layout',
 
   components: {
     Hello,
-    MetaContainer
   },
 
   data () {
@@ -54,7 +52,7 @@ export default {
 
 <style lang="scss" scoped>
 .layout{
-  margin-top: 60px;
+  padding-top: 60px;
 }
 
 section.body{

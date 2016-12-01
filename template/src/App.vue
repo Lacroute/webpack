@@ -1,17 +1,21 @@
 <template>
   <div id="app">
     <layout></layout>
+    <meta-container></meta-container>
   </div>
 </template>
 
 <script>
 import Layout from 'components/Layout'
+import MetaContainer from 'components/common/MetaContainer'
+
 
 export default {
   name: 'app',
 
   components: {
-    Layout
+    Layout,
+    MetaContainer
   }
 }
 </script>
