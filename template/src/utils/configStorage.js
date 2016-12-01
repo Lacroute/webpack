@@ -1,4 +1,8 @@
 const storage = {
+  'commons_data_file': { // Data for the common components
+    data: null,
+    fr: 'commons_fr'
+  },
   'first_data_file': {
     data: null,
     fr: 'first_data_fr',

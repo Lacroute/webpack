@@ -45,7 +45,12 @@ const actions = {
       store.dispatch('fetchLocale')
     } else if (store.state.status === status.LOADED) {
       store.commit(types.UPDATE_LOCALE, lang)
-      store.dispatch('fetchDbs', store.getters.filesLocalized)
+      try {
+        store.dispatch('fetchDbs', store.getters.filesLocalized)
+      } catch (e) {
+        store.dispatch('fetchDbs', store.getters.filesLocalized, true)
+      }
+
     }
   },
 }

@@ -1,6 +1,8 @@
 <template lang="html">
-  <div class="logo-container">
-    <img src="~assets/img/afp_logo.svg" alt="afp_logo" />
+  <div>
+    <a href="https://interactive.afp.com/" target="_blank">
+      <img src="~assets/img/afp_logo.svg" alt="afp_logo" />
+    </a>
   </div>
 </template>
 
@@ -8,12 +10,9 @@
 export default {}
 </script>
 
-<style lang="css" scoped>
-.logo-container{
-  display: flex;
-  justify-content: flex-end;
-  padding: 12px;
-  position: relative;
-  z-index: 9999;
+<style lang="scss" scoped>
+
+img{
+
 }
 </style>

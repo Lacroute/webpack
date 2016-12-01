@@ -21,30 +21,21 @@
     </div>
     <img src="~assets/img/logo.png">
     <router-view></router-view>
-    <modal></modal>
-    <logo></logo>
+    <meta-container></meta-container>
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello'
-import Logo from './components/common/Logo'
-import Modal from './components/common/Modal'
-import Loading from './components/common/Loading'
+import Hello from 'components/Hello'
+import MetaContainer from 'components/common/MetaContainer'
 
 export default {
   name: 'app',
 
   components: {
     Hello,
-    Logo,
-    Modal,
-    Loading
-  },
-
-  created () {
-    // this.$store.dispatch('fetchLocale')
-  },
+    MetaContainer
+  }
 }
 </script>
 
@@ -57,8 +48,8 @@ export default {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
+    position: relative;
+    min-height: 618px;
   }
 
   .lang-selector a + a{

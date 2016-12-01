@@ -1,71 +1,112 @@
 <template lang="html">
-  <div class="modal-mask" v-if="tooSmall">
-    <div class="modal-wrapper">
-      <div class="modal-container">
-        <span>Désolé mec mais c'est trop petit la..</span>
+  <section>
+    <div class="container">
+      <div class="content">
+        <slot name="header"></slot>
+        <slot name="body"></slot>
+        <slot name="footer"></slot>
       </div>
     </div>
-  </div>
+  </section>
+</div>
 </template>
 
 <script>
-export default {
-  data () {
-    return {
-      minWidth: 300,
-      windowWidth: 0
-    }
-  },
-
-  computed: {
-    tooSmall () {
-      return this.windowWidth < this.minWidth
-    }
-  },
-
-  mounted () {
-    this.$nextTick(function() {
-      window.addEventListener('resize', this.getWindowWidth);
-      this.getWindowWidth()
-    })
-
-  },
-
-  methods: {
-    getWindowWidth(event) {
-      this.windowWidth = document.documentElement.clientWidth;
-    }
-  },
-
-  beforeDestroy () {
-    window.removeEventListener('resize', this.getWindowWidth);
-  }
-}
+export default {}
 </script>
 
-<style lang="css" scoped>
-  .modal-mask {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+<style lang="scss" scoped>
+@import '~utils/fonts';
+@import '~utils/metas';
+
+section{
+  display: block;
+  position: absolute;
+  height: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 50px;
+  padding: $modal_padding;
+  background: $loading_bg;
+  color: $loading_color;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100%;
+
+  h1, h2{
+    font-family: $source_sans_pro;
+    text-transform: uppercase;
+    line-height: 1.25em;
   }
 
-  .modal-wrapper {
-    position: fixed;
-    z-index: 9998;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, .8);
-    width: 100%;
-  }
+  h1 + h1 {margin-top: $meta_padding}
 
-  .modal-container {
-    margin: 0px auto;
-    padding: 20px 30px;
-    background-color: #fff;
-    border-radius: 2px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+  h1 {font-size: 1em;}
+  h2 {font-size: 0.8em;}
+}
+
+.loader-animation {
+  position: relative;
+  margin: 0 auto;
+  width: 32px;
+  &:before {
+    content: '';
+    display: block;
+    padding-top: 100%;
   }
+}
+
+.circular {
+  animation: rotate 2s linear infinite;
+  height: 100%;
+  transform-origin: center center;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.path {
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+  animation: dash 1.5s ease-in-out infinite;
+  stroke-linecap: round;
+  stroke: $loading_color;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px;
+  }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124px;
+  }
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 1s
+}
+.fade-enter, .fade-leave-active {
+  opacity: 0
+}
 </style>

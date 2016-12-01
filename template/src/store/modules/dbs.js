@@ -12,14 +12,16 @@ const state = {
 const getters = {
 
   // Return a set of files in the desired locale, if there isn't, throw an error.
-  filesLocalized: (state, getters) => {
+  filesLocalized: (state, getters, fallbackLang = false) => {
     return Object.entries(state.storage).map( property => {
       let localized = {}
       localized.property = property[0]
       if (property[1][getters.currentLocale])
         localized.filename = property[1][getters.currentLocale]
-      else
-        throw new Error(`No ${property[0]} config found for locale \`${getters.currentLocale}\``)
+      else {
+        console.warn(`No ${property[0]} config found for locale '${getters.currentLocale}', serve fallbackLang '${Vue.config.fallbackLang}' instead.`)
+        localized.filename = property[1][Vue.config.fallbackLang]
+      }
       return localized
     })
   },

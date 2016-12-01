@@ -33,6 +33,7 @@ module.exports = {
       'assets': path.resolve(__dirname, '../src/assets'),
       'api': path.resolve(__dirname, '../src/api'),
       'utils': path.resolve(__dirname, '../src/utils'),
+      'Emitter': path.resolve(__dirname, '../src/Emitter'),
       'components': path.resolve(__dirname, '../src/components')
     }
   },
