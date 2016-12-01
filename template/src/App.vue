@@ -1,39 +1,17 @@
 <template>
   <div id="app">
-    <div class="">
-      <router-link to="data">Data</router-link>
-      <router-link to="hello">Hello</router-link>
-    </div>
-    <div class="lang-selector">
-      <router-link :to="{name: $route.name, params: {lang: 'fr'}}">
-        fr
-      </router-link>
-      <router-link :to="{name: $route.name, params: {lang: 'en'}}">
-        en
-      </router-link>
-      <router-link :to="{name: $route.name, params: {lang: 'es'}}">
-        es
-      </router-link>
-      <router-link :to="{name: $route.name, params: {lang: 'nimp'}}">
-        nimp
-      </router-link>
-    </div>
-    <img src="~assets/img/logo.png">
-    <router-view></router-view>
-    <meta-container></meta-container>
+    <layout></layout>
   </div>
 </template>
 
 <script>
-import Hello from 'components/Hello'
-import MetaContainer from 'components/common/MetaContainer'
+import Layout from 'components/Layout'
 
 export default {
   name: 'app',
 
   components: {
-    Hello,
-    MetaContainer
+    Layout
   }
 }
 </script>
@@ -49,9 +27,5 @@ export default {
     text-align: center;
     position: relative;
     min-height: 618px;
-  }
-
-  .lang-selector a + a{
-    margin-left: 10px
   }
 </style>
