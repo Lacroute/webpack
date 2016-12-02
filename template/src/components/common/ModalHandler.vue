@@ -9,24 +9,24 @@
             <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
           </svg>
         </div>
-        <h2 slot="body">\{{ $t('loading') }}</h2>
+        <h2 slot="body">{{ $t('loading') }}</h2>
       </modal>
     </transition>
 
     <!-- Splash screen when it's too small -->
     <transition name="fade">
       <modal v-if="tooSmall">
-        <h1 slot="header">\{{ $t('warn_too_small') }}</h1>
-        <h1 slot="body">\{{ $t('warn_too_small_tips') }}</h1>
+        <h1 slot="header">{{ $t('warn_too_small') }}</h1>
+        <h1 slot="body">{{ $t('warn_too_small_tips') }}</h1>
       </modal>
     </transition>
 
     <!-- Splash screen when it's an outdated browser -->
     <transition name="fade">
       <modal v-if="tooOld && !aborted">
-        <h1 slot="header">\{{ $t('warn_obsolete') }}</h1>
-        <h1 slot="body">\{{ $t('warn_obsolete_tips') + ' ' + browser.name}}</h1>
-        <button slot="footer" @click="abort()">\{{ $t('warn_obsolete_continue') }}</button>
+        <h1 slot="header">{{ $t('warn_obsolete') }}</h1>
+        <h1 slot="body">{{ $t('warn_obsolete_tips') + ' ' + browserDisplayName }}</h1>
+        <button slot="footer" @click="abort()">{{ $t('warn_obsolete_continue') }}</button>
       </modal>
     </transition>
 
@@ -37,6 +37,7 @@
 import Modal from 'components/common/Modal'
 import { mapGetters } from 'vuex'
 import * as supported from 'utils/supported'
+import supportedMap from 'utils/supportedMap'
 
 export default {
   name: 'ModalHandler',
@@ -63,7 +64,7 @@ export default {
     },
 
     // http://stackoverflow.com/a/16938481/3759551
-    browser() {
+    browser () {
       var ua=navigator.userAgent,tem,M=ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
       if(/trident/i.test(M[1])){
         tem=/\brv[ :]+(\d+)/g.exec(ua) || [];
@@ -81,12 +82,16 @@ export default {
       }
     },
 
+    browserDisplayName () {
+      return supportedMap[this.browser.name]
+    },
+
     tooOld () {
       return this.minSupported > this.browser.version || this.minSupported === -Infinity
     },
 
     minSupported () {
-      return Math.max.apply(Math, supported.BROWSERLIST[this.browser.name])
+      return Math.min.apply(Math, supported.BROWSERLIST[this.browser.name])
     }
   },
 

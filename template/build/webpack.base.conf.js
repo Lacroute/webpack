@@ -78,14 +78,14 @@ module.exports = {
     loaders: utils.cssLoaders({ sourceMap: useCssSourceMap }),
     postcss: [
       require('autoprefixer')({
-        browsers: ['last 2 versions']
+        browsers: ['> 1%', 'last 3 version', 'chrome 48']
       })
     ]
   }
 }
 
 // Print browserlist into src/utils/supported.hjs
-let list = require('browserslist')('last 2 versions')
+let list = require('browserslist')(['> 1%', 'last 3 version', 'chrome 48'])
 
 obj = {}
 list.map( val => {
