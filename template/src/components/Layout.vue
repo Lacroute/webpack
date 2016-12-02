@@ -52,7 +52,7 @@ export default {
 
 <style lang="scss" scoped>
 .layout{
-  padding-top: 60px;
+  padding: 60px 0 20px;
 }
 
 section.body{
