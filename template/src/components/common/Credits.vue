@@ -9,26 +9,26 @@
       <div class="container">
 
         <article>
-          <h2>{{ $t('last_update') }}</h2>
-          <p>{{ lastUpdate }}</p>
+          <h2>\{{ $t('last_update') }}</h2>
+          <p>\{{ lastUpdate }}</p>
         </article>
 
         <article v-if="about">
-          <h2>{{ $t('about') }}</h2>
-          <p>{{ about }}</p>
+          <h2>\{{ $t('about') }}</h2>
+          <p>\{{ about }}</p>
         </article>
 
         <article v-if="sources">
-          <h2>{{ $t('sources') }}</h2>
-          <p>{{ sources }}</p>
+          <h2>\{{ $t('sources') }}</h2>
+          <p>\{{ sources }}</p>
         </article>
 
         <article>
           <ul  class="who">
             <li v-for="entry in who">
-              <h2>{{ $t(entry[0]) }}</h2>
+              <h2>\{{ $t(entry[0]) }}</h2>
               <a :href="twitterUrl(entry[1].username)" target="_blank">
-                {{ entry[1].name }}
+                \{{ entry[1].name }}
               </a>
             </li>
           </ul>

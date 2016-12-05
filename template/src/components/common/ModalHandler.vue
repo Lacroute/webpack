@@ -9,24 +9,24 @@
             <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
           </svg>
         </div>
-        <h2 slot="body">{{ $t('loading') }}</h2>
+        <h2 slot="body">\{{ $t('loading') }}</h2>
       </modal>
     </transition>
 
     <!-- Splash screen when it's too small -->
     <transition name="fade">
       <modal v-if="tooSmall">
-        <h1 slot="header">{{ $t('warn_too_small') }}</h1>
-        <h1 slot="body">{{ $t('warn_too_small_tips') }}</h1>
+        <h1 slot="header">\{{ $t('warn_too_small') }}</h1>
+        <h1 slot="body">\{{ $t('warn_too_small_tips') }}</h1>
       </modal>
     </transition>
 
     <!-- Splash screen when it's an outdated browser -->
     <transition name="fade">
       <modal v-if="tooOld && !aborted">
-        <h1 slot="header">{{ $t('warn_obsolete') }}</h1>
-        <h1 slot="body">{{ $t('warn_obsolete_tips') + ' ' + browserDisplayName }}</h1>
-        <button slot="footer" @click="abort()">{{ $t('warn_obsolete_continue') }}</button>
+        <h1 slot="header">\{{ $t('warn_obsolete') }}</h1>
+        <h1 slot="body">\{{ $t('warn_obsolete_tips') + ' ' + browserDisplayName }}</h1>
+        <button slot="footer" @click="abort()">\{{ $t('warn_obsolete_continue') }}</button>
       </modal>
     </transition>
 
