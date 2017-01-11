@@ -12,12 +12,7 @@ var useCssSourceMap = cssSourceMapDev || cssSourceMapProd
 
 module.exports = {
   entry: {
-    polyfills: [
-      'babel-polyfill',
-      'es5-shim/es5-shim',
-      'es5-shim/es5-sham'
-    ],
-    app: './src/main.js'
+    app: ['babel-polyfill', './src/main.js']
   },
   output: {
     path: config.build.assetsRoot,
