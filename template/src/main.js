@@ -47,8 +47,6 @@ Vue.config.lang = '' // Init to nothing to force update cicle.
 var googleAnalytics = require('./utils/googleAnalytics')('UA-64253904-2')
 
 /* eslint-disable no-new */
-new Pym.Child({ polling: 500 })
-
 new Vue({
   router,
   store,

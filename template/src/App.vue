@@ -30,6 +30,6 @@ export default {
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     position: relative;
-    background: $bg_theme;
+    background: $white;
   }
 </style>
