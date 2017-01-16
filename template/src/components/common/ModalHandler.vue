@@ -65,13 +65,22 @@ export default {
 
     // http://stackoverflow.com/a/16938481/3759551
     browser () {
-      var ua=navigator.userAgent,tem,M=ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
+      let ua = navigator.userAgent
+      let tem
+      let M = ua.match(/(edge)\/?\s*(\d+)/i)
+      if(M !== null){
+        return {
+          name: M[0].toLowerCase(),
+          version: M[1]
+        }
+      }
+      M = ua.match(/(opera|edge|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
       if(/trident/i.test(M[1])){
         tem=/\brv[ :]+(\d+)/g.exec(ua) || [];
-        return {name:'IE',version:(tem[1]||'')};
+        return {name:'msie',version:(tem[1]||'')};
       }
       if(M[1]==='Chrome'){
-        tem=ua.match(/\bOPR|Edge\/(\d+)/)
+        tem = ua.match(/\bOPR|Edge\/(\d+)/)
         if(tem!=null)   {return {name:'Opera', version:tem[1]};}
       }
       M=M[2]? [M[1], M[2]]: [navigator.appName, navigator.appVersion, '-?'];
