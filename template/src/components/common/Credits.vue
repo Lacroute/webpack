@@ -27,16 +27,19 @@
           <ul  class="who">
             <li v-for="entry in who">
               <h2>\{{ $t(entry[0]) }}</h2>
-              <a :href="twitterUrl(entry[1].username)" target="_blank">
-                \{{ entry[1].name }}
-              </a>
+              <span v-for="person, i in entry[1]">
+                <a :href="twitterUrl(person.username)" target="_blank">
+                  \{{ person.name }}
+                </a>
+                <span v-if="i < (entry[1].length - 1)">, </span>
+              </span>
             </li>
           </ul>
         </article>
 
         <article>
-          <a href="https://twitter.com/AFPgraphics" target="_blank">
-            <s class="UI-icon UI-twitter"></s> Suivre @AFPGraphics sur Twitter
+          <a href="https://twitter.com/AFPgraphics" target="_blank" class="follow">
+            <img src="~assets/img/twitter-icon.svg" alt="tw" /> @AFPGraphics
           </a>
         </article>
       </div>
@@ -88,9 +91,12 @@ export default {
       if (row.value !== 'nested') return row.value
       row = Object.entries(row).filter( (entry) => {
         entry[0] = entry[0].replace('.', '_')
-        let identity = entry[1].split(' @')
-        entry[1] = { name: identity[0] }
-        entry[1].username = identity[1] === undefined ? null : identity[1]
+        entry[1] = entry[1].split(', ').map( (person) => {
+          let identity = person.split(' @')
+          person = { name: identity[0] }
+          person.username = identity[1] === undefined ? null : identity[1]
+          return person
+        })
         return entry[0] !== 'title' && entry[0] !== 'value'
       })
 
@@ -199,6 +205,13 @@ section{
   a[href]{
     text-decoration: underline;
     color: #4099FF;
+  }
+
+  .follow img {
+    display: inline-block;
+    max-width: 1.3em;
+    vertical-align: middle;
+    margin-right: 5px;
   }
 }
 
