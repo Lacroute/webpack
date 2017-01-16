@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Pym from 'pym.js'
+import PymChild from './utils/pym'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 import VueI18n from 'vue-i18n'
@@ -19,7 +19,7 @@ const router = new VueRouter({
   ]
 })
 
-// Global guards for dynamic translation
+// Global guard for dynamic translation
 router.beforeEach((to, from, next) => {
   let dest
   if (to.params.lang && to.params.lang != Vue.config.lang){
@@ -44,6 +44,7 @@ router.beforeEach((to, from, next) => {
 /* eslint no-undef: "error" */
 Vue.config.fallbackLang = 'fr'
 Vue.config.lang = '' // Init to nothing to force update cicle.
+var googleAnalytics = require('./utils/googleAnalytics')('UA-64253904-2')
 
 /* eslint-disable no-new */
 new Pym.Child({ polling: 500 })

@@ -6,6 +6,7 @@ export default {
 "edge": "edge",
 "firefox": "firefox",
 "ie": "internet explorer",
+"msie": "internet explorer",
 "ie_mob": "internet explorer",
 "ios_saf": "safari ios",
 "op_mini": "opera mini",
