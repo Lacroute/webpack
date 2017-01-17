@@ -2,7 +2,8 @@
   <div class="layout">
     <header>
       <ul class="three">
-        <li><router-link to="data">Data</router-link></li>
+        <li><router-link to="firstdata">FirstData</router-link></li>
+        <li><router-link to="seconddata">SecondData</router-link></li>
         <li><router-link to="hello">Hello</router-link></li>
       </ul>
       <div class="lang-selector">

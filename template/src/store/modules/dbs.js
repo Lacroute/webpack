@@ -38,11 +38,25 @@ const actions = {
     Promise.all(localized.map( file => dbApi.fetchDB(file)))
     .then( response => {
       response.map( result => {
-        store.commit({
+        let payload = {
           type     : types.UPDATE_DB,
           property : result.property,
           data     : result.data
-        })
+        }
+
+        let uniques = store.getters[result.property].u
+        if(uniques) {
+          Object.keys(uniques).map( u_get => {
+            let found = result.data.find( db_row => {
+              return u_get === db_row.title
+            })
+            uniques[u_get] = found.value
+          })
+
+          payload.u = uniques
+        }
+
+        store.commit(payload)
       })
 
       store.commit(types.DB_LOADED)
@@ -61,7 +75,8 @@ const mutations = {
 
   // When a db is loaded, replace the data entry in the storage object.
   [types.UPDATE_DB] (state, dbObject) {
-    state.storage[dbObject.property].data = dbObject.data
+    if(state.storage[dbObject.property].data) state.storage[dbObject.property].data = dbObject.data
+    if (dbObject.u) state.storage[dbObject.property].u = dbObject.u
   },
 
   [types.DB_LOADED] (state) {
@@ -78,10 +93,20 @@ const mutations = {
 // A single file will be wrapped following this scheme
 // {
 //   name: first_data_file,
-//   data: Array[]
+//   data: Array[],
+//   u: {}
 // }
 Object.entries(storage).map( entry => {
-  Vue.set(getters, entry[0], () => ({name: entry[0], data: entry[1].data}))
+  Vue.set(getters, entry[0], () => {
+    let gttrs = {name: entry[0], data: entry[1].data}
+    if(entry[1].u) {
+      gttrs.u = {}
+      Object.entries(entry[1].u).map( row => {
+        gttrs.u[row[0]] = row[1]
+      })
+    }
+    return gttrs
+  })
 })
 
 // Export the module

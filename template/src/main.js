@@ -4,7 +4,8 @@ import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 import VueI18n from 'vue-i18n'
 import Hello from './components/Hello'
-import Data from './components/Data'
+import FirstData from './components/FirstData'
+import SecondData from './components/SecondData'
 import store from './store'
 
 Vue.use(VueRouter)
@@ -15,7 +16,8 @@ const router = new VueRouter({
   routes: [
     { path: '/', redirect: '/fr/hello' },
     { name: 'hello', path: '/:lang/hello', component: Hello },
-    { name: 'data', path: '/:lang/data', component: Data },
+    { name: 'firstdata', path: '/:lang/firstdata', component: FirstData },
+    { name: 'seconddata', path: '/:lang/seconddata', component: SecondData },
   ]
 })
 
